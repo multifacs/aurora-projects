@@ -3,27 +3,27 @@ import Sailfish.Silica 1.0
 
 Page {
     Column {
-        spacing: 100
-        y: 300
-        x: 50
+        anchors.centerIn: parent
+        spacing: 50
 
         Item {
+            anchors.horizontalCenter: parent.horizontalCenter
             width: 350
-            height: 200
+            height: 150
 
             Row {
-                spacing: 200
+                spacing: 150
 
                 Rectangle {
-                    width: 200
-                    height: 200
-                    color: "black"
+                    width: 150
+                    height: 150
+                    color: "#000"
                 }
 
                 Rectangle {
-                    width: 200
-                    height: 200
-                    color: "black"
+                    width: 150
+                    height: 150
+                    color: "#000"
                     transform: [
                         Scale {
                             xScale: 0.5
@@ -36,14 +36,14 @@ Page {
             }
         }
         Row {
-            spacing: 30
+            spacing: 10
             Button {
-                text: "Back"
+                text: "Назад"
                 onClicked: pageStack.pop()
             }
 
             Button {
-                text: "Next"
+                text: "Вперёд"
                 onClicked: pageStack.push(Qt.resolvedUrl("Page5.qml"))
             }
         }

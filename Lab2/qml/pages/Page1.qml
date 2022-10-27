@@ -3,50 +3,51 @@ import Sailfish.Silica 1.0
 
 Page {
     Column {
-        spacing: 100
-        y: 300
-        x: 150
+        anchors.centerIn: parent
+        spacing: 50
 
         Item {
-            width: 500
-            height: 300
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 375
+            height: 225
 
             Rectangle {
                 id: red
-                width: 200
-                height: 200
-                color: "red"
+                width: 150
+                height: 150
+                color: "#FF0000"
             }
 
             Rectangle {
                 id: greed
-                width: 200
-                height: 200
-                color: "lightgreen"
+                width: 150
+                height: 150
+                color: "#00FF00"
                 anchors.top: red.verticalCenter
                 anchors.left: red.right
             }
 
             Rectangle {
                 id: blue
-                width: 200
-                height: 200
-                color: "blue"
+                width: 150
+                height: 150
+                color: "#0000FF"
                 anchors.left: greed.horizontalCenter
                 anchors.bottom: greed.verticalCenter
             }
 
             Text {
                 text: "Квадрат"
-                color: "white"
+                color: "#FFF"
                 anchors.centerIn: blue
-                font.pointSize: 25
+                font.pointSize: 20
             }
         }
 
         Row {
+            anchors.horizontalCenter: parent.horizontalCenter
             Button {
-                text: "Next"
+                text: "Вперёд"
                 onClicked: pageStack.push(Qt.resolvedUrl("Page2.qml"))
             }
         }

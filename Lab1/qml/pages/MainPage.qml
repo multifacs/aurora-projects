@@ -39,9 +39,23 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-ApplicationWindow {
-    objectName: "applicationWindow"
-    initialPage: Qt.resolvedUrl("pages/Page1.qml")
-    cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+Page {
+    objectName: "mainPage"
+    allowedOrientations: Orientation.All
+
+    property int counter: 0
+
+    Text {
+        id: text
+        text: counter
+        anchors.bottom: btn.top
+        anchors.horizontalCenter: btn.horizontalCenter
+    }
+
+    Button {
+        id: btn
+        text: "Клик"
+        onClicked: counter += 1
+        anchors.centerIn: parent
+    }
 }

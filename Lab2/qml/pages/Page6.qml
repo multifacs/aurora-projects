@@ -2,6 +2,23 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
+    Column {
+        anchors.centerIn: parent
+        spacing: 50
+
+        Button {
+            text: "Открыть диалог"
+            onClicked: dialog.open()
+        }
+
+        Row {
+            spacing: 10
+            Button {
+                text: "Назад"
+                onClicked: pageStack.pop()
+            }
+        }
+    }
 
     Dialog {
         id: dialog
@@ -25,24 +42,5 @@ Page {
             }
         }
         onAccepted: console.log(parseInt(num1.text) + parseInt(num2.text))
-    }
-
-    Column {
-        spacing: 100
-        y: 300
-        x: 50
-
-        Button {
-            text: "Открыть диалог"
-            onClicked: dialog.open()
-        }
-
-        Row {
-            spacing: 30
-            Button {
-                text: "Back"
-                onClicked: pageStack.pop()
-            }
-        }
     }
 }
