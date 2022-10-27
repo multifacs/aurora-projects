@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 Page {
     TextField {
         anchors.centerIn: parent
-        label: "Number 123123123"
+        label: "Number допзадание"
         placeholderText: label
         horizontalAlignment: Text.AlignHCenter
         inputMethodHints: Qt.ImhDigitsOnly
