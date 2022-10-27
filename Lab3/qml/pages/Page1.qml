@@ -7,7 +7,7 @@ Page {
         spacing: 50
 
         TextField {
-            label: "Число"
+            label: "Число изменение"
             placeholderText: label
             horizontalAlignment: Text.AlignHCenter
             inputMethodHints: Qt.ImhDigitsOnly
