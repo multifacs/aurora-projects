@@ -25,6 +25,14 @@ Page {
 
     Button {
         width: 100
+        x: parent.width - 100
+        y: parent.height - 100
+        text: "+"
+        onClicked: pageStack.push(Qt.resolvedUrl("Page10.qml"))
+    }
+
+    Button {
+        width: 100
         y: parent.height - 100
         text: "-"
         onClicked: pageStack.pop()

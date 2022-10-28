@@ -49,6 +49,7 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
+    qml/pages/Page10.qml \
     qml/pages/Store.qml \
     qml/pages/qmldir \
     rpm/ru.auroraos.Lab3.spec \
