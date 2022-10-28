@@ -2,27 +2,35 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
+
     TimePicker {
         anchors.centerIn: parent
-        anchors.horizontalCenter: parent.horizontalCenter
+
         id: timePicker
-        hour: 15
-        minute: 26
-        hourMode: DateTime.TwelveHours
+        hour: 6
+        minute: 30
+
         onTimeTextChanged: console.log(this.time)
     }
-    Row {
+    Label {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        y: 500
+        text: timePicker.timeText
+    }
 
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page7.qml"))
-        }
+
+    Button {
+        width: 100
+        x: parent.width - 100
+        y: parent.height - 100
+        text: "+"
+        onClicked: pageStack.push(Qt.resolvedUrl("Page7.qml"))
+    }
+
+    Button {
+        width: 100
+        y: parent.height - 100
+        text: "-"
+        onClicked: pageStack.pop()
     }
 }

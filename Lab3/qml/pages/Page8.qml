@@ -4,7 +4,7 @@ import Sailfish.Silica 1.0
 Page {
     Column {
         anchors.centerIn: parent
-        anchors.horizontalCenter: parent.horizontalCenter
+
         Switch {
             anchors.horizontalCenter: parent.horizontalCenter
             id: mute
@@ -13,21 +13,22 @@ Page {
                                     : Theme.primaryColor)
         }
         Label {
-            text: "The sound is " + (mute.checked ? "off" : "on")
+            text: "Звук " + (mute.checked ? "включен" : "выключен")
         }
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
 
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page9.qml"))
-        }
+    Button {
+        width: 100
+        x: parent.width - 100
+        y: parent.height - 100
+        text: "+"
+        onClicked: pageStack.push(Qt.resolvedUrl("Page9.qml"))
+    }
+
+    Button {
+        width: 100
+        y: parent.height - 100
+        text: "-"
+        onClicked: pageStack.pop()
     }
 }
