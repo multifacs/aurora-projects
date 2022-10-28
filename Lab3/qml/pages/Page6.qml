@@ -13,7 +13,7 @@ Page {
 
         onTimeTextChanged: {
             console.log(this.time)
-            Store.time = time
+            Store.time = hour + " : " + minute
         }
     }
     Label {
