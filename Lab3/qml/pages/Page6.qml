@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "."
 
 Page {
 
@@ -10,7 +11,10 @@ Page {
         hour: 6
         minute: 30
 
-        onTimeTextChanged: console.log(this.time)
+        onTimeTextChanged: {
+            console.log(this.time)
+            Store.time = time
+        }
     }
     Label {
         anchors.horizontalCenter: parent.horizontalCenter
