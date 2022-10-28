@@ -12,13 +12,18 @@
 <context>
     <name>Page1</name>
     <message>
-        <location filename="../qml/pages/Page1.qml" line="48"/>
-        <source>Страница %1</source>
+        <location filename="../qml/pages/Page1.qml" line="45"/>
+        <source>Страница 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page1.qml" line="60"/>
+        <location filename="../qml/pages/Page1.qml" line="55"/>
         <source>Page%1.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Page1.qml" line="58"/>
+        <source>Глубина стека - %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -26,12 +31,17 @@
     <name>Page2</name>
     <message>
         <location filename="../qml/pages/Page2.qml" line="48"/>
-        <source>Страница %1</source>
+        <source>Страница 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page2.qml" line="60"/>
+        <location filename="../qml/pages/Page2.qml" line="62"/>
         <source>Page%1.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Page2.qml" line="65"/>
+        <source>Глубина стека - %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -39,12 +49,12 @@
     <name>Page3</name>
     <message>
         <location filename="../qml/pages/Page3.qml" line="48"/>
-        <source>Страница %1</source>
+        <source>Страница 3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page3.qml" line="60"/>
-        <source>Page%1.qml</source>
+        <location filename="../qml/pages/Page3.qml" line="61"/>
+        <source>Глубина стека - %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

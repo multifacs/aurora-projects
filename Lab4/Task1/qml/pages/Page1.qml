@@ -40,9 +40,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
     PageHeader {
         objectName: "pageHeader"
         title: qsTr("Страница 1")
@@ -50,15 +47,15 @@ Page {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.centerIn: parent
-        spacing: 20
+        y: 300
+        spacing: 200
 
         Button {
             text: "Вперед"
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page%1.qml").arg((pageStack.depth + 1) % 4)))
         }
         Label {
-            text: qsTr("Глубина стека: %1").arg(pageStack.depth)
+            text: qsTr("Глубина стека - %1").arg(pageStack.depth)
         }
     }
 }

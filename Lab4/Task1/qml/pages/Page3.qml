@@ -50,15 +50,15 @@ Page {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.centerIn: parent
-        spacing: 20
+        y: 300
+        spacing: 100
 
         Button {
             text: "Назад"
             onClicked: pageStack.pop()
         }
         Label {
-            text: qsTr("Глубина стека: %1").arg(pageStack.depth)
+            text: qsTr("Глубина стека - %1").arg(pageStack.depth)
         }
     }
 }

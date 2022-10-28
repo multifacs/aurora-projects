@@ -50,8 +50,8 @@ Page {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.centerIn: parent
-        spacing: 20
+        y: 300
+        spacing: 100
 
         Button {
             text: "Назад"
@@ -62,7 +62,7 @@ Page {
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page%1.qml").arg((pageStack.depth + 1) % 4)))
         }
         Label {
-            text: qsTr("Глубина стека: %1").arg(pageStack.depth)
+            text: qsTr("Глубина стека - %1").arg(pageStack.depth)
         }
     }
 }
