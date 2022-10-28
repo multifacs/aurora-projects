@@ -51,7 +51,7 @@ Page {
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 300
-        spacing: 100
+        spacing: 200
 
         Button {
             text: "Назад"

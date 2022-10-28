@@ -50,8 +50,8 @@ Page {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.centerIn: parent
-        spacing: 20
+        y: 300
+        spacing: 100
 
         Button {
             text: "Прикрепить"
