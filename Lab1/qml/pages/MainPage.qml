@@ -58,7 +58,7 @@ Page {
     }
 
     Button {
-        text: "Клик!"
+        text: "Клик 123123123!"
         anchors.horizontalCenter: counter.horizontalCenter
         anchors.top: counter.bottom
         onClicked: counter.count++
