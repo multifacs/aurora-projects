@@ -8,6 +8,7 @@ Page {
         placeholderText: "Number"
         inputMethodHints: Qt.ImhDigitsOnly
         horizontalAlignment: Text.AlignHCenter
+        validator: IntValidator{}
     }
     Button {
         anchors.left: parent.left
