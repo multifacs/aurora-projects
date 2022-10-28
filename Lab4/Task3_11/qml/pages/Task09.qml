@@ -51,50 +51,50 @@ Page {
     SilicaListView {
         PullDownMenu {
             MenuItem {
-                text: "Menu Item 1"
+                text: "Элемент 1"
                 onClicked: field.text = text
             }
             MenuItem {
-                text: "Menu Item 2"
+                text: "Элемент 2"
                 onClicked: field.text = text
             }
-            MenuLabel { text: qsTr("Menu Label") }
+            MenuLabel { text: qsTr("Выбор 1") }
         }
         anchors {
             left: parent.left; right: parent.right;
         }
         height: parent.height * 0.2
         y: parent.height * 0.2
-        header: PageHeader { title: "Simple List" }
+        header: PageHeader { title: "Выбор 1" }
     }
 
     TextField {
         id: field
-        text: "123"
+        text: "Текст"
         anchors.centerIn: parent
     }
 
     SilicaListView {
         PushUpMenu {
             MenuItem {
-                text: "Menu Item 3"
+                text: "Элемент 3"
                 onClicked: field.text = text
             }
             MenuItem {
-                text: "Menu Item 4"
+                text: "Элемент 4"
                 onClicked: field.text = text
             }
-            MenuLabel { text: qsTr("Menu Label") }
+            MenuLabel { text: qsTr("Выбор 2") }
         }
         anchors {
             left: parent.left; right: parent.right;
         }
         height: parent.height * 0.2
         y: parent.height * 0.6
-        header: PageHeader { title: "Simple List 2" }
+        header: PageHeader { title: "Выбор 2" }
     }
 
-    Row {
+    Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         spacing: 20

@@ -49,7 +49,9 @@ Page {
     }
 
     Column {
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 300
+        spacing: 200
 
         Button {
             text: "Ввести текст"
@@ -57,7 +59,7 @@ Page {
         }
         TextField {
             id: field
-            text: "123"
+            text: "Текст"
         }
     }
 
@@ -78,7 +80,7 @@ Page {
     }
 
 
-    Row {
+    Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         spacing: 20

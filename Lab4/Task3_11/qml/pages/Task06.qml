@@ -50,14 +50,15 @@ Page {
 
     ListModel {
         id: tasksModel
-        ListElement { desc: "Помыть посуду"; date: "07.01.21"; }
-        ListElement { desc: "Сделать лабы"; date: "07.01.21"; }
-        ListElement { desc: "Погулять"; date: "09.01.21"; }
-        ListElement { desc: "Поспать"; date: "12.01.21"; }
+        ListElement { desc: "Поесть"; date: "08.03.21"; }
+        ListElement { desc: "Сделать уроки"; date: "09.03.21"; }
+        ListElement { desc: "Посмотреть сериал"; date: "10.03.21"; }
+        ListElement { desc: "Почитать"; date: "11.03.21"; }
     }
 
     Item {
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 100
         width: 500
         height: 700
         SilicaListView {
@@ -73,7 +74,7 @@ Page {
 
     }
 
-    Row {
+    Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         spacing: 20

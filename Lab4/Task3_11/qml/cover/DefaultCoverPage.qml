@@ -47,7 +47,7 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("Счётчик: %1").arg(counter)
+        text: qsTr("Счётчик - %1").arg(counter)
     }
 
     CoverActionList {

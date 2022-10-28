@@ -59,25 +59,25 @@ Page {
             id: delegate
             Label {
                 x: Theme.paddingLarge
-                text: "List Item #" + index
+                text: "Предмет #" + index
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
             menu: ContextMenu {
                 MenuLabel { text: "Context Menu" }
                 MenuItem {
-                    text: "Menu Item 1"
-                    onClicked: console.log("Menu Item 1 is clicked", index)
+                    text: "Выбор 1"
+                    onClicked: console.log("Выбор 1 is clicked", index)
                 }
                 MenuItem {
-                    text: "Menu Item 2"
-                    onClicked: console.log("Menu Item 2 is clicked", index)
+                    text: "Выбор 2"
+                    onClicked: console.log("Выбор 2 is clicked", index)
                 }
             }
         }
     }
 
 
-    Row {
+    Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         spacing: 20

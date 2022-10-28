@@ -57,11 +57,11 @@ Page {
         SilicaWebView {
             id: webView
             anchors.fill: parent
-            url: "http://sailfishos.org"
+            url: "https://google.com"
         }
     }
 
-    Row {
+    Column {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         spacing: 20
