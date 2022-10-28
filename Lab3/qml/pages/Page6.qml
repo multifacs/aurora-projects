@@ -13,8 +13,28 @@ Page {
             hour: 15
             minute: 26
             hourMode: DateTime.TwelveHours
-            onTimeTextChanged: console.log(this.time)
+            onTimeTextChanged: console.log(slider.value = minute)
         }
+
+        Column {
+            Slider {
+                width: 500
+                label: "Ползунок"
+                minimumValue: 0
+                maximumValue: 60
+                value: timePicker.minute
+                stepSize: 1
+                valueText: value
+                onValueChanged: console.log(timePicker.minute = value)
+                id: slider
+            }
+
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Значение: " + slider.value
+            }
+        }
+
         Row {
             anchors.horizontalCenter: parent.horizontalCenter
             spacing: 10
