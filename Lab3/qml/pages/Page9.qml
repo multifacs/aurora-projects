@@ -2,32 +2,27 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    Column {
+    Slider {
+        id: slider
         anchors.centerIn: parent
-        Slider {
-            width: 500
-            label: "Ползунок"
-            maximumValue: 40
-            minimumValue: -10
-            value: 10
-            stepSize: 1
-            valueText: value
-            onValueChanged: console.log(value)
-            id: slider
-        }
-
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "Значение: " + slider.value
-        }
+        width: 600
+        label: "Ползунок"
+        minimumValue: 0
+        maximumValue: 100
+        value: 10
+        stepSize: 1
+        onValueChanged: console.log(value)
     }
-    Row {
+
+    Label {
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        anchors.top: slider.bottom
+        text: "Значение: " + slider.value
+    }
+
+    Button {
+        anchors.left: parent.left
+        text: "Back"
+        onClicked: pageStack.pop()
     }
 }

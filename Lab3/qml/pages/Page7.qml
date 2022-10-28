@@ -5,26 +5,23 @@ Page {
     ComboBox {
         anchors.centerIn: parent
         label: "Выпадающий список"
-        description: "Описание выпадающего списка"
+        description: "Описание"
         menu: ContextMenu {
-            MenuItem { text: "первый" }
-            MenuItem { text: "второй" }
-            MenuItem { text: "третий" }
+            MenuItem { text: "Элемент 1" }
+            MenuItem { text: "Элемент 2" }
+            MenuItem { text: "Элемент 3" }
         }
         onCurrentIndexChanged: console.log(value)
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
 
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page8.qml"))
-        }
+    Button {
+        anchors.left: parent.left
+        text: "Back"
+        onClicked: pageStack.pop()
+    }
+    Button {
+        anchors.right: parent.right
+        text: "Next"
+        onClicked: pageStack.push(Qt.resolvedUrl("Page8.qml"))
     }
 }
