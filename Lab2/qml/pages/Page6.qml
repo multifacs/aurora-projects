@@ -7,19 +7,16 @@ Page {
         spacing: 50
 
         Button {
-            text: "Открыть диалог"
+            text: "Диалог"
             onClicked: dialog.open()
         }
     }
 
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    Button {
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl("Pages.qml"))
     }
 
     Dialog {
@@ -32,17 +29,19 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 20
                 TextField {
-                    id: num1
+                    id: value1
                     width: 300
                     horizontalAlignment: TextInput.AlignHCenter
                 }
                 TextField {
-                    id: num2
+                    id: value2
                     width: 300
                     horizontalAlignment: TextInput.AlignHCenter
                 }
             }
         }
-        onAccepted: console.log(parseInt(num1.text) + parseInt(num2.text))
+        onAccepted: {
+            console.log(parseInt(value1.text) + parseInt(value2.text))
+        }
     }
 }

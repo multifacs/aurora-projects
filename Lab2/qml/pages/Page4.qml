@@ -2,52 +2,37 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    Column {
+    Row {
+        spacing: 140
         anchors.centerIn: parent
-        spacing: 50
+        width: black.width * 2
 
-        Item {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 350
-            height: 150
+        Rectangle {
+            id: black
+            width: 200
+            height: width
+            color: "#000"
+        }
 
-            Row {
-                spacing: 150
-
-                Rectangle {
-                    width: 150
-                    height: 150
-                    color: "#000"
+        Rectangle {
+            width: black.width
+            height: black.width
+            color: "#000"
+            transform: [
+                Scale {
+                    xScale: 0.5
+                },
+                Rotation {
+                    angle: 45
                 }
-
-                Rectangle {
-                    width: 150
-                    height: 150
-                    color: "#000"
-                    transform: [
-                        Scale {
-                            xScale: 0.5
-                        },
-                        Rotation {
-                            angle: 45
-                        }
-                    ]
-                }
-            }
+            ]
         }
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
 
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page5.qml"))
-        }
+    Button {
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl("Pages.qml"))
     }
 }

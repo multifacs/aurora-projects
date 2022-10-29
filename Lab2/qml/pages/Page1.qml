@@ -6,22 +6,22 @@ Page {
         anchors.centerIn: parent
         spacing: 50
 
-        Item {
+        Column {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 375
-            height: 225
+            width: red.width + green.width + blue.width / 2
+            height: red.height + green.height / 2
 
             Rectangle {
                 id: red
-                width: 150
-                height: 150
+                width: 200
+                height: 200
                 color: "#FF0000"
             }
 
             Rectangle {
-                id: greed
-                width: 150
-                height: 150
+                id: green
+                width: 200
+                height: 200
                 color: "#00FF00"
                 anchors.top: red.verticalCenter
                 anchors.left: red.right
@@ -29,11 +29,11 @@ Page {
 
             Rectangle {
                 id: blue
-                width: 150
-                height: 150
+                width: 200
+                height: 200
                 color: "#0000FF"
-                anchors.left: greed.horizontalCenter
-                anchors.bottom: greed.verticalCenter
+                anchors.left: green.horizontalCenter
+                anchors.bottom: green.verticalCenter
             }
 
             Text {
@@ -44,12 +44,10 @@ Page {
             }
         }
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    Button {
         anchors.bottom: parent.bottom
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page2.qml"))
-        }
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl("Pages.qml"))
     }
 }

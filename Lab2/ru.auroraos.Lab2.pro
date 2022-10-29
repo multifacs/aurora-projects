@@ -50,6 +50,7 @@ HEADERS += \
 
 DISTFILES += \
     qml/pages/DialogPage.qml \
+    qml/pages/Pages.qml \
     rpm/ru.auroraos.Lab2.spec \
     rpm/ru.auroraos.Lab2.yaml \
     AUTHORS.md \

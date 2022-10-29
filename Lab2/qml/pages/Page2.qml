@@ -8,10 +8,11 @@ Page {
 
         Item {
             anchors.horizontalCenter: parent.horizontalCenter
-            width: 350
-            height: 300
+            width: red.width * 3 + rectRow.spacing * 2
+            height: red.width * 2 + rectRow.spacing
 
             Row {
+                id: rectRow
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 5
 
@@ -19,14 +20,15 @@ Page {
                     spacing: 5
 
                     Rectangle {
-                        width: 150
-                        height: 150
+                        id: red
+                        width: 170
+                        height: width
                         color: "#FF0000"
                     }
 
                     Rectangle {
-                        width: 150
-                        height: 150
+                        width: red.width
+                        height: red.width
                         color: "#F0F"
                     }
                 }
@@ -35,8 +37,8 @@ Page {
                     spacing: 5
 
                     Rectangle {
-                        width: 150
-                        height: 150
+                        width: red.width
+                        height: red.width
                         color: "#00FF00"
                     }
                 }
@@ -45,33 +47,24 @@ Page {
                     spacing: 5
 
                     Rectangle {
-                        width: 150
-                        height: 150
+                        width: red.width
+                        height: red.width
                         color: "#0000FF"
                     }
 
                     Rectangle {
-                        width: 150
-                        height: 150
+                        width: red.width
+                        height: red.width
                         color: "#000"
                     }
                 }
             }
         }
     }
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    Button {
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page3.qml"))
-        }
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl("Pages.qml"))
     }
-
 }
