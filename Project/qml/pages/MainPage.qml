@@ -38,89 +38,350 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "."
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
-    Item {
-        width: parent.width
+    Column {
         anchors.centerIn: parent
-        height: parent.height * 0.7
+        spacing: 100
 
-        ComboBox {
-            id: comboBox
-            anchors.centerIn: parent
-            label: "Выберите месяц"
-            description: "Описание выпадающего списка"
-            menu: ContextMenu {
-                MenuItem { text: "Январь"; }
-                MenuItem { text: "Февраль"; }
-                MenuItem { text: "Март"; }
-                MenuItem { text: "Апрель"; }
-                MenuItem { text: "Май"; }
-                MenuItem { text: "Июнь"; }
-                MenuItem { text: "Июль"; }
-                MenuItem { text: "Август"; }
-                MenuItem { text: "Сентябрь"; }
-                MenuItem { text: "Октябрь"; }
-                MenuItem { text: "Ноябрь"; }
-                MenuItem { text: "Декабрь"; }
+        Label {
+            text: "Игра началась"
+            anchors.horizontalCenter: parent.horizontalCenter
+            id: label
+        }
+
+        Grid {
+            id: grid
+            columns: 4
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: cell1.width * 4 + spacing * 3
+            height: width
+            spacing: 5
+
+            Cell {
+                id: cell1
+                num: 0
             }
-            currentIndex: 9
-            onCurrentIndexChanged: {
-                console.log(value, currentIndex)
-                Store.date.setMonth(currentIndex)
+            Cell {
+                num: 1
+            }
+            Cell {
+                num: 2
+            }
+            Cell {
+                num: 3
+            }
+            Cell {
+                num: 4
+            }
+            Cell {
+                num: 5
+            }
+            Cell {
+                num: 6
+            }
+            Cell {
+                num: 7
+            }
+            Cell {
+                num: 8
+            }
+            Cell {
+                num: 9
+            }
+            Cell {
+                num: 10
+            }
+            Cell {
+                num: 11
+            }
+            Cell {
+                num: 12
+            }
+            Cell {
+                num: 13
+            }
+            Cell {
+                num: 14
+            }
+            Cell {
+                num: 15
+            }
+
+            function move(num, pc) {
+                // var id = cell.num
+                // console.log(num)
+                var cellToActivate = -1
+                for (var i = num; i < 16 && i <= num + 12; i += 4) {
+                    console.log(i)
+                    if (!grid.children[i].active) cellToActivate = i
+                }
+                if (cellToActivate !== -1) {
+                    grid.children[cellToActivate].active = true
+                    if (!pc) grid.children[cellToActivate].color = "red"
+                    if (pc) grid.children[cellToActivate].color = "orange"
+                }
+                grid.checkWinYou()
+            }
+
+            function reset() {
+                for (var i = 0; i < 16; i++) {
+                    grid.children[i].active = false
+                }
+                label.text = "Игра началась"
+            }
+
+            function pcMove() {
+                var cellRnd = parseInt(Math.random() * 15)
+                if (!grid.children[cellRnd].active) {
+                    move(cellRnd, true)
+                } else {
+                    timer.start()
+                }
+            }
+
+            function checkWinYou() {
+                var count = 0
+                var i = 0
+                var j = 0
+
+                for (j = 0; j < 4; j++) {
+                    for (i = j * 4; i < j * 4 + 4; i++) {
+                        if (grid.children[i].active && grid.children[i].color === "red") {
+                            count++
+                        } else {
+                            if (i !== j * 4 && i !== j * 4 - 1) break
+                        }
+                    }
+                    if (count === 3) {
+                        label.text = "Победа"
+                        timer.stop()
+                    }
+                    count = 0
+                }
+
+                for (j = 0; j < 4; j++) {
+                    for (i = j; i <= j + 4 * 3; i+=4) {
+                        if (grid.children[i].active && grid.children[i].color === "red") {
+                            count++
+                        } else {
+                            if (i !== j && i !== j + 4 * 3) break
+                        }
+                    }
+                    if (count === 3) {
+                        label.text = "Победа"
+                        timer.stop()
+                    }
+                    count = 0
+                }
+
+                for (i = 0; i <= 15; i+=5) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    } else {
+                        if (i !== 0 && i !== 15) break
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 3; i <= 12; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    } else {
+                        if (i !== 3 && i !== 12) break
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 2; i <= 8; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 7; i <= 13; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 4; i <= 14; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 1; i <= 11; i+=5) {
+                    if (grid.children[i].active && grid.children[i].color === "red") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Победа"
+                    timer.stop()
+                }
+                count = 0
+            }
+
+            function checkWinPc() {
+                console.log("pc")
+                var count = 0
+                var i = 0
+                var j = 0
+
+                for (j = 0; j < 4; j++) {
+                    for (i = j * 4; i < j * 4 + 4; i++) {
+                        if (grid.children[i].active && grid.children[i].color === "orange") {
+                            count++
+                        } else {
+                            if (i !== j * 4 && i !== j * 4 - 1) break
+                        }
+                    }
+                    if (count === 3) {
+                        label.text = "Поражение"
+                        timer.stop()
+                    }
+                    count = 0
+                }
+
+                for (j = 0; j < 4; j++) {
+                    for (i = j; i <= j + 4 * 3; i+=4) {
+                        if (grid.children[i].active && grid.children[i].color === "orange") {
+                            count++
+                        } else {
+                            if (i !== j && i !== j + 4 * 3) break
+                        }
+                    }
+                    if (count === 3) {
+                        label.text = "Поражение"
+                        timer.stop()
+                    }
+                    count = 0
+                }
+
+                for (j = 0; j < 4; j++) {
+                    for (i = j; i <= j + 4 * 3; i+=4) {
+                        if (grid.children[i].active && grid.children[i].color === "orange") {
+                            count++
+                        } else {
+                            if (i !== j && i !== j + 4 * 3) break
+                        }
+                    }
+                    if (count === 3) {
+                        label.text = "Поражение"
+                        timer.stop()
+                    }
+                    count = 0
+                }
+
+                for (i = 0; i <= 15; i+=5) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    } else {
+                        if (i !== 0 && i !== 15) break
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 3; i <= 12; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    } else {
+                        if (i !== 3 && i !== 12) break
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 2; i <= 8; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 7; i <= 13; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 4; i <= 14; i+=3) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
+
+                for (i = 1; i <= 11; i+=5) {
+                    if (grid.children[i].active && grid.children[i].color === "orange") {
+                        count++
+                    }
+                }
+                if (count === 3) {
+                    label.text = "Поражение"
+                    timer.stop()
+                }
+                count = 0
             }
         }
-    }
 
-    Button {
-        text: "Перейти"
-        onClicked: pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
+        Button {
+            text: "Reset"
+            onClicked: grid.reset()
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
 
-    Component.onCompleted: {
-        Store.date.setTime(0)
-        Store.date.setFullYear(new Date().getFullYear())
-        Store.date.setMonth(new Date().getMonth())
-        Store.date.setDate(new Date().getDate())
-
-        comboBox.currentIndex = Store.date.getMonth()
-
-        Store.db.transaction(
-            function(tx) {
-                // Create the database if it doesn't already exist
-                tx.executeSql('DROP TABLE IF EXISTS moods');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS moods(date TEXT, mood TEXT)');
-
-                var someDate = new Date()
-                someDate.setTime(0)
-                someDate.setFullYear(Store.date.getFullYear())
-                someDate.setMonth(Store.date.getMonth())
-                someDate.setDate(Store.date.getDate())
-                someDate = someDate.getTime().toString()
-
-                // Add (another) greeting row
-                tx.executeSql('INSERT INTO moods VALUES(?, ?)', [ someDate, "good" ]);
-
-                // Show all added greetings
-                var rs = tx.executeSql('SELECT * FROM moods');
-
-                var r = []
-                for (var i = 0; i < rs.rows.length; i++) {
-                    r.push(rs.rows.item(i))
-                }
-                console.log(JSON.stringify(r))
-                console.log(r[0].date)
-                someDate = new Date()
-                console.log(someDate)
-                someDate.setTime(r[0].date)
-                console.log(someDate)
-            }
-        )
+        Timer {
+            id: timer
+            interval: 500
+            onTriggered: if (label.text !== "Победа") {
+                             grid.pcMove()
+                             grid.checkWinPc()
+                         }
+        }
     }
 }
