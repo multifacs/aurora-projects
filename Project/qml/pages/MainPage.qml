@@ -295,6 +295,8 @@ Page {
             for (i = 0; i < 9; i+=1) {
                 if (grid.children[i].text !== "") count++
             }
+            if (count === 3) announcement.text = "Вы проиграли"
+
             if (count === 9 && announcement.text === "Вы играете за крестики") {
                 announcement.text = "Ничья"
             }
