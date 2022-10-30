@@ -6,56 +6,49 @@ Page {
     id: page
     allowedOrientations: Orientation.All
 
-    SilicaFlickable {
-        anchors.fill: parent
+    Counter {
+        id: counter
+        count: 10;
+    }
 
-        Counter {
-            id: counter
-            count: 10;
+    Column {
+        id: column
+        width: parent.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: 20
+        y: 300
+
+        Label {
+            id: label;
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: counter.getCount();
+            font.pixelSize: Theme.fontSizeExtraLarge
         }
 
-        Column {
-            id: column
-            width: parent.width
+        Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 20
-
-            PageHeader {
-                title: qsTr("Счетчик")
-            }
-
-            Label {
-                id: label;
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: counter.getCount();
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
-            }
-
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Увеличить"
-                onClicked: {
-                    counter.inc();
-                    label.text = counter.getCount();
-                }
-            }
-
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Обнулить"
-                onClicked: {
-                    counter.reset();
-                    label.text = counter.getCount();
-                }
+            text: "+"
+            onClicked: {
+                counter.inc();
+                label.text = counter.getCount();
             }
         }
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            y: parent.height - 200
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page2.qml")))
+            text: "0"
+            onClicked: {
+                counter.reset();
+                label.text = counter.getCount();
+            }
         }
     }
+
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: parent.height - 500
+        text: "Слова"
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2.qml")))
+    }
+
 }

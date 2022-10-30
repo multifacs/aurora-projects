@@ -31,7 +31,7 @@
 ** HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 ** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 ** (INCLUDING NEGLIGENCE OR OTHERWISE)
-** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+** ARISING IN ANY start OUT OF THE USE OF THIS SOFTWARE,
 ** EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 **
 *******************************************************************************/
@@ -51,46 +51,46 @@ Page {
     Label {
         id: tgt
         anchors.horizontalCenter: parent.horizontalCenter
-        y: 100
-        text: "Hello"
-        color: "blue"
-        font.pixelSize: 200
+        y: 200
+        text: "Текст"
+        color: "teal"
+        font.pixelSize: 150
         horizontalAlignment: Text.AlignHCenter
     }
 
     state: {
         if (mouseArea.pressedButtons){
-            "way"
+            "start"
         } else {
-            "back"
+            "finish"
         }
     }
 
     states: [
         State {
-            name: "way"
+            name: "start"
         },
         State {
-            name: "back"
+            name: "finish"
         }
     ]
 
     transitions: [
         Transition {
-            from: "back"
-            to: "way"
+            from: "finish"
+            to: "start"
             ParallelAnimation {
-                PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 1000;}
-                PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 1000;}
-                RotationAnimation { target: tgt; from: 0; to: 180; duration: 1000;}
+                PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 900;}
+                PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 900;}
+                RotationAnimation { target: tgt; from: 0; to: 180; duration: 900;}
             }
         },
         Transition {
-            from: "way"
-            to: "back"
-            PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 100; duration: 1000}
-            PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "blue"; duration: 1000;}
-            RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 1000;}
+            from: "start"
+            to: "finish"
+            PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 200; duration: 900}
+            PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "teal"; duration: 900;}
+            RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 900;}
 
         }
     ]
@@ -98,29 +98,12 @@ Page {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-
-        onPressed: {
-            console.log("123")
-            console.log(mouseArea.pressedButtons)
-        }
-        onReleased: {
-            console.log(mouseArea.pressedButtons)
-        }
     }
 
-
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task4.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

@@ -3,59 +3,54 @@ import Sailfish.Silica 1.0
 import com.stringlist 1.0
 
 Page {
-    id: page
-    allowedOrientations: Orientation.All
-    SilicaFlickable {
-        anchors.fill: parent
 
-        StringList {
-            id: stringList
+    StringList {
+        id: stringList
+    }
+
+    Column {
+        id: column
+        width: parent.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        spacing: 20
+        y: 300
+
+        TextField {
+            id: textField;
+            placeholderText: "Введите слово"
         }
 
-        Column {
-            id: column
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 20
-
-            PageHeader {
-                title: qsTr("Список")
-            }
-
-            TextField {
-                id: textField;
-                placeholderText: "Введите слово"
-            }
-            Button {
-                text: "Добавить слово"
-                onClicked: {
-                    stringList.add(textField.text)
-                    label.text = stringList.getAll();
-                }
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            Button {
-                text: "Удалить последнее"
-                onClicked: {
-                    stringList.popBack();
-                    label.text = stringList.getAll();
-                }
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-            TextField {
-                id: label;
-                width: parent.width;
-                x: Theme.horizontalPageMargin
-                text: stringList.getAll()
-                readOnly: true;
-            }
+        TextField {
+            id: label;
+            width: parent.width;
+            x: Theme.horizontalPageMargin
+            text: stringList.getAll()
+            readOnly: true;
         }
 
         Button {
+            text: "Добавить"
+            onClicked: {
+                stringList.add(textField.text)
+                label.text = stringList.getAll();
+            }
             anchors.horizontalCenter: parent.horizontalCenter
-            y: parent.height - 200
-            text: "Назад"
-            onClicked: pageStack.pop()
         }
+        Button {
+            text: "Стереть"
+            onClicked: {
+                stringList.popBack();
+                label.text = stringList.getAll();
+            }
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+    }
+
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: parent.height - 400
+        text: "Счетчик"
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page1.qml")))
     }
 }

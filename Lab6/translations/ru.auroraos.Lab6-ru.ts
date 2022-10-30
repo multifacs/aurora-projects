@@ -17,8 +17,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task1.qml" line="143"/>
-        <source>Task2.qml</source>
+        <location filename="../qml/pages/Task1.qml" line="133"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -30,8 +30,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task2.qml" line="169"/>
-        <source>Task3.qml</source>
+        <location filename="../qml/pages/Task2.qml" line="156"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -43,8 +43,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task3.qml" line="123"/>
-        <source>Task4.qml</source>
+        <location filename="../qml/pages/Task3.qml" line="107"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -56,8 +56,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task4.qml" line="143"/>
-        <source>Task5.qml</source>
+        <location filename="../qml/pages/Task4.qml" line="134"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -69,8 +69,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task5.qml" line="78"/>
-        <source>Task6.qml</source>
+        <location filename="../qml/pages/Task5.qml" line="72"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -82,59 +82,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="71"/>
-        <source>Task5.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Task7</name>
-    <message>
-        <location filename="../qml/pages/Task7.qml" line="49"/>
-        <source>Задание 7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task7.qml" line="77"/>
-        <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task7.qml" line="77"/>
-        <source>Inactive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task7.qml" line="78"/>
-        <source>Switch with text label</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task7.qml" line="97"/>
-        <source>Task8.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Task8</name>
-    <message>
-        <location filename="../qml/pages/Task8.qml" line="49"/>
-        <source>Задание 8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task8.qml" line="71"/>
-        <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task8.qml" line="71"/>
-        <source>Inactive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task8.qml" line="72"/>
-        <source>Switch with text label</source>
+        <location filename="../qml/pages/Task6.qml" line="99"/>
+        <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -50,6 +50,7 @@ Page {
 
     Column {
         anchors.centerIn: parent
+        spacing: 100
         Row {
             anchors.centerIn: parent.Center
             spacing: 5
@@ -92,14 +93,10 @@ Page {
     }
 
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

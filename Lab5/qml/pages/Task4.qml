@@ -77,18 +77,10 @@ Page {
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task5.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

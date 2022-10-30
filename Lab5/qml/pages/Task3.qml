@@ -38,7 +38,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "func.js" as Func
 
 Page {
     objectName: "mainPage"
@@ -50,49 +49,42 @@ Page {
     }
 
     Item {
-        id: container
+        id: item
         anchors {
             left: parent.left; right: parent.right;
             verticalCenter: parent.verticalCenter;
         }
         height: parent.height * 0.8
 
-        property var rectanglesModel: [
-            { idx: 1, name: "Белый", bgcolor: "#ffffff" },
-            { idx: 2, name: "Синий", bgcolor: "#0000ff" },
-            { idx: 3, name: "Черный", bgcolor: "#000000" },
-            { idx: 4, name: "Красный", bgcolor: "#ff0000" },
+        property var jsModel: [
+            { idx: 1, name: "Белый", bgcolor: "#ffffff", txtcolor: "black" },
+            { idx: 2, name: "Синий", bgcolor: "#0000ff", txtcolor: "white" },
+            { idx: 3, name: "Черный", bgcolor: "#000000", txtcolor: "white" },
+            { idx: 4, name: "Красный", bgcolor: "#ff0000", txtcolor: "black" },
+            { idx: 4, name: "Фиолетовый", bgcolor: "purple", txtcolor: "white" },
         ]
 
         SilicaListView {
             anchors.fill: parent
-            model: container.rectanglesModel
+            model: item.jsModel
             delegate: Rectangle {
                 color: modelData.bgcolor
                 width: parent.width
                 height: 200
                 Text {
                     text: modelData.name
+                    color: modelData.txtcolor
                     anchors.centerIn: parent
-                    color: Func.invertColor(modelData.bgcolor, 0)
                 }
             }
             spacing: 5
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task4.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

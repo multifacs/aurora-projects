@@ -6,34 +6,21 @@ Page {
         anchors.centerIn: parent
         spacing: 100
 
-        Column {
+        Button {
+            id: btn
             anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 20
-
-            Button {
-                id: btn
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Нажать!"
-            }
-            Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: btn.down ? "Нажато" : "Не нажато"
-            }
+            text: "Кнопка"
+        }
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: btn.down ? "Нажата" : "Не нажата"
         }
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page4.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }
 

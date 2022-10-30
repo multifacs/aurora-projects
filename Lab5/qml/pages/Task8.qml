@@ -57,10 +57,10 @@ Page {
         }
 
     Column {
-        y: 200
+        anchors.centerIn: parent
         TextField {
             width: 300
-            text: "Text"
+            text: "Текст"
             onTextChanged: {
                 settings.tf = text
                 console.log(settings.tf)
@@ -77,14 +77,10 @@ Page {
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

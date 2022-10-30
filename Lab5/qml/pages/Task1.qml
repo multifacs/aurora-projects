@@ -38,7 +38,6 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "func.js" as Func
 
 Page {
     objectName: "mainPage"
@@ -51,9 +50,9 @@ Page {
 
     ListModel {
         id: rectanglesModel
-        ListElement { idx: 1; name: "Белый"; bgcolor: "#ffffff"; }
-        ListElement { idx: 2; name: "Синий"; bgcolor: "#0000ff"; }
-        ListElement { idx: 3; name: "Черный"; bgcolor: "#000000"; }
+        ListElement { idx: 1; name: "Белый"; bgcolor: "#ffffff"; txtcolor: "black" }
+        ListElement { idx: 2; name: "Синий"; bgcolor: "#0000ff"; txtcolor: "white" }
+        ListElement { idx: 3; name: "Черный"; bgcolor: "#000000"; txtcolor: "white" }
     }
 
     Item {
@@ -61,7 +60,7 @@ Page {
             left: parent.left; right: parent.right;
             verticalCenter: parent.verticalCenter;
         }
-        height: parent.height * 0.8
+        height: parent.height * 0.7
 
         SilicaListView {
             anchors.fill: parent
@@ -73,21 +72,17 @@ Page {
                 Text {
                     text: name
                     anchors.centerIn: parent
-                    color: Func.invertColor(bgcolor, 0)
+                    color: txtcolor
                 }
             }
             spacing: 5
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task2.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

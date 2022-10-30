@@ -5,29 +5,26 @@ Page {
     Column {
         anchors.centerIn: parent
         Slider {
-            width: 500
+            id: slider
             label: "Ползунок"
-            maximumValue: 40
-            minimumValue: -10
-            value: 10
+            width: 700
+            minimumValue: 0
+            maximumValue: 100
+            value: 25
             stepSize: 1
             valueText: value
             onValueChanged: console.log(value)
-            id: slider
         }
 
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "Значение: " + slider.value
+            text: slider.value
         }
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

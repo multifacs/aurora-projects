@@ -4,18 +4,16 @@ import Sailfish.Silica 1.0
 Page {
     TextField {
         anchors.centerIn: parent
-        label: "Number"
-        placeholderText: label
+        placeholderText: "Введите число"
         horizontalAlignment: Text.AlignHCenter
         inputMethodHints: Qt.ImhDigitsOnly
-        description: "Ввод числа"
+        description: "Ввод только чисел"
     }
-    Row {
+
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page2.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

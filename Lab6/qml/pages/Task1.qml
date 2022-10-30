@@ -50,46 +50,39 @@ Page {
 
     Column {
         anchors.centerIn: parent
-        spacing: circleWidth / 10
+        spacing: redCircle.width / 10
 
-        property int circleWidth: 100
         property int delayCnt: 0
 
         Rectangle {
             id: redCircle
-            width: parent.circleWidth
+            width: 200
             height: width
             color: "red"
-            border.color: "grey"
-            border.width: 2
             radius: width*0.5
             opacity: 1
         }
 
         Rectangle {
             id: yellowCircle
-            width: parent.circleWidth
-            height: width
+            width: redCircle.width
+            height: redCircle.width
             color: "yellow"
-            border.color: "grey"
-            border.width: 2
             radius: width*0.5
             opacity: 0.3
         }
 
         Rectangle {
             id: greenCircle
-            width: parent.circleWidth
-            height: width
+            width: redCircle.width
+            height: redCircle.width
             color: "green"
-            border.color: "grey"
-            border.width: 2
             radius: width*0.5
             opacity: 0.3
         }
 
         Timer {
-            interval: 100; running: true; repeat: true
+            interval: 150; running: true; repeat: true
             onTriggered: parent.delayCnt = (parent.delayCnt + 1) % 40
         }
 
@@ -133,14 +126,10 @@ Page {
         ]
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task2.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

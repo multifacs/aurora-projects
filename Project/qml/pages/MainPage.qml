@@ -38,89 +38,266 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "."
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
-    Item {
-        width: parent.width
+    Column {
         anchors.centerIn: parent
-        height: parent.height * 0.7
+        spacing: 100
+        id: column
 
-        ComboBox {
-            id: comboBox
-            anchors.centerIn: parent
-            label: "Выберите месяц"
-            description: "Описание выпадающего списка"
-            menu: ContextMenu {
-                MenuItem { text: "Январь"; }
-                MenuItem { text: "Февраль"; }
-                MenuItem { text: "Март"; }
-                MenuItem { text: "Апрель"; }
-                MenuItem { text: "Май"; }
-                MenuItem { text: "Июнь"; }
-                MenuItem { text: "Июль"; }
-                MenuItem { text: "Август"; }
-                MenuItem { text: "Сентябрь"; }
-                MenuItem { text: "Октябрь"; }
-                MenuItem { text: "Ноябрь"; }
-                MenuItem { text: "Декабрь"; }
+        Label {
+            id: announcement
+            text: "Вы играете за крестки"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Grid {
+            id: grid
+            anchors.horizontalCenter: parent.horizontalCenter
+            columns: 3
+            spacing: 10
+            Button {
+                id: cell1
+                property int num: 1
+                width: 100
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
             }
-            currentIndex: 9
-            onCurrentIndexChanged: {
-                console.log(value, currentIndex)
-                Store.date.setMonth(currentIndex)
+            Button {
+                id: cell2
+                property int num: 2
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell3
+                property int num: 3
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell4
+                property int num: 4
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell5
+                property int num: 5
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell6
+                property int num: 6
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell7
+                property int num: 7
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell8
+                property int num: 8
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
+            }
+            Button {
+                id: cell9
+                property int num: 9
+                width: cell1.width
+                height: width
+                onClicked: parent.parent.move(this)
+                text: ""
             }
         }
-    }
 
-    Button {
-        text: "Перейти"
-        onClicked: pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
-
-    Component.onCompleted: {
-        Store.date.setTime(0)
-        Store.date.setFullYear(new Date().getFullYear())
-        Store.date.setMonth(new Date().getMonth())
-        Store.date.setDate(new Date().getDate())
-
-        comboBox.currentIndex = Store.date.getMonth()
-
-        Store.db.transaction(
-            function(tx) {
-                // Create the database if it doesn't already exist
-                tx.executeSql('DROP TABLE IF EXISTS moods');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS moods(date TEXT, mood TEXT)');
-
-                var someDate = new Date()
-                someDate.setTime(0)
-                someDate.setFullYear(Store.date.getFullYear())
-                someDate.setMonth(Store.date.getMonth())
-                someDate.setDate(Store.date.getDate())
-                someDate = someDate.getTime().toString()
-
-                // Add (another) greeting row
-                tx.executeSql('INSERT INTO moods VALUES(?, ?)', [ someDate, "good" ]);
-
-                // Show all added greetings
-                var rs = tx.executeSql('SELECT * FROM moods');
-
-                var r = []
-                for (var i = 0; i < rs.rows.length; i++) {
-                    r.push(rs.rows.item(i))
+        Button {
+            id: restartBtn
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Перезапуск"
+            onClicked: {
+                for (var i = 0; i < 9; i++) {
+                    grid.children[i].text = ""
                 }
-                console.log(JSON.stringify(r))
-                console.log(r[0].date)
-                someDate = new Date()
-                console.log(someDate)
-                someDate.setTime(r[0].date)
-                console.log(someDate)
+                announcement.text = "Вы играете за крестики"
             }
-        )
+        }
+
+        Timer {
+            id: timer
+            interval: 1000
+            running: false
+            repeat: false
+            onTriggered: {
+                var rand = parseInt(Math.random() * 9)
+                console.log(rand)
+                if (grid.children[rand].text !== "") {
+                    timer.restart()
+                } else {
+                    grid.children[rand].text = "-"
+                }
+                column.checkWinPc()
+            }
+        }
+
+        function move(button) {
+            console.log(button.num)
+            if (button.text === "") {
+                button.text = "x"
+                timer.start()
+            }
+            column.checkWinYou()
+        }
+
+        function checkWinYou() {
+            var count = 0
+            for (var i = 0; i < 3; i++) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 3; i < 6; i++) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 6; i < 9; i++) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 0; i < 7; i+=3) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 1; i < 8; i+=3) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 2; i < 9; i+=3) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 0; i < 9; i+=4) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+
+            count = 0
+            for (i = 2; i < 7; i+=2) {
+                if (grid.children[i].text === "x") count++
+            }
+            if (count === 3) {
+                announcement.text = "Вы победили"
+                timer.stop()
+            }
+        }
+
+        function checkWinPc() {
+            var count = 0
+            for (var i = 0; i < 3; i++) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 3; i < 6; i++) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 6; i < 9; i++) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 0; i < 7; i+=3) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 1; i < 8; i+=3) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 2; i < 9; i+=3) {
+                if (grid.children[i].text === "-") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 0; i < 9; i+=4) {
+                if (grid.children[i].text === "+") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 2; i < 7; i+=2) {
+                if (grid.children[i].text === "+") count++
+            }
+            if (count === 3) announcement.text = "Вы проиграли"
+
+            count = 0
+            for (i = 0; i < 9; i+=1) {
+                if (grid.children[i].text !== "") count++
+            }
+            if (count === 9 && announcement.text === "Вы играете за крестики") {
+                announcement.text = "Ничья"
+            }
+        }
     }
 }

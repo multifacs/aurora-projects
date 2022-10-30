@@ -50,26 +50,24 @@ Page {
 
     Column {
         anchors.centerIn: parent
-        spacing: circleWidth / 10
-
-        property int circleWidth: 100
+        spacing: redCircle.width / 10
         property int delayCnt: 0
 
-        TrafficLight {
+        MyLight {
             id: redCircle
             color: "red"
         }
-        TrafficLight {
+        MyLight {
             id: yellowCircle
             color: "yellow"
         }
-        TrafficLight {
+        MyLight {
             id: greenCircle
             color: "green"
         }
 
         Timer {
-            interval: 100; running: true; repeat: true
+            interval: 150; running: true; repeat: true
             onTriggered: parent.delayCnt = (parent.delayCnt + 1) % 40
         }
 
@@ -129,18 +127,10 @@ Page {
         ]
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task5.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

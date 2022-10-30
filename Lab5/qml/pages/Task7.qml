@@ -63,10 +63,10 @@ Page {
 
 
     Column {
-        y: 200
+        anchors.centerIn: parent
         TextField {
             width: 300
-            text: "Text"
+            text: "Текст"
             onTextChanged: {
                 setting_1.value = text
                 console.log(setting_1.value)
@@ -83,18 +83,10 @@ Page {
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task8.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

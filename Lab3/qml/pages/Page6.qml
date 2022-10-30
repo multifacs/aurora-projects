@@ -4,25 +4,20 @@ import Sailfish.Silica 1.0
 Page {
     TimePicker {
         anchors.centerIn: parent
-        anchors.horizontalCenter: parent.horizontalCenter
-        id: timePicker
-        hour: 15
-        minute: 26
+        hour: 6
+        minute: 30
         hourMode: DateTime.TwelveHours
         onTimeTextChanged: console.log(this.time)
+        Label {
+            anchors.centerIn: parent
+            text: parent.hour + ":" + parent.minute
+            font.pixelSize: 100
+        }
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page7.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

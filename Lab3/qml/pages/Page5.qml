@@ -5,22 +5,12 @@ Page {
     DatePicker {
         anchors.centerIn: parent
         date: new Date()
-        daysVisible: true
-        weeksVisible: true
         onDateTextChanged: console.log(this.date)
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page6.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

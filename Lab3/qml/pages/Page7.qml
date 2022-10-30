@@ -7,24 +7,16 @@ Page {
         label: "Выпадающий список"
         description: "Описание выпадающего списка"
         menu: ContextMenu {
-            MenuItem { text: "первый" }
-            MenuItem { text: "второй" }
-            MenuItem { text: "третий" }
+            MenuItem { text: "Элемент списка 1" }
+            MenuItem { text: "Элемент списка 2" }
+            MenuItem { text: "Элемент списка 3" }
         }
         onCurrentIndexChanged: console.log(value)
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page8.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

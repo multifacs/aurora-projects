@@ -3,10 +3,9 @@ import Sailfish.Silica 1.0
 
 Rectangle {
     height: 200;
-    width: 500;
-    radius: 20;
+    width: 300;
     color: setColor
-    property string setColor: "red"
+    property string setColor: "teal"
     property string btnText: "text"
     Button {
         height: parent.height;
@@ -14,6 +13,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.verticalCenter: parent.verticalCenter;
         text: btnText
+        color: "white"
     }
 
     Component.onCompleted: {

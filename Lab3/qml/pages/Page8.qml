@@ -4,7 +4,6 @@ import Sailfish.Silica 1.0
 Page {
     Column {
         anchors.centerIn: parent
-        anchors.horizontalCenter: parent.horizontalCenter
         Switch {
             anchors.horizontalCenter: parent.horizontalCenter
             id: mute
@@ -16,18 +15,10 @@ Page {
             text: "The sound is " + (mute.checked ? "off" : "on")
         }
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page9.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

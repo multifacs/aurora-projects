@@ -2,42 +2,16 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    Column {
+    Button {
+        property int counter: 0
         anchors.centerIn: parent
-        spacing: 100
-
-        Column {
-            anchors.horizontalCenter: parent.horizontalCenter
-            spacing: 20
-
-            Button {
-
-                property int counter: 0
-
-                id: btn
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Счетчик"
-                onClicked: counter++
-            }
-            Label {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: btn.counter
-                color: "deepskyblue"
-            }
-        }
+        text: counter
+        onClicked: counter++
     }
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 10
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-
-        Button {
-            text: "Вперёд"
-            onClicked: pageStack.push(Qt.resolvedUrl("Page5.qml"))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
     }
 }

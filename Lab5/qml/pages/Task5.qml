@@ -50,21 +50,19 @@ Page {
     }
 
     Item {
-        id: container
+        id: item
         anchors {
             left: parent.left; right: parent.right;
             verticalCenter: parent.verticalCenter;
         }
         height: parent.height * 0.8
 
-        function loadNews() {
+        function loadData() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://www.cbr.ru/scripts/XML_daily.asp', true);
-            // xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     xmlListModel.xml = xhr.responseText;
-                    // console.log(decodeURIComponent(escape(xhr.responseText)))
                 }
             }
             xhr.send();
@@ -87,23 +85,15 @@ Page {
             }
             delegate: Text { text: Value; }
             Component.onCompleted: {
-                container.loadNews()
+                item.loadData()
             }
         }
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task6.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }

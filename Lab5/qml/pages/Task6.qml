@@ -61,19 +61,16 @@ Page {
         }
 
         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
             text: "Добавить"
             onClicked: {
                 db.transaction(function(tx) {
                     tx.executeSql("INSERT INTO notes (note_text) VALUES(?);", [txtfield.text]);
-
-                    // Show all added greetings
                     var rs = tx.executeSql('SELECT * FROM notes');
-
                     var r = []
                     for (var i = 0; i < rs.rows.length; i++) {
                         r.push(rs.rows.item(i))
                     }
-                    console.log(r)
                     container.notesModel = r
                 });
 
@@ -108,20 +105,14 @@ Page {
         function findGreetings() {
             db.transaction(
                 function(tx) {
-                    // Create the database if it doesn't already exist
+                    tx.executeSql('DROP TABLE IF EXISTS notes');
                     tx.executeSql('CREATE TABLE IF NOT EXISTS notes(note_text TEXT)');
-
-                    // Add (another) greeting row
-                    tx.executeSql('INSERT INTO notes VALUES(?)', [ 'hello' ]);
-
-                    // Show all added greetings
+                    tx.executeSql('INSERT INTO notes VALUES(?)', [ 'заметка 1' ]);
                     var rs = tx.executeSql('SELECT * FROM notes');
-
                     var r = []
                     for (var i = 0; i < rs.rows.length; i++) {
                         r.push(rs.rows.item(i))
                     }
-                    console.log(r)
                     container.notesModel = r
                 }
             )
@@ -129,18 +120,10 @@ Page {
         Component.onCompleted: findGreetings()
     }
 
-    Row {
+    Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task7.qml")))
-        }
+        text: "Задания"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }
