@@ -56,7 +56,6 @@ DISTFILES += \
     CONTRIBUTING.md \
     LICENSE.BSD-3-CLAUSE.md \
     README.md \
-    qml/pages/func.js \
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

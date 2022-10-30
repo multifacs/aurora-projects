@@ -44,17 +44,14 @@ CONFIG += \
 PKGCONFIG += \
 
 SOURCES += \
-    src/Counter.cpp \
-    src/StringList.cpp \
-    src/main.cpp
+    src/main.cpp \
 
 HEADERS += \
-    src/Counter.h \
-    src/StringList.h
 
 DISTFILES += \
-    qml/pages/Page1.qml \
-    qml/pages/Page2.qml \
+    qml/pages/MyButton.qml \
+    qml/pages/MyCounter.qml \
+    qml/pages/TrafficLight.qml \
     rpm/ru.auroraos.Lab7.spec \
     rpm/ru.auroraos.Lab7.yaml \
     AUTHORS.md \

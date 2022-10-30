@@ -49,9 +49,7 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
-    qml/pages/MyButton.qml \
-    qml/pages/MyCounter.qml \
-    qml/pages/TrafficLight.qml \
+    qml/pages/Pages.qml \
     rpm/ru.auroraos.Lab6.spec \
     rpm/ru.auroraos.Lab6.yaml \
     AUTHORS.md \

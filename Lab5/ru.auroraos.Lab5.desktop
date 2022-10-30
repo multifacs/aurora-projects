@@ -3,8 +3,8 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=ru.auroraos.Lab5
 Exec=/usr/bin/ru.auroraos.Lab5
-Name=Template
-Name[ru]=Шаблон
+Name=Ryabtsev5
+Name[ru]=Ryabtsev5
 
 [X-Sailjail]
 Permissions=
