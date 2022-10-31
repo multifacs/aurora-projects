@@ -51,18 +51,24 @@ Page {
 
     ConfigurationValue {
         id: setting_1
-        key: "/sailfish/i18n/lc_timeformat12h"
-        defaultValue: false
+        key: "/sailfish/i18n/lc_timeformat24h"
+        // defaultValue: false
     }
 
 
-    TextSwitch {
+    Column {
         anchors.centerIn: parent
-        text: checked ? qsTr("12h") : qsTr("24h")
-        description: qsTr("Switch with text label")
-        onCheckedChanged:  {
-            setting_1.value = !setting_1.value
-            console.log(setting_1.value)
+        Button {
+            text: "12"
+            onClicked: setting_1.value = 12
+        }
+        Button {
+            text: "log"
+            onClicked: console.log(setting_1.value)
+        }
+        Button {
+            text: "24"
+            onClicked: setting_1.value = 24
         }
     }
 
