@@ -11,18 +11,49 @@ Page {
     }
 
     Label {
-        property int count: 0
+        property int count: 1
+        property int count2: 0
         id: counter
-        text: count
+        text: count + " " + count2
         anchors.centerIn: parent
         bottomPadding: 10
         font.pixelSize: 100
     }
 
-    Button {
-        text: "Клик!"
-        anchors.horizontalCenter: counter.horizontalCenter
-        anchors.top: counter.bottom
-        onClicked: counter.count++
+    Column {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 900
+        Button {
+            text: "+"
+            anchors.horizontalCenter: counter.horizontalCenter
+            anchors.top: counter.bottom
+            onClicked: {
+
+                counter.count2 = counter.count
+                counter.count++
+            }
+        }
+
+        Button {
+            text: "-"
+            anchors.horizontalCenter: counter.horizontalCenter
+            anchors.top: counter.bottom
+            onClicked: {
+                counter.count2 = counter.count
+                counter.count--
+            }
+        }
+
+        Button {
+            text: "Фибоначчи"
+            anchors.horizontalCenter: counter.horizontalCenter
+            anchors.top: counter.bottom
+
+            onClicked: {
+                var x = counter.count2
+                counter.count2 = counter.count
+                counter.count += x
+            }
+        }
     }
 }
