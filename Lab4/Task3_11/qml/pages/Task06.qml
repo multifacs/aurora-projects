@@ -70,7 +70,6 @@ Page {
             }
             delegate: Text { text: desc }
         }
-
     }
 
     Row {
