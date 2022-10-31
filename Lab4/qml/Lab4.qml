@@ -44,4 +44,6 @@ ApplicationWindow {
     initialPage: Qt.resolvedUrl("pages/Pages.qml")
     cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+
+    property string date1: "fucking bullshit"
 }

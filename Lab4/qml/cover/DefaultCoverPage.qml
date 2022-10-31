@@ -38,7 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../pages/."
+import "../."
 
 CoverBackground {
     objectName: "defaultCover"
@@ -49,7 +49,7 @@ CoverBackground {
         id: label
         anchors.horizontalCenter: parent.horizontalCenter
         y: 100
-        text: Data.date
+        text: date1
     }
 
     Label {
