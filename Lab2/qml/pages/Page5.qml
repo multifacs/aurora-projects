@@ -20,8 +20,24 @@ Page {
 
                 ParallelAnimation {
                     running: true
-                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animation.Infinite }
-                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
+                    id: a1
+                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; }
+                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; }
+                    onStopped: a2.start()
+                }
+
+                ParallelAnimation {
+                    running: false
+                    id: a2
+                    NumberAnimation { target: black; property: "y"; to: 0; duration: 1000; }
+                    NumberAnimation { target: black; property: "scale"; to: 1; duration: 1000; }
+                    onStopped: a1.restart()
+                }
+
+                Label {
+                    text: "Квадрат"
+                    anchors.centerIn: parent
+                    color: "red"
                 }
             }
         }
