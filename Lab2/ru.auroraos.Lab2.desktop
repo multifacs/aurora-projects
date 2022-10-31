@@ -3,8 +3,8 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=ru.auroraos.Lab2
 Exec=/usr/bin/ru.auroraos.Lab2
-Name=Template
-Name[ru]=Шаблон
+Name=Grisch2
+Name[ru]=Grisch2
 
 [X-Sailjail]
 Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos

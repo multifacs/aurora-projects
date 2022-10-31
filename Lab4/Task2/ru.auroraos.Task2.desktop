@@ -3,8 +3,8 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=ru.auroraos.Task2
 Exec=/usr/bin/ru.auroraos.Task2
-Name=Template
-Name[ru]=Шаблон
+Name=Grisch4_2
+Name[ru]=Grisch4_2
 
 [X-Sailjail]
 Permissions=
