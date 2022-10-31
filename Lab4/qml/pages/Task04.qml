@@ -38,6 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "."
 
 Page {
     objectName: "mainPage"
@@ -61,7 +62,10 @@ Page {
 
     DatePickerDialog {
         id: dialog
-        onAccepted: field.text = date.toDateString()
+        onAccepted: {
+            field.text = date.toDateString()
+            Data.date = date.toDateString()
+        }
     }
 
     Button {

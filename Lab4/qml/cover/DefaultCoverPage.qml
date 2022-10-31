@@ -38,6 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../pages/."
 
 CoverBackground {
     objectName: "defaultCover"
@@ -46,6 +47,13 @@ CoverBackground {
 
     Label {
         id: label
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 100
+        text: Data.date
+    }
+
+    Label {
+        id: label123
         anchors.centerIn: parent
         text: qsTr("Счётчик: %1").arg(counter)
     }
