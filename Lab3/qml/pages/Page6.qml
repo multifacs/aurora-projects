@@ -30,6 +30,24 @@ Page {
 
     Button {
         anchors.horizontalCenter: parent.horizontalCenter
+        y: 950
+        text: "Сделать 24 часа"
+        onClicked: {
+            console.log(time.hourMode)
+
+            if (time.hourMode === 2) {
+                time.hourMode = 1
+                text = "Сделать 12 часов"
+            } else if (time.hourMode === 1) {
+                time.hourMode = 2
+                text = "Сделать 24 часа"
+                time.hour = time.hour % 12
+            }
+        }
+    }
+
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         text: "Задания"
         onClicked: pageStack.push(Qt.resolvedUrl("Pages.qml"))
