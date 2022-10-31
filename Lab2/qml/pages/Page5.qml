@@ -11,9 +11,26 @@ Page {
         y: 300
 
         ParallelAnimation {
+            id: anim1
             running: true
-            NumberAnimation { target: black; property: "y"; to: 500; duration: 1000; loops: Animation.Infinite }
-            NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
+            NumberAnimation { target: black; property: "y"; to: 500; duration: 1000; }
+            NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; }
+            onStopped: anim2.start()
+        }
+
+        ParallelAnimation {
+            id: anim2
+            running: false
+            NumberAnimation { target: black; property: "y"; to: 300; duration: 1000; }
+            NumberAnimation { target: black; property: "scale"; to: 1; duration: 1000; }
+            onStopped: anim1.restart()
+        }
+
+        Label {
+            id: label
+            text: "Квадрат"
+            color: "white"
+            anchors.centerIn: parent
         }
     }
     Button {
