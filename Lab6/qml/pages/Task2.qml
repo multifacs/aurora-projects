@@ -84,7 +84,7 @@ Page {
 
         IconButton {
             id: person
-            icon.source: "image://theme/icon-m-media-artists"
+            icon.source: "image://theme/icon-m-incognito"
             onClicked: console.log("Play clicked!")
             opacity: 0
             x: parent.width * (-1) - 500
