@@ -51,35 +51,18 @@ Page {
 
     ConfigurationValue {
         id: setting_1
-        key: "/apps/app_name/setting_1"
-        defaultValue: "Menu Default"
-    }
-
-    ConfigurationValue {
-        id: setting_2
-        key: "/apps/app_name/setting_2"
+        key: "/sailfish/i18n/lc_timeformat12h"
         defaultValue: false
     }
 
 
-    Column {
+    TextSwitch {
         anchors.centerIn: parent
-        TextField {
-            width: 300
-            text: "Текст"
-            onTextChanged: {
-                setting_1.value = text
-                console.log(setting_1.value)
-            }
-        }
-
-        TextSwitch {
-            text: checked ? qsTr("Active") : qsTr("Inactive")
-            description: qsTr("Switch with text label")
-            onCheckedChanged:  {
-                setting_2.value = checked
-                console.log(setting_2.value)
-            }
+        text: checked ? qsTr("12h") : qsTr("24h")
+        description: qsTr("Switch with text label")
+        onCheckedChanged:  {
+            setting_1.value = !setting_1.value
+            console.log(setting_1.value)
         }
     }
 

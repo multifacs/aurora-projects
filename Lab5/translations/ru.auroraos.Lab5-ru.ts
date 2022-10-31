@@ -30,7 +30,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task2.qml" line="120"/>
+        <location filename="../qml/pages/Task2.qml" line="113"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,7 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task3.qml" line="87"/>
+        <location filename="../qml/pages/Task3.qml" line="88"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -69,7 +69,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task5.qml" line="99"/>
+        <location filename="../qml/pages/Task5.qml" line="97"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="136"/>
+        <location filename="../qml/pages/Task6.qml" line="127"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -95,22 +95,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="77"/>
-        <source>Active</source>
+        <location filename="../qml/pages/Task7.qml" line="61"/>
+        <source>12h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="77"/>
-        <source>Inactive</source>
+        <location filename="../qml/pages/Task7.qml" line="61"/>
+        <source>24h</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="78"/>
+        <location filename="../qml/pages/Task7.qml" line="62"/>
         <source>Switch with text label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="90"/>
+        <location filename="../qml/pages/Task7.qml" line="73"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
