@@ -1,4 +1,4 @@
-/*******************************************************************************
+    /*******************************************************************************
 **
 ** Copyright (C) 2022 Open Mobile Platform LLC.
 ** Contact: https://community.omprussia.ru/open-source
@@ -47,17 +47,6 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("Счётчик: %1").arg(counter)
-    }
-
-    CoverActionList {
-        CoverAction {
-            iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
-        }
-        CoverAction {
-            iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
-        }
+        text: qsTr("Стек: %1").arg(pageStack.depth)
     }
 }
