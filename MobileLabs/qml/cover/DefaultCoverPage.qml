@@ -42,13 +42,20 @@ import Sailfish.Silica 1.0
 CoverBackground {
     objectName: "defaultCover"
 
-    CoverPlaceholder {
-        objectName: "placeholder"
-        text: qsTr("Application Template")
-        icon {
-            source: Qt.resolvedUrl("../icons/ApplicationTemplate.svg")
-            sourceSize { width: icon.width; height: icon.height }
+    Label {
+        id: label
+        anchors.centerIn: parent
+        text: qsTr("Счётчик: %1").arg(counter)
+    }
+
+    CoverActionList {
+        CoverAction {
+            iconSource: "image://theme/icon-splus-add"
+            onTriggered: counter++
         }
-        forceFit: true
+        CoverAction {
+            iconSource: "image://theme/icon-splus-remove"
+            onTriggered: counter--
+        }
     }
 }
