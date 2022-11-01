@@ -38,18 +38,8 @@ Page {
 
                 ParallelAnimation {
                     running: true
-                    id: a1
-                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; }
-                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; }
-                    onStopped: a2.start()
-                }
-
-                ParallelAnimation {
-                    running: false
-                    id: a2
-                    NumberAnimation { target: black; property: "y"; to: 0; duration: 1000; }
-                    NumberAnimation { target: black; property: "scale"; to: 1; duration: 1000; }
-                    onStopped: a1.restart()
+                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animaton.Infinite }
+                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
                 }
 
                 Label {
