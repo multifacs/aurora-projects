@@ -4,9 +4,9 @@
 <context>
     <name>DefaultCoverPage</name>
     <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="49"/>
-        <source>Стек: %1</source>
-        <translation type="unfinished"></translation>
+        <location filename="../qml/cover/DefaultCoverPage.qml" line="47"/>
+        <source>Application Template</source>
+        <translation>Шаблон приложения</translation>
     </message>
 </context>
 <context>

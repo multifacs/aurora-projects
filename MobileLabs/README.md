@@ -1,30 +1,25 @@
-# My Aurora OS Application
+# Application Template
 
-Short description of my Aurora OS Application
+The project provides a template for Aurora OS applications.
+
+The main purpose is to clearly demonstrate
+almost minimal source code
+to get a correct and extensible application.
 
 The source code of the project is provided under
 [the license](LICENSE.BSD-3-CLAUSE.md),
 that allows it to be used in third-party applications.
 
+The [contributor agreement](CONTRIBUTING.md)
+documents the rights granted by contributors to the Open Mobile Platform.
+
+[Code of conduct](CODE_OF_CONDUCT.md) is a current set of rules
+of the Open Mobile Platform which informs you how we expect
+the members of the community will interact while contributing and communicating.
+
+For information about contributors see [AUTHORS](AUTHORS.md).
+
 ## Project Structure
 
 The project has a common structure
-of an application based on C++ and QML for Aurora OS.
-
-* **[ru.auroraos.MobileLabs.pro](ru.auroraos.MobileLabs.pro)** file
-  describes the project structure for the qmake build system.
-* **[icons](icons)** directory contains application icons for different screen resolutions.
-* **[qml](qml)** directory contains the QML source code and the UI resources.
-  * **[cover](qml/cover)** directory contains the application cover implementations.
-  * **[icons](qml/icons)** directory contains the custom UI icons.
-  * **[pages](qml/pages)** directory contains the application pages.
-  * **[MobileLabs.qml](qml/MobileLabs.qml)** file
-    provides the application window implementation.
-* **[rpm](rpm)** directory contains the rpm-package build settings.
-  **[ru.auroraos.MobileLabs.spec](rpm/ru.auroraos.MobileLabs.spec)** file is used by rpmbuild tool.
-  It is generated from **[ru.auroraos.MobileLabs.yaml](rpm/ru.auroraos.MobileLabs.yaml)** file.
-* **[src](src)** directory contains the C++ source code.
-  * **[main.cpp](src/main.cpp)** file is the application entry point.
-* **[translations](translations)** directory contains the UI translation files.
-* **[ru.auroraos.MobileLabs.desktop](ru.auroraos.MobileLabs.desktop)** file
-  defines the display and parameters for launching the application.
+of an application based on C++ and QML for Aurora OS.

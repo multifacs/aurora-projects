@@ -1,6 +1,6 @@
 # The 3-Clause BSD License
 
-_Copyright (C) 2022 ru.auroraos_
+_Copyright (C) 2022 Open Mobile Platform LLC_
 
 Redistribution and use in source and binary forms,
 with or without modification,

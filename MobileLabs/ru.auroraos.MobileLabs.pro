@@ -1,8 +1,9 @@
 ################################################################################
 ##
-## Copyright (C) 2022 ru.auroraos
-## 
-## This file is part of the My Aurora OS Application project.
+## Copyright (C) 2022 Open Mobile Platform LLC.
+## Contact: https://community.omprussia.ru/open-source
+##
+## This file is part of the Aurora OS Application Template project.
 ##
 ## Redistribution and use in source and binary forms,
 ## with or without modification, are permitted provided
@@ -38,30 +39,31 @@
 TARGET = ru.auroraos.MobileLabs
 
 CONFIG += \
-    auroraapp
+    sailfishapp
 
 PKGCONFIG += \
 
 SOURCES += \
+    src/Counter.cpp \
     src/StringList.cpp \
-    src/counter.cpp \
     src/main.cpp \
 
 HEADERS += \
-    src/StringList.h \
-    src/counter.h
+    src/Counter.h \
+    src/StringList.h
 
 DISTFILES += \
     rpm/ru.auroraos.MobileLabs.spec \
+    rpm/ru.auroraos.MobileLabs.yaml \
     AUTHORS.md \
     CODE_OF_CONDUCT.md \
     CONTRIBUTING.md \
     LICENSE.BSD-3-CLAUSE.md \
     README.md \
 
-AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
+SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
-CONFIG += auroraapp_i18n
+CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += \
     translations/ru.auroraos.MobileLabs.ts \

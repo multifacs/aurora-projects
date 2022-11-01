@@ -3,11 +3,11 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=ru.auroraos.MobileLabs
 Exec=/usr/bin/ru.auroraos.MobileLabs
-Name=SinyakinLabs
-Name[ru]=SinyakinLabs
+Name=Grisch1
+Name[ru]=Grisch1
 
-[X-Application]
-Permissions=
+[X-Sailjail]
+Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
 OrganizationName=ru.auroraos
 ApplicationName=MobileLabs
 ExecDBus=/usr/bin/ru.auroraos.MobileLabs

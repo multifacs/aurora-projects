@@ -38,7 +38,7 @@ Page {
 
                 ParallelAnimation {
                     running: true
-                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animaton.Infinite }
+                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animation.Infinite }
                     NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
                 }
             }
