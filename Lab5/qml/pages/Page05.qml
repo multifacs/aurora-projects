@@ -97,10 +97,9 @@ Page {
                 text: "Здесь будет время"
             }
         }
-
-        TimePickerDialog {
-            id: dialog
-            onAccepted: field.text = time.toTimeString()
-        }
+    }
+    TimePickerDialog {
+        id: dialog
+        onAccepted: field.text = time.toTimeString()
     }
 }

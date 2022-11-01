@@ -9,12 +9,4 @@
         <translation>Application Template</translation>
     </message>
 </context>
-<context>
-    <name>Page1</name>
-    <message>
-        <location filename="../qml/pages/Page1.qml" line="19"/>
-        <source>Menu Label</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
 </TS>
