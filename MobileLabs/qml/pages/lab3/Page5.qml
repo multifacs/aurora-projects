@@ -41,12 +41,6 @@ Page {
                     NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animaton.Infinite }
                     NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
                 }
-
-                Label {
-                    text: "Квадрат"
-                    anchors.centerIn: parent
-                    color: "red"
-                }
             }
         }
     }

@@ -78,7 +78,7 @@ Page {
     IconButton {
         icon.source: "image://theme/icon-m-enter-next"
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("Page02_1.qml"))
+            pageStack.push(Qt.resolvedUrl("Page03.qml"))
         }
         x: parent.width - 100
         y: parent.height - 100
