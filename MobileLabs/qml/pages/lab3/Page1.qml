@@ -11,6 +11,7 @@ Page {
                 objectName: "aboutButton"
                 icon.source: "image://theme/icon-m-capslock"
                 anchors.verticalCenter: parent.verticalCenter
+                x: 10
 
                 onClicked: {
                     pageStack.clear()
