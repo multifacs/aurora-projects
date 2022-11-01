@@ -1,126 +1,207 @@
-/*******************************************************************************
-**
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
-**
-** This file is part of the Aurora OS Application Template project.
-**
-** Redistribution and use in source and binary forms,
-** with or without modification, are permitted provided
-** that the following conditions are met:
-**
-** * Redistributions of source code must retain the above copyright notice,
-**   this list of conditions and the following disclaimer.
-** * Redistributions in binary form must reproduce the above copyright notice,
-**   this list of conditions and the following disclaimer
-**   in the documentation and/or other materials provided with the distribution.
-** * Neither the name of the copyright holder nor the names of its contributors
-**   may be used to endorse or promote products derived from this software
-**   without specific prior written permission.
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-** THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-** FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
-** OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-** PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-** LOSS OF USE, DATA, OR PROFITS;
-** OR BUSINESS INTERRUPTION)
-** HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE)
-** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-** EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-**
-*******************************************************************************/
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "."
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
 
-    Item {
-        width: parent.width
-        anchors.centerIn: parent
-        height: parent.height * 0.7
+    property bool figure1: false
+    property bool figure2: false
+    property bool figure3: false
+    property bool figure4: false
 
-        ComboBox {
-            id: comboBox
-            anchors.centerIn: parent
-            label: "Выберите месяц"
-            description: "Описание выпадающего списка"
-            menu: ContextMenu {
-                MenuItem { text: "Январь"; }
-                MenuItem { text: "Февраль"; }
-                MenuItem { text: "Март"; }
-                MenuItem { text: "Апрель"; }
-                MenuItem { text: "Май"; }
-                MenuItem { text: "Июнь"; }
-                MenuItem { text: "Июль"; }
-                MenuItem { text: "Август"; }
-                MenuItem { text: "Сентябрь"; }
-                MenuItem { text: "Октябрь"; }
-                MenuItem { text: "Ноябрь"; }
-                MenuItem { text: "Декабрь"; }
-            }
-            currentIndex: 9
-            onCurrentIndexChanged: {
-                console.log(value, currentIndex)
-                Store.date.setMonth(currentIndex)
+    DropArea {
+        id: drop1
+        x: 100; y: 100
+        width: 100; height: 200
+
+        Rectangle {
+            anchors.fill: parent
+            color: parent.containsDrag ? "green" : "grey"
+        }
+    }
+
+    Rectangle {
+        id: blueRect
+        x: 250; y: 700
+        width: 100; height: 200
+        color: "blue"
+        border.color: "lightgreen"
+        border.width: dragArea.drag.active ? 10 : 0
+
+        Drag.active: dragArea.drag.active
+        Drag.hotSpot.x: 25
+        Drag.hotSpot.y: 100
+
+        MouseArea {
+            id: dragArea
+            anchors.fill: parent
+            // drag.axis: "YAxis"
+            drag.target: parent
+            onReleased: {
+                if (drop1.containsDrag) {
+                    parent.parent.figure1 = true
+                } else {
+                    parent.parent.figure1 = false
+                }
             }
         }
     }
 
-    Button {
-        text: "Перейти"
-        onClicked: pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+    DropArea {
+        id: drop2
+        x: 500; y: 100
+        width: 150; height: 150
+
+        Rectangle {
+            anchors.fill: parent
+            color: parent.containsDrag ? "green" : "grey"
+        }
     }
 
-    Component.onCompleted: {
-        Store.date.setTime(0)
-        Store.date.setFullYear(new Date().getFullYear())
-        Store.date.setMonth(new Date().getMonth())
-        Store.date.setDate(new Date().getDate())
+    Rectangle {
+        id: orangeRect
+        x: 400; y: 500
+        width: 150; height: 150
+        color: "orange"
+        border.color: "lightgreen"
+        border.width: dragArea2.drag.active ? 10 : 0
 
-        comboBox.currentIndex = Store.date.getMonth()
+        Drag.active: dragArea2.drag.active
+        Drag.hotSpot.x: 25
+        Drag.hotSpot.y: 100
 
-        Store.db.transaction(
-            function(tx) {
-                // Create the database if it doesn't already exist
-                tx.executeSql('DROP TABLE IF EXISTS moods');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS moods(date TEXT, mood TEXT)');
-
-                var someDate = new Date()
-                someDate.setTime(0)
-                someDate.setFullYear(Store.date.getFullYear())
-                someDate.setMonth(Store.date.getMonth())
-                someDate.setDate(Store.date.getDate())
-                someDate = someDate.getTime().toString()
-
-                // Add (another) greeting row
-                tx.executeSql('INSERT INTO moods VALUES(?, ?)', [ someDate, "good" ]);
-
-                // Show all added greetings
-                var rs = tx.executeSql('SELECT * FROM moods');
-
-                var r = []
-                for (var i = 0; i < rs.rows.length; i++) {
-                    r.push(rs.rows.item(i))
+        MouseArea {
+            id: dragArea2
+            anchors.fill: parent
+            // drag.axis: "YAxis"
+            drag.target: parent
+            onReleased: {
+                if (drop2.containsDrag) {
+                    parent.parent.figure2 = true
+                } else {
+                    parent.parent.figure2 = false
                 }
-                console.log(JSON.stringify(r))
-                console.log(r[0].date)
-                someDate = new Date()
-                console.log(someDate)
-                someDate.setTime(r[0].date)
-                console.log(someDate)
             }
-        )
+        }
+    }
+
+    DropArea {
+        id: drop3
+        x: 100; y: 1000
+        width: 150; height: 150
+
+        Rectangle {
+            anchors.fill: parent
+            color: parent.containsDrag ? "green" : "grey"
+            radius: 75
+        }
+    }
+
+    Rectangle {
+        id: redCircle
+        x: 500; y: 700
+        width: 150; height: 150
+        color: "red"
+        radius: 75
+        border.color: "lightgreen"
+        border.width: dragArea3.drag.active ? 10 : 0
+
+        Drag.active: dragArea3.drag.active
+        Drag.hotSpot.x: 25
+        Drag.hotSpot.y: 100
+
+        MouseArea {
+            id: dragArea3
+            anchors.fill: parent
+            // drag.axis: "YAxis"
+            drag.target: parent
+            onReleased: {
+                if (drop3.containsDrag) {
+                    parent.parent.figure3 = true
+                } else {
+                    parent.parent.figure3 = false
+                }
+            }
+        }
+    }
+
+    DropArea {
+        id: drop4
+        x: 500; y: 1000
+        width: 200; height: 100
+
+        Rectangle {
+            anchors.fill: parent
+            color: parent.containsDrag ? "green" : "grey"
+            radius: 100
+        }
+    }
+
+    Rectangle {
+        id: purpleOval
+        x: 150; y: 400
+        width: 200; height: 100
+        color: "purple"
+        radius: 100
+        border.color: "lightgreen"
+        border.width: dragArea4.drag.active ? 10 : 0
+
+        Drag.active: dragArea4.drag.active
+        Drag.hotSpot.x: 25
+        Drag.hotSpot.y: 100
+
+        MouseArea {
+            id: dragArea4
+            anchors.fill: parent
+            // drag.axis: "YAxis"
+            drag.target: parent
+            onReleased: {
+                if (drop4.containsDrag) {
+                    parent.parent.figure4 = true
+                } else {
+                    parent.parent.figure4 = false
+                }
+            }
+        }
+    }
+
+    Label {
+        id: label
+        text: parent.figure1 && parent.figure2 && parent.figure3 && parent.figure4 ? "Готово!" : "Перетащите все фигуры на места"
+        anchors.centerIn: parent
+    }
+
+    Row {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 600
+        spacing: 10
+
+        Rectangle {
+            width: 20
+            height: width
+            radius: 10
+            color: parent.parent.figure1 ? "lightgreen" : "red"
+        }
+
+        Rectangle {
+            width: 20
+            height: width
+            radius: 10
+            color: parent.parent.figure2 ? "lightgreen" : "red"
+        }
+
+        Rectangle {
+            width: 20
+            height: width
+            radius: 10
+            color: parent.parent.figure3 ? "lightgreen" : "red"
+        }
+
+        Rectangle {
+            width: 20
+            height: width
+            radius: 10
+            color: parent.parent.figure4 ? "lightgreen" : "red"
+        }
     }
 }

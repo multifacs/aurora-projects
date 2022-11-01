@@ -49,10 +49,6 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
-    qml/pages/MonthPage.qml \
-    qml/pages/MoodPage.qml \
-    qml/pages/Store.qml \
-    qml/pages/qmldir \
     rpm/ru.auroraos.Project.spec \
     rpm/ru.auroraos.Project.yaml \
     AUTHORS.md \
