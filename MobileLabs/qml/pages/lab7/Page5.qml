@@ -25,15 +25,15 @@ Page {
     Column {
         anchors.centerIn: parent
 
-        Button {
+        Btn {
             id: myButton;
             anchors.centerIn: parent.Center
             Label {
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Тексты совпадают"
+                text: "Текст123"
             }
-            setColor: "red"
+            setColor: "lightyellow"
         }
 
     }
