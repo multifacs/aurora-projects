@@ -72,11 +72,39 @@ Page {
             width: 400
             text: "Здесь будет дата"
         }
+        TextField {
+            id: field2
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 400
+            text: "Здесь будет время"
+        }
+    }
+
+    Timer {
+        id: timer
+    }
+
+    function delay(delayTime, cb) {
+        timer.interval = delayTime;
+        timer.repeat = false;
+        timer.triggered.connect(cb);
+        timer.start();
     }
 
     DatePickerDialog {
         id: dialog
-        onAccepted: field.text = date.toDateString()
+        onAccepted: {
+            field.text = date.toDateString()
+            delay(500, function() {
+                  dialog2.open()
+                  })
+        }
+
+    }
+
+    TimePickerDialog {
+        id: dialog2
+        onAccepted: field2.text = time.toTimeString()
     }
 
     IconButton {
