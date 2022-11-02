@@ -145,10 +145,5 @@
         <source>Конвертер</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../qml/pages/Task9.qml" line="95"/>
-        <source>Task5.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>
