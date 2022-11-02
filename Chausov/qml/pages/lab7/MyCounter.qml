@@ -14,5 +14,6 @@ Rectangle {
     Label {
         text: num
         anchors.centerIn: parent
+        color: "black"
     }
 }
