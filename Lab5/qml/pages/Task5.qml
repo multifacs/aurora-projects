@@ -22,11 +22,11 @@ Page {
         function loadNews() {
             var xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://www.cbr.ru/scripts/XML_daily.asp', true);
-            // xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=ISO-8859-1')
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     xmlListModel.xml = xhr.responseText;
-                    // console.log(decodeURIComponent(escape(xhr.responseText)))
+                    console.log(xhr.responseText)
                 }
             }
             xhr.send();
