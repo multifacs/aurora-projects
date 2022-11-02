@@ -42,6 +42,8 @@ import Sailfish.Silica 1.0
 CoverBackground {
     objectName: "defaultCover"
 
+    property int counter: 0
+
     Label {
         id: label
         anchors.centerIn: parent
