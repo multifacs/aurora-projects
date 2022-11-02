@@ -20,13 +20,13 @@ Page {
             property int count: 0
 
             MyCounter {
-                num: parseInt(row.count / 60 / 60)
+                num: parseInt(row.count / 100 / 60)
             }
             MyCounter {
-                num: parseInt(row.count / 60)
+                num: parseInt(row.count / 100 % 60)
             }
             MyCounter {
-                num: row.count % 60
+                num: parseInt(row.count % 100)
             }
         }
 
@@ -36,20 +36,22 @@ Page {
             height: 100
             text: "Старт"
             onClicked: {
+                var time = parseInt(row.count / 100 / 60) + ":" + parseInt(row.count / 100 % 60) + ":" + parseInt(row.count % 100)
                 timer.running = !timer.running
-                console.log(text)
-                text = text === "Старт" ? "Пауза" : "Старт"
+                console.log(text === "Старт" ? "Старт " + time : "Стоп " + time)
+                text = text === "Старт" ? "Стоп" : "Старт"
             }
         }
     }
 
     Timer {
         id: timer
-        interval: 1000
+        interval: 3
         repeat: true
         running: false
         onTriggered: {
             row.count++
+            // console.log(row.count)
         }
     }
 
