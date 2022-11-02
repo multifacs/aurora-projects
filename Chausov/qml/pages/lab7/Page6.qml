@@ -87,7 +87,7 @@ Page {
             repeat: true
             running: false
             onTriggered: {
-                row.count++
+                row.count += 9
             }
         }
 }
