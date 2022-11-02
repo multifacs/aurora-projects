@@ -30,6 +30,31 @@ Page {
         color: "blue"
         font.pixelSize: 200
         horizontalAlignment: Text.AlignHCenter
+
+        ParallelAnimation {
+            id: anim1
+            running: false
+            PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 1000;}
+            PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 1000;}
+            RotationAnimation { target: tgt; from: 0; to: 180; duration: 1000;}
+            onStopped: anim2.start()
+        }
+
+        ParallelAnimation {
+            id: anim2
+            running: false
+            PropertyAnimation { target: tgt; properties: "y"; from: 800; to: 100; duration: 1000;}
+            PropertyAnimation { target: tgt; properties: "color"; from: "white"; to: "blue"; duration: 1000;}
+            RotationAnimation { target: tgt; from: 180; to: 0; duration: 1000;}
+        }
+
+        ParallelAnimation {
+            id: anim3
+            running: false
+            PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 100; duration: 1000;}
+            PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "blue"; duration: 1000;}
+            RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 1000;}
+        }
     }
 
     state: {
@@ -49,36 +74,17 @@ Page {
         }
     ]
 
-    transitions: [
-        Transition {
-            from: "back"
-            to: "way"
-            ParallelAnimation {
-                PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 1000;}
-                PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 1000;}
-                RotationAnimation { target: tgt; from: 0; to: 180; duration: 1000;}
-            }
-        },
-        Transition {
-            from: "way"
-            to: "back"
-            PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 100; duration: 1000}
-            PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "blue"; duration: 1000;}
-            RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 1000;}
-
-        }
-    ]
-
     MouseArea {
         id: mouseArea
         anchors.fill: parent
 
         onPressed: {
-            console.log("123")
-            console.log(mouseArea.pressedButtons)
+            anim1.restart()
         }
         onReleased: {
-            console.log(mouseArea.pressedButtons)
+            anim1.stop()
+            anim2.stop()
+            anim3.start()
         }
     }
 
