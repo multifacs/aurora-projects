@@ -64,7 +64,7 @@ Page {
 
         IconButton {
             id: person
-            icon.source: "image://theme/icon-m-media-artists"
+            icon.source: "image://theme/icon-m-person"
             onClicked: console.log("Play clicked!")
             opacity: 0
             x: parent.width * (-1) - 500
@@ -75,7 +75,7 @@ Page {
                 property: "x";
                 from: parent.width * (-1) - 50;
                 to: parent.width + 50;
-                duration: 1000;
+                duration: 1200;
             }
         }
 
