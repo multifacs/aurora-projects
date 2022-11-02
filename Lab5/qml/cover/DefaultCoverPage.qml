@@ -77,11 +77,21 @@ CoverBackground {
 
     CoverActionList {
         CoverAction {
-            iconSource: "image://theme/icon-splus-add"
+            iconSource: "image://theme/icon-splus-error"
             onTriggered: {
                 counter++
                 rand1 = parseInt(Math.random() * 10)
                 rand2 = parseInt(Math.random() * 10)
+            }
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-splus-add"
+            onTriggered: label4.text = rand1 + rand2
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-splus-remove"
+            onTriggered: {
+                label4.text = rand1 - rand2
             }
         }
         CoverAction {
