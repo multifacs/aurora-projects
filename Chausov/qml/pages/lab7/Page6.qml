@@ -28,13 +28,13 @@ Page {
                 property int count: 0
 
                 MyCounter {
-                    num: parseInt(row.count / 100 / 60)
+                    num: parseInt(row.count / 1000 / 60)
                 }
                 MyCounter {
-                    num: parseInt(row.count / 100 % 60)
+                    num: parseInt(row.count / 1000 % 60)
                 }
                 MyCounter {
-                    num: parseInt(row.count % 100)
+                    num: parseInt(row.count % 1000)
                 }
             }
 
@@ -44,11 +44,19 @@ Page {
                 height: 100
                 text: "Старт"
                 onClicked: {
-                    var time = parseInt(row.count / 100 / 60) + "-" + parseInt(row.count / 100 % 60) + "-" + parseInt(row.count % 100)
                     timer.running = !timer.running
-                    console.log(text === "Старт" ? "Старт " + time : "Пауза " + time)
-                    timeModel.append({ time: text === "Старт" ? "Старт " + time : "Пауза " + time })
                     text = text === "Старт" ? "Стоп" : "Старт"
+                }
+            }
+
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 200
+                height: 100
+                text: "Время"
+                onClicked: {
+                    var time = parseInt(row.count / 1000 / 60) + "-" + parseInt(row.count / 1000 % 60) + "-" + parseInt(row.count % 1000)
+                    timeModel.append({ time: time })
                 }
             }
 
@@ -75,7 +83,7 @@ Page {
 
         Timer {
             id: timer
-            interval: 3
+            interval: 1
             repeat: true
             running: false
             onTriggered: {
