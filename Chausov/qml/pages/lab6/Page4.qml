@@ -40,11 +40,32 @@ Page {
             anchors.fill: parent
             model: xmlListModel
             header: PageHeader { title: "Курсы" }
-            section {
-                property: 'Name'
-                delegate: SectionHeader { text: section }
+
+            delegate: Column {
+                spacing: 10
+                Label {
+                    text: Name
+                    color: "teal"
+                    visible: (Value.replace(/,/g, '.') - 0) < (textField.text - 0)
+                }
+                Label {
+                    text: Value
+                    visible: (Value.replace(/,/g, '.') - 0) < (textField.text - 0)
+                }
+                visible: (Value.replace(/,/g, '.') - 0) < (textField.text - 0)
             }
-            delegate: Text { text: Value; }
+        }
+    }
+
+    TextField {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        width: 200
+        id: textField
+        validator: DoubleValidator{}
+        text: "100"
+        onTextChanged: {
+            console.log(text - 0)
         }
     }
 

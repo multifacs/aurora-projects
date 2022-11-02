@@ -48,7 +48,7 @@ Page {
                     desc: "Работа со страницами и экраном"
                 }
                 ListElement {
-                    link: "lab6/Page1.qml"
+                    link: "lab6/Page4.qml"
                     name: "Лабораторная работа №6"
                     desc: "JavaScript use"
                 }
