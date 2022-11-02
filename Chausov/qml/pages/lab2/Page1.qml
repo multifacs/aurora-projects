@@ -8,38 +8,51 @@ Page {
     PageHeader {
         objectName: "pageHeader"
         title: "Кликер"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
-
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
     }
 
     Label {
         property int count: 1
+        property int count2: 0
         id: counter
-        text: count
+        text: count + " ; " + count2
         anchors.centerIn: parent
         bottomPadding: 10
-        font.pixelSize: 80
+        font.pixelSize: 100
     }
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 900
         Button {
-            text: "+"
+            text: "Прибавить"
             anchors.horizontalCenter: counter.horizontalCenter
             anchors.top: counter.bottom
             onClicked: {
+
+                counter.count2 = counter.count
                 counter.count++
+            }
+        }
+
+        Button {
+            text: "Обнулить"
+            anchors.horizontalCenter: counter.horizontalCenter
+            anchors.top: counter.bottom
+            onClicked: {
+                counter.count2 = 0
+                counter.count = 0
+            }
+        }
+
+        Button {
+            text: "Фибоначчи"
+            anchors.horizontalCenter: counter.horizontalCenter
+            anchors.top: counter.bottom
+
+            onClicked: {
+                var x = counter.count2
+                counter.count2 = counter.count
+                counter.count += x
             }
         }
     }

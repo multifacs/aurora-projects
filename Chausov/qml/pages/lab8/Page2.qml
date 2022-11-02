@@ -4,20 +4,20 @@ import com.stringlist 1.0
 
 Page {
     PageHeader {
-        objectName: "Список"
-        title: "ContextMenu"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
+        objectName: "pageHeader"
+        title: "Лаб. 8, задание 2"
+    }
 
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     StringList {
@@ -27,12 +27,8 @@ Page {
     Column {
         id: column
         width: parent.width
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
         spacing: 20
-
-        PageHeader {
-            title: qsTr("Список")
-        }
 
         TextField {
             id: textField;

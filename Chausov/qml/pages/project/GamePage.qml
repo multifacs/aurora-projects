@@ -6,39 +6,39 @@ Page {
     property int lastPos: 0
 
     PageHeader {
-        objectName: "Игра Ним"
-        title: "ContextMenu"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
-
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
+        objectName: "pageHeader"
+        title: "Игра Ним"
     }
 
-    Label {
-        id: annLabel
-        text: "Ходит игрок"
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: grid.top
-    }
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
 
-    Grid {
-        columns: 5
-        id: grid
-        spacing: 50
-        anchors.centerIn: parent
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     Column {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: grid.bottom
+        anchors.centerIn: parent
+
+        spacing: 100
+
+        Label {
+            id: annLabel
+            text: "Ходит игрок"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Grid {
+            columns: 5
+            id: grid
+            spacing: 50
+        }
+
 
         Label {
             text: "Выберите число предметов"
@@ -134,14 +134,15 @@ Page {
                 import QtQuick 2.0
 
                 Rectangle {
-                    color: "red"
                     width: 50
                     height: 50
+                    radius: 25
                     y: 500
                 }
                 ',
                                                  grid
                                                  )
+            newObject.color = "#" + Math.floor(Math.random()*16777215).toString(16);
         }
     }
 }

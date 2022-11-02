@@ -4,20 +4,20 @@
 <context>
     <name>DefaultCoverPage</name>
     <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="47"/>
-        <source>Application Template</source>
-        <translation>Шаблон приложения</translation>
+        <location filename="../qml/cover/DefaultCoverPage.qml" line="50"/>
+        <source>Счётчик: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Page01_1</name>
     <message>
-        <location filename="../qml/pages/lab5/Page01_1.qml" line="63"/>
+        <location filename="../qml/pages/lab5/Page01_1.qml" line="62"/>
         <source>Глубина стека: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/lab5/Page01_1.qml" line="70"/>
+        <location filename="../qml/pages/lab5/Page01_1.qml" line="69"/>
         <source>Page01_%1.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -38,7 +38,7 @@
 <context>
     <name>Page01_3</name>
     <message>
-        <location filename="../qml/pages/lab5/Page01_3.qml" line="61"/>
+        <location filename="../qml/pages/lab5/Page01_3.qml" line="62"/>
         <source>Глубина стека: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -52,35 +52,19 @@
     </message>
 </context>
 <context>
-    <name>Page1</name>
-    <message>
-        <location filename="../qml/pages/lab8/Page1.qml" line="36"/>
-        <source>Счетчик</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Page2</name>
-    <message>
-        <location filename="../qml/pages/lab8/Page2.qml" line="34"/>
-        <source>Список</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Page7</name>
     <message>
-        <location filename="../qml/pages/lab6/Page7.qml" line="51"/>
+        <location filename="../qml/pages/lab6/Page7.qml" line="48"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/lab6/Page7.qml" line="51"/>
+        <location filename="../qml/pages/lab6/Page7.qml" line="48"/>
         <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/lab6/Page7.qml" line="52"/>
+        <location filename="../qml/pages/lab6/Page7.qml" line="49"/>
         <source>Switch with text label</source>
         <translation type="unfinished"></translation>
     </message>
@@ -88,17 +72,17 @@
 <context>
     <name>Page8</name>
     <message>
-        <location filename="../qml/pages/lab6/Page8.qml" line="45"/>
+        <location filename="../qml/pages/lab6/Page8.qml" line="42"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/lab6/Page8.qml" line="45"/>
+        <location filename="../qml/pages/lab6/Page8.qml" line="42"/>
         <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/lab6/Page8.qml" line="46"/>
+        <location filename="../qml/pages/lab6/Page8.qml" line="43"/>
         <source>Switch with text label</source>
         <translation type="unfinished"></translation>
     </message>

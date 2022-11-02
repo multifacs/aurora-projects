@@ -2,24 +2,21 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
     PageHeader {
         objectName: "pageHeader"
-        title: "Delegate"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
+        title: "Лаб. 6, задание 1"
+    }
 
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     ListModel {

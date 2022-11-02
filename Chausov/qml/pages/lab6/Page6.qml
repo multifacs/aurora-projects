@@ -3,24 +3,21 @@ import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
     PageHeader {
-        objectName: "LocalStorage"
-        title: "ContextMenu"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
+        objectName: "pageHeader"
+        title: "Лаб. 6, задание 6"
+    }
 
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     property var db: LocalStorage.openDatabaseSync("QDeclarativeExampleDB", "1.0", "The Example QML SQL!", 1000000)

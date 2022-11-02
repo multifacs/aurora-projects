@@ -2,22 +2,21 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-
     PageHeader {
         objectName: "pageHeader"
-        title: "Switch"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
+        title: "Лаб. 4, задание 8"
+    }
 
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     Column {

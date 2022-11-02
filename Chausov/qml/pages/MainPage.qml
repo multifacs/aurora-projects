@@ -7,7 +7,16 @@ Page {
         title: "Мобильные системы"
     }
 
+    Label {
+        text: "Выберите лабораторную:"
+        anchors.bottom: container.top
+        anchors.left: container.left
+        height: 50
+        font.pixelSize: 25
+    }
+
     Item {
+        id: container
         width: parent.width - 100
         height: parent.height - 400
         anchors.centerIn: parent
