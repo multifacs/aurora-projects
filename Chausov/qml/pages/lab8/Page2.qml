@@ -37,7 +37,13 @@ Page {
         Button {
             text: "Добавить слово"
             onClicked: {
-                stringList.add(textField.text)
+                var error = stringList.add(textField.text);
+                if (error) {
+                    errorLabel.visible = true
+                } else {
+                    errorLabel.visible = false
+                }
+
                 label.text = stringList.getAll();
             }
             anchors.horizontalCenter: parent.horizontalCenter
@@ -50,12 +56,18 @@ Page {
             }
             anchors.horizontalCenter: parent.horizontalCenter
         }
-        TextField {
+        TextArea {
             id: label;
             width: parent.width;
             x: Theme.horizontalPageMargin
             text: stringList.getAll()
             readOnly: true;
+        }
+        Label {
+            id: errorLabel
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Слово повторяется"
+            visible: false
         }
     }
 }
