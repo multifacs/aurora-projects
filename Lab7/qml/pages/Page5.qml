@@ -77,7 +77,7 @@ Page {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Тексты совпадают"
                 }
-                setColor: "red"
+                setColor: "yellow"
             }
         }
     }

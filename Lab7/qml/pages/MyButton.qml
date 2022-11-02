@@ -4,9 +4,8 @@ import Sailfish.Silica 1.0
 Rectangle {
     height: 200;
     width: 500;
-    radius: 20;
     color: setColor
-    property string setColor: "red"
+    property string setColor: "yellow"
     property string btnText: "text"
     Button {
         height: parent.height;
