@@ -26,7 +26,7 @@ Page {
         anchors.centerIn: parent
         spacing: circleWidth / 10
 
-        property int circleWidth: 100
+        property int circleWidth: 120
         property int delayCnt: 0
 
         Rectangle {
