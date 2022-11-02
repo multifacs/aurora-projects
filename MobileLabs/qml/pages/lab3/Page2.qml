@@ -20,63 +20,53 @@ Page {
         ]
     }
 
-    Column {
+    property int rectWidth: width / 3
+
+    Row {
         anchors.centerIn: parent
-        spacing: 50
+        width: parent.parent.width
+        height: rectWidth * 2
 
-        Item {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 350
-            height: 300
+        Column {
 
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                spacing: 5
+            Rectangle {
+                width: rectWidth
+                height: rectWidth
+                color: "#FF0000"
+            }
 
-                Column {
-                    spacing: 5
+            Rectangle {
+                width: rectWidth
+                height: rectWidth
+                color: "#F0F"
+            }
+        }
 
-                    Rectangle {
-                        width: 150
-                        height: 150
-                        color: "#FF0000"
-                    }
+        Column {
 
-                    Rectangle {
-                        width: 150
-                        height: 150
-                        color: "#F0F"
-                    }
-                }
+            Rectangle {
+                width: rectWidth
+                height: rectWidth
+                color: "#00FF00"
+            }
+        }
 
-                Column {
-                    spacing: 5
+        Column {
 
-                    Rectangle {
-                        width: 150
-                        height: 150
-                        color: "#00FF00"
-                    }
-                }
+            Rectangle {
+                width: rectWidth
+                height: rectWidth
+                color: "#0000FF"
+            }
 
-                Column {
-                    spacing: 5
-
-                    Rectangle {
-                        width: 150
-                        height: 150
-                        color: "#0000FF"
-                    }
-
-                    Rectangle {
-                        width: 150
-                        height: 150
-                        color: "#000"
-                    }
-                }
+            Rectangle {
+                width: rectWidth
+                height: rectWidth
+                color: "#000"
             }
         }
     }
+
     IconButton {
         icon.source: "image://theme/icon-m-enter-next"
         onClicked: pageStack.push(Qt.resolvedUrl("Page3.qml"))

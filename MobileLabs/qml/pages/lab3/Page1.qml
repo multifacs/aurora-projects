@@ -21,26 +21,24 @@ Page {
         ]
     }
 
-    Column {
-        anchors.centerIn: parent
-        spacing: 50
+    property int rectWidth: width / 5
 
         Item {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 375
-            height: 225
+            anchors.centerIn: parent
+            width: parent.parent.width
+            height: rectWidth * 3
 
             Rectangle {
                 id: red
-                width: 150
-                height: 150
+                width: rectWidth * 2
+                height: width
                 color: "#FF0000"
             }
 
             Rectangle {
                 id: greed
-                width: 150
-                height: 150
+                width: rectWidth * 2
+                height: width
                 color: "#00FF00"
                 anchors.top: red.verticalCenter
                 anchors.left: red.right
@@ -48,8 +46,8 @@ Page {
 
             Rectangle {
                 id: blue
-                width: 150
-                height: 150
+                width: rectWidth * 2
+                height: width
                 color: "#0000FF"
                 anchors.left: greed.horizontalCenter
                 anchors.bottom: greed.verticalCenter
@@ -62,7 +60,6 @@ Page {
                 font.pointSize: 20
             }
         }
-    }
 
     IconButton {
         icon.source: "image://theme/icon-m-enter-next"
