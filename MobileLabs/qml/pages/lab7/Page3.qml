@@ -46,6 +46,7 @@ Page {
             PropertyAnimation { target: tgt; properties: "y"; from: 800; to: 100; duration: 1000;}
             PropertyAnimation { target: tgt; properties: "color"; from: "white"; to: "blue"; duration: 1000;}
             RotationAnimation { target: tgt; from: 180; to: 0; duration: 1000;}
+            onStopped: anim1.restart()
         }
 
         ParallelAnimation {
