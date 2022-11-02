@@ -39,9 +39,27 @@ Page {
                 var time = parseInt(row.count / 100 / 60) + ":" + parseInt(row.count / 100 % 60) + ":" + parseInt(row.count % 100)
                 timer.running = !timer.running
                 console.log(text === "Старт" ? "Старт " + time : "Стоп " + time)
+                timeModel.append({ time: text === "Старт" ? "Старт " + time : "Стоп " + time })
                 text = text === "Старт" ? "Стоп" : "Старт"
             }
         }
+
+        SilicaListView {
+            width: parent.width
+            height: 400
+            model: timeModel
+
+            delegate: Text {
+                text: time
+            }
+
+            spacing: 5
+        }
+
+    }
+
+    ListModel {
+        id: timeModel
     }
 
     Timer {

@@ -23,6 +23,7 @@ Page {
             left: parent.left; right: parent.right;
             verticalCenter: parent.verticalCenter;
         }
+        width: parent.width * 0.9
         height: parent.height * 0.8
 
         Column {
