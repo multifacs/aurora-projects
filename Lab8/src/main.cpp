@@ -46,6 +46,9 @@
 
 int main(int argc, char *argv[])
 {
+
+    srand(time(NULL));
+
     QScopedPointer<QGuiApplication> application(SailfishApp::application(argc, argv));
     application->setOrganizationName(QStringLiteral("ru.auroraos"));
     application->setApplicationName(QStringLiteral("Lab8"));

@@ -12,20 +12,15 @@
 <context>
     <name>Page1</name>
     <message>
-        <location filename="../qml/pages/Page1.qml" line="22"/>
+        <location filename="../qml/pages/Page1.qml" line="24"/>
         <source>Счетчик</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Page1.qml" line="54"/>
-        <source>Page2.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Page2</name>
     <message>
-        <location filename="../qml/pages/Page2.qml" line="20"/>
+        <location filename="../qml/pages/Page2.qml" line="22"/>
         <source>Список</source>
         <translation type="unfinished"></translation>
     </message>
