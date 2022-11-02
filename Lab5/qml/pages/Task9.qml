@@ -26,14 +26,26 @@ Page {
         height: parent.height * 0.8
 
         Column {
+            anchors.centerIn: parent
+
             Button {
-                text: rate1 ? cur1 + " " + rate1 : "Валюта 1"
+                text: rate1 ? cur1 : "Валюта 1"
                 onClicked: dialog1.open()
             }
+            Label {
+                font.pixelSize: 25
+                text: "в рублях: " + rate1
+            }
+
             Button {
-                text: rate2 ? cur2 + " " + rate2 : "Валюта 2"
+                text: rate2 ? cur2 : "Валюта 2"
                 onClicked: dialog2.open()
             }
+            Label {
+                font.pixelSize: 25
+                text: "в рублях: " + rate2
+            }
+
             TextField {
                 id: amount
                 placeholderText: "Количество"
