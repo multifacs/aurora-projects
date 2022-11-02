@@ -43,7 +43,9 @@ Page {
             stepSize: 1
             valueText: value
             onValueChanged: {
-                datePicker.date.setFullYear(value)
+                var newdate = new Date()
+                newdate.setFullYear(value)
+                datePicker.date = newdate
             }
 
             id: slider1
@@ -52,15 +54,15 @@ Page {
         Slider {
             width: 500
             label: "Месяц"
-            minimumValue: 1
-            maximumValue: 12
+            minimumValue: 0
+            maximumValue: 11
             value: 10
             stepSize: 1
             valueText: value
             onValueChanged: {
-                datePicker.date.setMonth(value)
+                // datePicker.date.setMonth(value)
                 var newdate = new Date()
-                newdate.setMonth(1)
+                newdate.setMonth(value)
                 datePicker.date = newdate
             }
 
