@@ -35,10 +35,27 @@ Page {
                 color: "#000"
                 anchors.horizontalCenter: parent.horizontalCenter
 
+                Rectangle {
+                    width: 75
+                    height: width
+                    color: "white"
+                    anchors.centerIn: parent
+                }
+
                 ParallelAnimation {
+                    id: anim1
                     running: true
-                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; loops: Animation.Infinite }
-                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; loops: Animation.Infinite }
+                    NumberAnimation { target: black; property: "y"; to: 100; duration: 1000; }
+                    NumberAnimation { target: black; property: "scale"; to: 2; duration: 1000; }
+                    onStopped: anim2.start()
+                }
+
+                ParallelAnimation {
+                    running: false
+                    id: anim2
+                    NumberAnimation { target: black; property: "y"; to: 0; duration: 1000; }
+                    NumberAnimation { target: black; property: "scale"; to: 1; duration: 1000; }
+                    onStopped: anim1.restart()
                 }
             }
         }
