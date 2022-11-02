@@ -20,38 +20,33 @@ Page {
         ]
     }
 
-    Column {
+    property int rectWidth: width / 2
+
+    Row {
         anchors.centerIn: parent
-        spacing: 50
 
-        Item {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 350
-            height: 150
+        Rectangle {
+            width: rectWidth
+            height: rectWidth
+            color: "#000"
+        }
 
-            Row {
-                spacing: 150
-
-                Rectangle {
-                    width: 150
-                    height: 150
-                    color: "#000"
+        Rectangle {
+            width: rectWidth
+            height: rectWidth
+            color: "#000"
+            transform: [
+                Scale {
+                    xScale: 0.45
+                },
+                Rotation {
+                    angle: 45
+                },
+                Translate {
+                    x: 250
                 }
 
-                Rectangle {
-                    width: 150
-                    height: 150
-                    color: "#000"
-                    transform: [
-                        Scale {
-                            xScale: 0.5
-                        },
-                        Rotation {
-                            angle: 45
-                        }
-                    ]
-                }
-            }
+            ]
         }
     }
     IconButton {
