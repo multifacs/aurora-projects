@@ -48,7 +48,22 @@ Page {
             hour: 15
             minute: 26
             hourMode: DateTime.TwelveHours
-            onTimeTextChanged: console.log(this.time)
+            onTimeTextChanged: {
+                if (prev === 59 && minute === 0) {
+                    counter++
+                }
+                if (prev === 0 && minute === 59) {
+                    counter--
+                }
+                prev = minute
+            }
+
+            property int counter: 0
+            property int prev: 26
+
+            Label {
+                text: parent.counter
+            }
         }
     }
 }
