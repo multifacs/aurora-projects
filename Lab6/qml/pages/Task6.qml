@@ -59,16 +59,16 @@ Page {
             property int count: 0
 
             MyCounter {
-                num: parseInt(row.count / 1000 / 60 / 60)
+                num: parseInt(row.count / 100 / 60 / 60)
             }
             MyCounter {
-                num: parseInt(row.count / 1000 / 60)
+                num: parseInt(row.count / 100 / 60)
             }
             MyCounter {
-                num: parseInt(row.count / 1000 % 60)
+                num: parseInt(row.count / 100 % 60)
             }
             MyCounter {
-                num: row.count % 1000
+                num: row.count % 100
             }
         }
 
@@ -87,7 +87,7 @@ Page {
 
     Timer {
         id: timer
-        interval: 1
+        interval: 10
         repeat: true
         running: false
         onTriggered: {
