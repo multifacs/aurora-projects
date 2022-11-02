@@ -5,7 +5,7 @@ Rectangle {
     height: 200;
     width: 500;
     color: setColor
-    property string setColor: "yellow"
+    property string setColor: "blue"
     property string btnText: "text"
     Button {
         height: parent.height;
