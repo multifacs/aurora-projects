@@ -87,5 +87,12 @@ Page {
             anchors.centerIn: parent
             text: qsTr("Глубина стека: %1").arg(pageStack.depth)
         }
+
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            text: "Вперед"
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page01_2.qml")))
+        }
     }
 }

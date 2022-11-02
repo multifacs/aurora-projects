@@ -31,7 +31,7 @@
     </message>
     <message>
         <location filename="../qml/pages/Page01_2.qml" line="94"/>
-        <source>Page01_%1.qml</source>
+        <source>Page01_3.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -40,6 +40,11 @@
     <message>
         <location filename="../qml/pages/Page01_3.qml" line="88"/>
         <source>Глубина стека: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Page01_3.qml" line="95"/>
+        <source>Page01_2.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
