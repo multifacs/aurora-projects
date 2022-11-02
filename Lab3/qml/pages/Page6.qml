@@ -58,6 +58,10 @@ Page {
                 }
             }
         }
-        onAccepted: console.log((num1.text - 0) + (num2.text - 0))
+        onAccepted: {
+            var parse1 = num1.text.replace(/,/g, '.') - 0
+            var parse2 = num2.text.replace(/,/g, '.') - 0
+            console.log(parse1 + parse2)
+        }
     }
 }
