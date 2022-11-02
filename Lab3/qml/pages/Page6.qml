@@ -48,13 +48,13 @@ Page {
                     id: num1
                     width: 300
                     horizontalAlignment: TextInput.AlignHCenter
-                    IntValidator{}
+                    validator: IntValidator{}
                 }
                 TextField {
                     id: num2
                     width: 300
                     horizontalAlignment: TextInput.AlignHCenter
-                    IntValidator{}
+                    validator: IntValidator{}
                 }
             }
         }
