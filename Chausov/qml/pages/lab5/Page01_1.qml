@@ -65,7 +65,7 @@ Page {
     Button {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        text: "Вперед"
+        text: "Увеличить глубину"
         onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page01_%1.qml").arg((pageStack.depth + 1) % 4)))
     }
 
