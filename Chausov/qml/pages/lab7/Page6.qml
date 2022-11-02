@@ -19,45 +19,67 @@ Page {
         }
     }
     Column {
-        anchors.centerIn: parent
-        Row {
-            anchors.centerIn: parent.Center
-            spacing: 5
+            anchors.centerIn: parent
+            Row {
+                anchors.centerIn: parent.Center
+                spacing: 5
 
-            id: row
-            property int count: 0
+                id: row
+                property int count: 0
 
-            MyCounter {
-                num: parseInt(row.count / 60 / 60)
+                MyCounter {
+                    num: parseInt(row.count / 100 / 60)
+                }
+                MyCounter {
+                    num: parseInt(row.count / 100 % 60)
+                }
+                MyCounter {
+                    num: parseInt(row.count % 100)
+                }
             }
-            MyCounter {
-                num: parseInt(row.count / 60)
+
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 200
+                height: 100
+                text: "Старт"
+                onClicked: {
+                    var time = parseInt(row.count / 100 / 60) + "-" + parseInt(row.count / 100 % 60) + "-" + parseInt(row.count % 100)
+                    timer.running = !timer.running
+                    console.log(text === "Старт" ? "Старт " + time : "Пауза " + time)
+                    timeModel.append({ time: text === "Старт" ? "Старт " + time : "Пауза " + time })
+                    text = text === "Старт" ? "Стоп" : "Старт"
+                }
             }
-            MyCounter {
-                num: row.count % 60
+
+            SilicaListView {
+
+                width: parent.width
+                height: 400
+                model: timeModel
+
+                delegate: Text {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: time
+                    font.pixelSize: 35
+                }
+
+                spacing: 5
             }
+
         }
 
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 200
-            height: 100
-            text: "Старт"
-            onClicked: {
-                timer.running = !timer.running
-                console.log(text)
-                text = text === "Старт" ? "Пауза" : "Старт"
+        ListModel {
+            id: timeModel
+        }
+
+        Timer {
+            id: timer
+            interval: 3
+            repeat: true
+            running: false
+            onTriggered: {
+                row.count++
             }
         }
-    }
-
-    Timer {
-        id: timer
-        interval: 1000
-        repeat: true
-        running: false
-        onTriggered: {
-            row.count++
-        }
-    }
 }

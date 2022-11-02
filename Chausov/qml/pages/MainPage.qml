@@ -53,7 +53,7 @@ Page {
                     desc: "JavaScript use"
                 }
                 ListElement {
-                    link: "lab7/Page1.qml"
+                    link: "lab7/Page6.qml"
                     name: "Лабораторная работа №7"
                     desc: "Собственные компоненты"
                 }
