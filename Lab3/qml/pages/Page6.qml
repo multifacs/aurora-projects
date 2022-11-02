@@ -58,6 +58,6 @@ Page {
                 }
             }
         }
-        onAccepted: console.log(parseInt(num1.text) + parseInt(num2.text))
+        onAccepted: console.log((num1.text - 0) + (num2.text - 0))
     }
 }
