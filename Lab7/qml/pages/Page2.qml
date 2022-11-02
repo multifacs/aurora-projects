@@ -12,6 +12,7 @@ Page {
             id: stringList
         }
 
+
         Column {
             id: column
             width: parent.width
@@ -29,7 +30,13 @@ Page {
             Button {
                 text: "Добавить слово"
                 onClicked: {
-                    stringList.add(textField.text)
+                    var error = stringList.add(textField.text);
+                    if (error) {
+                        errorLabel.text = "Повторяющееся слово"
+                    } else {
+                        errorLabel.text = ""
+                    }
+
                     label.text = stringList.getAll();
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -48,6 +55,12 @@ Page {
                 x: Theme.horizontalPageMargin
                 text: stringList.getAll()
                 readOnly: true;
+            }
+
+            Label {
+                id: errorLabel
+                text: ""
+                color: "red"
             }
         }
 

@@ -9,7 +9,14 @@ class StringList : public QObject
     Q_OBJECT
 public:
     explicit StringList(QObject *parent = nullptr);
-    Q_INVOKABLE void add(QString temp) { m_data << temp; };
+    Q_INVOKABLE int add(QString temp) {
+        if (m_data.contains(temp)) {
+            return 1;
+        }
+
+        m_data << temp;
+        return 0;
+    };
     Q_INVOKABLE void popBack()
     {
         if (!m_data.isEmpty()) {
@@ -39,6 +46,9 @@ public:
     };
 private:
     QList<QString> m_data;
+
+signals:
+    void onInputError();
 };
 
 #endif // STRINGLIST_H

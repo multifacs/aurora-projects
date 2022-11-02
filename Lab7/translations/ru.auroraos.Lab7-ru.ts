@@ -25,7 +25,7 @@
 <context>
     <name>Page2</name>
     <message>
-        <location filename="../qml/pages/Page2.qml" line="22"/>
+        <location filename="../qml/pages/Page2.qml" line="23"/>
         <source>Список</source>
         <translation type="unfinished"></translation>
     </message>
