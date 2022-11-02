@@ -81,12 +81,31 @@ Page {
 
         anchors.fill: parent
 
+        Row {
+            width: parent.width
+            anchors.top: parent.top
+
+            ColorPicker {
+                width: 200
+                height: 200
+                id: colorPicker
+            }
+
+            TextField {
+                width: 300
+                id: textField
+            }
+        }
+
     Item {
+
+
+
         anchors {
             left: parent.left; right: parent.right;
             verticalCenter: parent.verticalCenter;
         }
-        height: parent.height * 0.7
+        height: parent.height * 0.5
 
         SilicaListView {
             anchors.fill: parent
@@ -122,11 +141,12 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
             onClicked: {
+                console.log(colorPicker.color)
                 rectanglesModel.append({
                                            idx: rectanglesModel.rowCount() + 1,
-                                           name: "Розовый",
-                                           bgcolor: "pink",
-                                           txtcolor: "white"
+                                           name: textField.text,
+                                           bgcolor: colorPicker.color.toString(),
+                                           txtcolor: "red"
                                        })
             }
         }
