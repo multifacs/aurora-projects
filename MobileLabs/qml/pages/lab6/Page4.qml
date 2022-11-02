@@ -37,6 +37,9 @@ Page {
             query: "//Valute"
             XmlRole { name: "Name"; query: "Name/string()" }
             XmlRole { name: "Value"; query: "Value/string()" }
+            XmlRole { name: "NumCode"; query: "NumCode/string()" }
+            XmlRole { name: "CharCode"; query: "CharCode/string()" }
+            XmlRole { name: "Nominal"; query: "Nominal/string()" }
         }
 
         SilicaListView {
@@ -47,7 +50,20 @@ Page {
                 property: 'Name'
                 delegate: SectionHeader { text: section }
             }
-            delegate: Text { text: Value; }
+            delegate: Column {
+                Label {
+                    text: "NumCode: " + NumCode
+                }
+                Label {
+                    text: "CharCode: " + CharCode
+                }
+                Label {
+                    text: "Nominal: " + Nominal
+                }
+                Label {
+                    text: "Value: " + Value
+                }
+            }
         }
     }
 

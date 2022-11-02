@@ -4,7 +4,7 @@
 <context>
     <name>DefaultCoverPage</name>
     <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="48"/>
+        <location filename="../qml/cover/DefaultCoverPage.qml" line="50"/>
         <source>Счётчик: %1</source>
         <translation type="unfinished"></translation>
     </message>
