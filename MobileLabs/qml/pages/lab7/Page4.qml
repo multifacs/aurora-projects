@@ -29,15 +29,15 @@ Page {
         property int circleWidth: 100
         property int delayCnt: 0
 
-        TrafficLight {
+        Light {
             id: redCircle
             color: "red"
         }
-        TrafficLight {
+        Light {
             id: yellowCircle
             color: "yellow"
         }
-        TrafficLight {
+        Light {
             id: greenCircle
             color: "green"
         }

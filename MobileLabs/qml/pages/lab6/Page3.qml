@@ -34,7 +34,7 @@ Page {
             { idx: 1, name: "Белый", bgcolor: "#ffffff" },
             { idx: 2, name: "Синий", bgcolor: "#0000ff" },
             { idx: 3, name: "Черный", bgcolor: "#000000" },
-            { idx: 4, name: "Красный", bgcolor: "#ff0000" },
+            { idx: 4, name: "Зеленый", bgcolor: "#00ff00" },
         ]
 
         SilicaListView {
@@ -43,10 +43,11 @@ Page {
             delegate: Rectangle {
                 color: modelData.bgcolor
                 width: parent.width
-                height: 200
+                height: 150
                 Text {
                     text: modelData.name
                     anchors.centerIn: parent
+                    color: "red"
                 }
             }
             spacing: 5

@@ -31,13 +31,13 @@ Page {
             id: row
             property int count: 0
 
-            MyCounter {
+            Counter {
                 num: parseInt(row.count / 60 / 60)
             }
-            MyCounter {
+            Counter {
                 num: parseInt(row.count / 60)
             }
-            MyCounter {
+            Counter {
                 num: row.count % 60
             }
         }

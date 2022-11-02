@@ -42,10 +42,11 @@ Page {
             delegate: Rectangle {
                 color: bgcolor
                 width: parent.width
-                height: 200
+                height: 150
                 Text {
                     text: name
                     anchors.centerIn: parent
+                    color: "red"
                 }
             }
             spacing: 5

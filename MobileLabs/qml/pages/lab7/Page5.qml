@@ -25,7 +25,7 @@ Page {
     Column {
         anchors.centerIn: parent
 
-        MyButton {
+        Button {
             id: myButton;
             anchors.centerIn: parent.Center
             Label {
