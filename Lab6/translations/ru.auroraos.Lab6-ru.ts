@@ -43,7 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task3.qml" line="107"/>
+        <location filename="../qml/pages/Task3.qml" line="109"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="99"/>
+        <location filename="../qml/pages/Task6.qml" line="100"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>

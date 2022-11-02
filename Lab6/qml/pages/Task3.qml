@@ -83,6 +83,7 @@ Page {
                 PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 900;}
                 PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 900;}
                 RotationAnimation { target: tgt; from: 0; to: 180; duration: 900;}
+                PropertyAnimation { target: tgt; properties: "scale"; from: 1; to: 0.5; duration: 900;}
             }
         },
         Transition {
@@ -91,6 +92,7 @@ Page {
             PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 200; duration: 900}
             PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "teal"; duration: 900;}
             RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 900;}
+            PropertyAnimation { target: tgt; properties: "scale"; from: 0.5; to: 1; duration: 900;}
 
         }
     ]
