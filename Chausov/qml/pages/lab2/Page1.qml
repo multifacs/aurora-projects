@@ -7,7 +7,19 @@ Page {
 
     PageHeader {
         objectName: "pageHeader"
-        title: "Кликер"
+        title: "Лаб. 2, задание 1"
+    }
+
+    IconButton {
+        objectName: "aboutButton"
+        icon.source: "image://theme/icon-m-rotate-left"
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+
+        onClicked: {
+            pageStack.clear()
+            pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+        }
     }
 
     Label {
@@ -25,8 +37,7 @@ Page {
         y: 900
         Button {
             text: "Прибавить"
-            anchors.horizontalCenter: counter.horizontalCenter
-            anchors.top: counter.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
 
                 counter.count2 = counter.count
@@ -36,8 +47,7 @@ Page {
 
         Button {
             text: "Обнулить"
-            anchors.horizontalCenter: counter.horizontalCenter
-            anchors.top: counter.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
                 counter.count2 = 0
                 counter.count = 0
@@ -46,8 +56,7 @@ Page {
 
         Button {
             text: "Фибоначчи"
-            anchors.horizontalCenter: counter.horizontalCenter
-            anchors.top: counter.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
 
             onClicked: {
                 var x = counter.count2
