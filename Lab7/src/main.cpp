@@ -41,6 +41,7 @@
 #include <QQuickView>
 #include "Counter.h"
 #include "StringList.h"
+#include "Calc.h"
 
 #include <sailfishapp.h>
 
@@ -52,6 +53,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Counter>("com.counter", 1, 0, "Counter");
     qmlRegisterType<StringList>("com.stringlist", 1, 0, "StringList");
+    qmlRegisterType<Calc>("com.calc", 1, 0, "Calc");
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/Lab7.qml")));

@@ -44,11 +44,13 @@ CONFIG += \
 PKGCONFIG += \
 
 SOURCES += \
+    src/Calc.cpp \
     src/Counter.cpp \
     src/StringList.cpp \
     src/main.cpp
 
 HEADERS += \
+    src/Calc.h \
     src/Counter.h \
     src/StringList.h
 

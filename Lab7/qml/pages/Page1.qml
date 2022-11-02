@@ -1,54 +1,74 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import com.counter 1.0
+import com.calc 1.0
 
 Page {
     id: page
     allowedOrientations: Orientation.All
 
-    Counter {
-        id: counter
-        count: 10;
+    Calc {
+        id: calc
     }
+
+    property double result: 0
 
     Column {
         id: column
         width: parent.width
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
         spacing: 20
-        y: 300
 
-        Label {
-            id: label;
+        Row {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: counter.getCount();
-            font.pixelSize: Theme.fontSizeExtraLarge
+            TextField {
+                width: 200
+                id: field1
+                onTextChanged: calc.m_num_1 = text - 0
+            }
+            TextField {
+                width: 200
+                id: field2
+                onTextChanged: calc.m_num_2 = text - 0
+            }
         }
 
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "+"
             onClicked: {
-                counter.inc();
-                label.text = counter.getCount();
+                result = calc.add()
             }
         }
-
         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "0"
+            text: "-"
             onClicked: {
-                counter.reset();
-                label.text = counter.getCount();
+                result = calc.sub()
             }
         }
-    }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "*"
+            onClicked: {
+                result = calc.mul()
+            }
+        }
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "/"
+            onClicked: {
+                if (calc.getNum2() !== 0) {
+                    result = calc.div()
+                }
+            }
+        }
 
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: parent.height - 500
-        text: "Слова"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2.qml")))
+        Label {
+            id: label;
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: result
+            font.pixelSize: Theme.fontSizeExtraLarge
+        }
     }
 
 }
