@@ -5,6 +5,8 @@ Page {
     objectName: "mainPage"
     allowedOrientations: Orientation.All
 
+    property bool swtch: false
+
     PageHeader {
         objectName: "Текст с анимацией"
         title: "ContextMenu"
@@ -46,7 +48,7 @@ Page {
             PropertyAnimation { target: tgt; properties: "y"; from: 800; to: 100; duration: 1000;}
             PropertyAnimation { target: tgt; properties: "color"; from: "white"; to: "blue"; duration: 1000;}
             RotationAnimation { target: tgt; from: 180; to: 0; duration: 1000;}
-            onStopped: anim1.restart()
+            onStopped: if (swtch) anim1.restart()
         }
 
         ParallelAnimation {
@@ -81,11 +83,13 @@ Page {
 
         onPressed: {
             anim1.restart()
+            swtch = true
         }
         onReleased: {
-            anim1.stop()
             anim2.stop()
+            anim1.stop()
             anim3.start()
+            swtch = false
         }
     }
 
