@@ -43,21 +43,56 @@ CoverBackground {
     objectName: "defaultCover"
 
     property int counter: 0
+    property int rand1: 0
+    property int rand2: 0
 
-    Label {
-        id: label
+    Column {
         anchors.centerIn: parent
-        text: qsTr("Счётчик: %1").arg(counter)
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 100
+
+            Label {
+                id: label2
+                text: rand1
+            }
+
+            Label {
+                id: label3
+                text: rand2
+            }
+        }
+
+        Label {
+            id: label
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: qsTr("Счётчик: %1").arg(counter)
+        }
+
+        Label {
+            id: label4
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 
     CoverActionList {
         CoverAction {
             iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+            onTriggered: {
+                counter++
+                rand1 = parseInt(Math.random() * 10)
+                rand2 = parseInt(Math.random() * 10)
+            }
         }
         CoverAction {
-            iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
+            iconSource: "image://theme/icon-s-clear-opaque-cross"
+            onTriggered: label4.text = rand1 * rand2
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-s-edit"
+            onTriggered: {
+                if (rand2 !== 0) label4.text = rand1 / rand2
+            }
         }
     }
 }
