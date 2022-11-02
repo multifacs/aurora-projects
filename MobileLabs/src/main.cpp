@@ -1,5 +1,6 @@
 #include "Counter.h"
 #include "StringList.h"
+#include "Calculator.h"
 #include <sailfishapp.h>
 #include <QtQuick>
 
@@ -11,6 +12,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Counter>("com.counter", 1, 0, "Counter");
     qmlRegisterType<StringList>("com.stringlist", 1, 0, "StringList");
+    qmlRegisterType<Calculator>("com.calculator", 1, 0, "Calculator");
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->setSource(SailfishApp::pathTo(QStringLiteral("qml/MobileLabs.qml")));

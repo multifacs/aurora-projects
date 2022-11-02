@@ -44,7 +44,7 @@ Page {
 
             Button {
                 text: "Lab8"
-                onClicked: pageStack.replace(Qt.resolvedUrl("lab8/Page1.qml"))
+                onClicked: pageStack.replace(Qt.resolvedUrl("lab8/Page0.qml"))
             }
 
             Button {

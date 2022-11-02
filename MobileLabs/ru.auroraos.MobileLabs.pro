@@ -44,15 +44,18 @@ CONFIG += \
 PKGCONFIG += \
 
 SOURCES += \
+    src/Calculator.cpp \
     src/Counter.cpp \
     src/StringList.cpp \
     src/main.cpp \
 
 HEADERS += \
+    src/Calculator.h \
     src/Counter.h \
     src/StringList.h
 
 DISTFILES += \
+    qml/pages/lab8/Page0.qml \
     rpm/ru.auroraos.MobileLabs.spec \
     rpm/ru.auroraos.MobileLabs.yaml \
     AUTHORS.md \
