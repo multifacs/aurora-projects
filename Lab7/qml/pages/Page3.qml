@@ -83,6 +83,7 @@ Page {
                 running: false
                 PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 800; duration: 1000;}
                 PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "white"; duration: 1000;}
+                PropertyAnimation { target: tgt; properties: "scale"; from: tgt.scale; to: 0.5; duration: 1000;}
                 RotationAnimation { target: tgt; from: 0; to: 180; duration: 1000;}
                 onStopped: anim2.start()
             }
@@ -92,6 +93,7 @@ Page {
                 running: false
                 PropertyAnimation { target: tgt; properties: "y"; from: 800; to: 100; duration: 1000;}
                 PropertyAnimation { target: tgt; properties: "color"; from: "white"; to: "blue"; duration: 1000;}
+                PropertyAnimation { target: tgt; properties: "scale"; from: 0.5; to: 1; duration: 1000;}
                 RotationAnimation { target: tgt; from: 180; to: 0; duration: 1000;}
                 onStopped: if (swtch) anim1.restart()
             }
@@ -101,6 +103,7 @@ Page {
                 running: false
                 PropertyAnimation { target: tgt; properties: "y"; from: tgt.y; to: 100; duration: 1000;}
                 PropertyAnimation { target: tgt; properties: "color"; from: tgt.color; to: "blue"; duration: 1000;}
+                PropertyAnimation { target: tgt; properties: "scale"; from: tgt.scale; to: 1; duration: 1000;}
                 RotationAnimation { target: tgt; from: tgt.rotation; to: 0; duration: 1000;}
             }
         }
