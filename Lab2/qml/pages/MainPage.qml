@@ -41,16 +41,36 @@ import Sailfish.Silica 1.0
 
 Page {
 
-    Label {
-        property int count: 0
-        id: counter
-        text: count
-        y: 100
-    }
+    property int rand: 1
+    property int count: 0
 
-    Button {
-        text: "Plus"
-        onClicked: counter.count++
-        y: 200
+    Column {
+        anchors.centerIn: parent
+
+        Label {
+            text: count
+        }
+
+        Label {
+            text: rand
+        }
+
+        Label {
+            text: count / rand
+        }
+
+        Button {
+            text: "+"
+            onClicked: {
+                count++
+            }
+        }
+
+        Button {
+            text: "Random"
+            onClicked: {
+                rand = parseInt(Math.random() * 100) + 1
+            }
+        }
     }
 }
