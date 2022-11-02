@@ -42,22 +42,67 @@ import Sailfish.Silica 1.0
 CoverBackground {
     objectName: "defaultCover"
 
-    property int counter: 0
+    property int r1: Math.random() * 100
+    property int r2: Math.random() * 100
 
-    Label {
-        id: label
+    Column {
         anchors.centerIn: parent
-        text: qsTr("Счётчик: %1").arg(counter)
+        Row {
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 100
+            Label {
+                text: parseInt(r1 * 100) / 100
+            }
+            Label {
+                text: parseInt(r2 * 100) / 100
+            }
+        }
+
+        Label {
+
+            id: label
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
 
     CoverActionList {
         CoverAction {
             iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+            onTriggered: {
+                r1 = Math.random() * 100
+                r2 = Math.random() * 100
+
+                label.text = parseInt((r1 + r2) * 100) / 100
+            }
         }
         CoverAction {
             iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
+            onTriggered: {
+                r1 = Math.random() * 100
+                r2 = Math.random() * 100
+
+                label.text = parseInt((r1 - r2) * 100) / 100
+            }
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-s-favorite"
+            onTriggered: {
+                r1 = Math.random() * 100
+                r2 = Math.random() * 100
+
+                label.text = parseInt((r1 * r2) * 100) / 100
+            }
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-s-arrow"
+            onTriggered: {
+                r1 = Math.random() * 100
+                r2 = Math.random() * 100
+
+                if (r2 !== 0) {
+                    label.text = parseInt((r1 / r2) * 100) / 100
+                }
+            }
         }
     }
 }

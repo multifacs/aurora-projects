@@ -2,14 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en">
 <context>
-    <name>DefaultCoverPage</name>
-    <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="50"/>
-        <source>Счётчик: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Page01_1</name>
     <message>
         <location filename="../qml/pages/lab5/Page01_1.qml" line="62"/>
@@ -31,7 +23,7 @@
     </message>
     <message>
         <location filename="../qml/pages/lab5/Page01_2.qml" line="69"/>
-        <source>Page01_%1.qml</source>
+        <source>Page01_3.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -40,6 +32,11 @@
     <message>
         <location filename="../qml/pages/lab5/Page01_3.qml" line="62"/>
         <source>Глубина стека: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/lab5/Page01_3.qml" line="69"/>
+        <source>Page01_2.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
