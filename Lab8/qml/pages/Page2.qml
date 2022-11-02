@@ -42,7 +42,7 @@ Page {
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
             }
-            TextField {
+            TextArea {
                 id: label;
                 width: parent.width;
                 x: Theme.horizontalPageMargin
