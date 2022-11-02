@@ -20,12 +20,54 @@ Page {
     }
 
     DatePicker {
-        anchors.centerIn: parent
+        y: 100
         date: new Date()
         daysVisible: true
         weeksVisible: true
-        onDateTextChanged: console.log(this.date)
+        onDateTextChanged: {
+            slider1.value = year
+            slider2.value = month
+        }
+        monthYearVisible: true
+        id: datePicker
     }
+
+    Column {
+        y: 800
+        Slider {
+            width: 500
+            label: "Год"
+            minimumValue: 2000
+            maximumValue: 2022
+            value: 2000
+            stepSize: 1
+            valueText: value
+            onValueChanged: {
+                datePicker.date.setFullYear(value)
+            }
+
+            id: slider1
+        }
+
+        Slider {
+            width: 500
+            label: "Месяц"
+            minimumValue: 1
+            maximumValue: 12
+            value: 10
+            stepSize: 1
+            valueText: value
+            onValueChanged: {
+                datePicker.date.setMonth(value)
+                var newdate = new Date()
+                newdate.setMonth(1)
+                datePicker.date = newdate
+            }
+
+            id: slider2
+        }
+    }
+
     IconButton {
         icon.source: "image://theme/icon-m-enter-next"
         onClicked: pageStack.push(Qt.resolvedUrl("Page6.qml"))
