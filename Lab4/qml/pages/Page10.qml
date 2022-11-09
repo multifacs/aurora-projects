@@ -21,17 +21,17 @@ Page {
             id: delegate
             Label {
                 x: Theme.paddingLarge
-                text: "Element " + (index + 1)
+                text: "Элемент " + (index + 1)
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
             menu: ContextMenu {
                 MenuLabel { text: "Меню" }
                 MenuItem {
-                    text: "Element 1"
+                    text: "Элемент 1"
                     onClicked: console.log("Нажат", text)
                 }
                 MenuItem {
-                    text: "Element 2"
+                    text: "Элемент 2"
                     onClicked: console.log("Нажат", text)
                 }
             }
