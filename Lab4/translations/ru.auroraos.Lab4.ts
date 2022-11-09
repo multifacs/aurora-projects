@@ -4,123 +4,123 @@
 <context>
     <name>DefaultCoverPage</name>
     <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="57"/>
+        <location filename="../qml/cover/DefaultCoverPage.qml" line="50"/>
         <source>Счётчик: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task01_1</name>
+    <name>Page10</name>
     <message>
-        <location filename="../qml/pages/Task01_1.qml" line="48"/>
+        <location filename="../qml/pages/Page10.qml" line="41"/>
+        <source>Pages.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Page1_1</name>
+    <message>
+        <location filename="../qml/pages/Page1_1.qml" line="48"/>
         <source>Глубина стека: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task01_1.qml" line="55"/>
-        <source>Task01_%1.qml</source>
+        <location filename="../qml/pages/Page1_1.qml" line="55"/>
+        <source>Page1_%1.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task01_1.qml" line="63"/>
+        <location filename="../qml/pages/Page1_1.qml" line="63"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task01_2</name>
+    <name>Page1_2</name>
     <message>
-        <location filename="../qml/pages/Task01_2.qml" line="48"/>
+        <location filename="../qml/pages/Page1_2.qml" line="10"/>
         <source>Глубина стека: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task01_2.qml" line="55"/>
-        <source>Task01_%1.qml</source>
+        <location filename="../qml/pages/Page1_2.qml" line="17"/>
+        <source>Page1_%1.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task01_3</name>
+    <name>Page1_3</name>
     <message>
-        <location filename="../qml/pages/Task01_3.qml" line="48"/>
+        <location filename="../qml/pages/Page1_3.qml" line="48"/>
         <source>Глубина стека: %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task02_1</name>
+    <name>Page2_1</name>
     <message>
-        <location filename="../qml/pages/Task02_1.qml" line="53"/>
-        <source>Task02_2.qml</source>
+        <location filename="../qml/pages/Page2_1.qml" line="53"/>
+        <source>Page2_2.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task02_1.qml" line="66"/>
+        <location filename="../qml/pages/Page2_1.qml" line="66"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task03</name>
+    <name>Page3</name>
     <message>
-        <location filename="../qml/pages/Task03.qml" line="83"/>
+        <location filename="../qml/pages/Page3.qml" line="83"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task04</name>
+    <name>Page4</name>
     <message>
-        <location filename="../qml/pages/Task04.qml" line="72"/>
+        <location filename="../qml/pages/Page4.qml" line="73"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task05</name>
+    <name>Page5</name>
     <message>
-        <location filename="../qml/pages/Task05.qml" line="71"/>
+        <location filename="../qml/pages/Page5.qml" line="71"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task06</name>
+    <name>Page6</name>
     <message>
-        <location filename="../qml/pages/Task06.qml" line="73"/>
+        <location filename="../qml/pages/Page6.qml" line="35"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task07</name>
+    <name>Page7</name>
     <message>
-        <location filename="../qml/pages/Task07.qml" line="62"/>
+        <location filename="../qml/pages/Page7.qml" line="24"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task08</name>
+    <name>Page8</name>
     <message>
-        <location filename="../qml/pages/Task08.qml" line="86"/>
+        <location filename="../qml/pages/Page8.qml" line="48"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Task09</name>
+    <name>Page9</name>
     <message>
-        <location filename="../qml/pages/Task09.qml" line="94"/>
-        <source>Pages.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Task10</name>
-    <message>
-        <location filename="../qml/pages/Task10.qml" line="79"/>
+        <location filename="../qml/pages/Page9.qml" line="94"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>

@@ -43,23 +43,33 @@ Page {
     objectName: "mainPage"
     allowedOrientations: Orientation.All
 
-    Label {
+    Column {
         anchors.centerIn: parent
-        text: qsTr("Глубина стека: %1").arg(pageStack.depth)
+
+        Button {
+            text: "Ввести дату"
+            onClicked: dialog.open()
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        TextField {
+            id: field
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 400
+            text: "Здесь будет дата"
+        }
+    }
+
+    DatePickerDialog {
+        id: dialog
+        onAccepted: {
+            field.text = date.toDateString()
+        }
     }
 
     Button {
+        anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        text: "Вперед"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task01_%1.qml").arg((pageStack.depth + 1) % 4)))
-    }
-
-    Button {
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        width: 100
-        text: "<"
+        text: "Задания"
         onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }
