@@ -50,14 +50,27 @@ CoverBackground {
         text: counter
     }
 
+    Label {
+        id: timeDate
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 300
+        text: new Date().toLocaleString('en-GB')
+    }
+
     CoverActionList {
         CoverAction {
             iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+            onTriggered: {
+                counter++
+                timeDate.text = new Date().toLocaleString('en-GB')
+            }
         }
         CoverAction {
             iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
+            onTriggered: {
+                counter--
+                timeDate.text = new Date().toLocaleString('en-GB')
+            }
         }
     }
 }
