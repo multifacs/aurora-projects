@@ -46,15 +46,22 @@ CoverBackground {
 
     Label {
         id: label123
-        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 100
         text: counter
     }
 
     Label {
-        id: timeDate
+        id: time
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 200
+        text: new Date().toLocaleDateString('en-GB')
+    }
+    Label {
+        id: date
         anchors.horizontalCenter: parent.horizontalCenter
         y: 300
-        text: new Date().toLocaleString('en-GB')
+        text: new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()
     }
 
     CoverActionList {
@@ -62,14 +69,16 @@ CoverBackground {
             iconSource: "image://theme/icon-splus-add"
             onTriggered: {
                 counter++
-                timeDate.text = new Date().toLocaleString('en-GB')
+                time.text = new Date().toLocaleDateString('en-GB')
+                date.text = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()
             }
         }
         CoverAction {
             iconSource: "image://theme/icon-splus-remove"
             onTriggered: {
                 counter--
-                timeDate.text = new Date().toLocaleString('en-GB')
+                time.text = new Date().toLocaleDateString('en-GB')
+                date.text = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()
             }
         }
     }
