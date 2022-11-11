@@ -20,7 +20,10 @@ Page {
                 ListElement { desc: "Element 1"; date: "7.12.22"; }
                 ListElement { desc: "Element 2"; date: "11.12.22"; }
                 ListElement { desc: "Element 3"; date: "15.12.22"; }
+                ListElement { desc: "Element 6"; date: "15.12.22"; }
+                ListElement { desc: "Element 7"; date: "15.12.22"; }
                 ListElement { desc: "Element 4"; date: "16.12.22"; }
+                ListElement { desc: "Element 5"; date: "16.12.22"; }
             }
             header: PageHeader { title: "Список дел" }
             section {
