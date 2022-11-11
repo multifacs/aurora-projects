@@ -90,11 +90,11 @@ Page {
                 anchors.fill: parent
                 model: ListModel {
                     ListElement { desc: "Исследовать блог"; date: "5.10.22"; }
+                    ListElement { desc: "Исследовать блог"; date: "5.10.22"; }
+                    ListElement { desc: "Аналитика"; date: "7.10.22"; }
                     ListElement { desc: "Аналитика"; date: "7.10.22"; }
                     ListElement { desc: "Йога"; date: "10.10.22"; }
                     ListElement { desc: "Фитнес"; date: "10.10.22"; }
-                    ListElement { desc: "Исследовать блог"; date: "5.10.22"; }
-                    ListElement { desc: "Аналитика"; date: "7.10.22"; }
                     ListElement { desc: "Йога"; date: "10.10.22"; }
                     ListElement { desc: "Фитнес"; date: "10.10.22"; }
                 }
