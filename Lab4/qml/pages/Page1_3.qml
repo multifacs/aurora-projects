@@ -47,4 +47,11 @@ Page {
         anchors.centerIn: parent
         text: qsTr("Глубина стека: %1").arg(pageStack.depth)
     }
+
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 700
+        text: "Дальше"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_2.qml")))
+    }
 }
