@@ -21,7 +21,7 @@ Page {
             icon.color: undefined
             onClicked: {
                 setMood("average")
-                pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
+                pageStack.push(Qt.resolvedUrl("MonthPage.qml"))
             }
         }
 

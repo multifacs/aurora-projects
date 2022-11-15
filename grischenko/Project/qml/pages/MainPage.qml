@@ -78,7 +78,7 @@ Page {
 
     Button {
         text: "Перейти"
-        onClicked: pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
+        onClicked: pageStack.push(Qt.resolvedUrl("MonthPage.qml"))
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }

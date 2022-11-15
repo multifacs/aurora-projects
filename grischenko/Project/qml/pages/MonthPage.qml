@@ -61,7 +61,7 @@ Page {
     Button {
         text: "Назад"
         onClicked: {
-            pageStack.replace(Qt.resolvedUrl("MainPage.qml"))
+            pageStack.push(Qt.resolvedUrl("MainPage.qml"))
         }
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
