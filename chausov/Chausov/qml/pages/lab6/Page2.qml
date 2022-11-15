@@ -48,9 +48,16 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
+                        var afterDelete = -1;
                         for (var i = 0; i < rectanglesModel.rowCount(); i++) {
+
                             if (rectanglesModel.get(i).idx === idx) {
                                 rectanglesModel.remove(i)
+                                afterDelete = i 
+                            }
+
+                            if (afterDelete !== -1 && i !== rectanglesModel.rowCount()) {
+                                rectanglesModel.get(i).idx--
                             }
                         }
                     }
