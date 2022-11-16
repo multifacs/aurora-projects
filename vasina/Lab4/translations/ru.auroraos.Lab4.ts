@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.1" language="en">
 <context>
     <name>Page10</name>
     <message>
@@ -12,17 +12,17 @@
 <context>
     <name>Page1_1</name>
     <message>
-        <location filename="../qml/pages/Page1_1.qml" line="48"/>
+        <location filename="../qml/pages/Page1_1.qml" line="49"/>
         <source>Глубина стека %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page1_1.qml" line="55"/>
+        <location filename="../qml/pages/Page1_1.qml" line="56"/>
         <source>Page1_%1.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page1_1.qml" line="63"/>
+        <location filename="../qml/pages/Page1_1.qml" line="64"/>
         <source>Page2_1.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30,12 +30,12 @@
 <context>
     <name>Page1_2</name>
     <message>
-        <location filename="../qml/pages/Page1_2.qml" line="10"/>
+        <location filename="../qml/pages/Page1_2.qml" line="11"/>
         <source>Глубина стека %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page1_2.qml" line="17"/>
+        <location filename="../qml/pages/Page1_2.qml" line="18"/>
         <source>Page1_%1.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,7 +43,7 @@
 <context>
     <name>Page1_3</name>
     <message>
-        <location filename="../qml/pages/Page1_3.qml" line="48"/>
+        <location filename="../qml/pages/Page1_3.qml" line="49"/>
         <source>Глубина стека %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -51,17 +51,17 @@
 <context>
     <name>Page2_1</name>
     <message>
-        <location filename="../qml/pages/Page2_1.qml" line="52"/>
+        <location filename="../qml/pages/Page2_1.qml" line="53"/>
         <source>Page2_2.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page2_1.qml" line="66"/>
+        <location filename="../qml/pages/Page2_1.qml" line="67"/>
         <source>Page1_1.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page2_1.qml" line="73"/>
+        <location filename="../qml/pages/Page2_1.qml" line="74"/>
         <source>Page3.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -108,12 +108,12 @@
 <context>
     <name>Page6</name>
     <message>
-        <location filename="../qml/pages/Page6.qml" line="35"/>
+        <location filename="../qml/pages/Page6.qml" line="33"/>
         <source>Page5.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page6.qml" line="42"/>
+        <location filename="../qml/pages/Page6.qml" line="40"/>
         <source>Page7.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,12 +134,12 @@
 <context>
     <name>Page8</name>
     <message>
-        <location filename="../qml/pages/Page8.qml" line="48"/>
+        <location filename="../qml/pages/Page8.qml" line="46"/>
         <source>Page7.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page8.qml" line="55"/>
+        <location filename="../qml/pages/Page8.qml" line="53"/>
         <source>Page9.qml</source>
         <translation type="unfinished"></translation>
     </message>
