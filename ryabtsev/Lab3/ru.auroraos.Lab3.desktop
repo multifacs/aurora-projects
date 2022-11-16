@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.auroraos.Lab3
+Exec=/usr/bin/ru.auroraos.Lab3
+Name=Ryabtsev3
+Name[ru]=Ryabtsev3
+
+[X-Sailjail]
+Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
+OrganizationName=ru.auroraos
+ApplicationName=Lab3
+ExecDBus=/usr/bin/ru.auroraos.Lab3
