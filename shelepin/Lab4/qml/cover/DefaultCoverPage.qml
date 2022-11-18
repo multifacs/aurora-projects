@@ -46,13 +46,6 @@ CoverBackground {
     property int counter: 0
 
     Label {
-        id: label
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 100
-        text: date1
-    }
-
-    Label {
         id: label123
         anchors.centerIn: parent
         text: qsTr("Счётчик: %1").arg(counter)

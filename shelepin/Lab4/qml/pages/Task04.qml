@@ -64,7 +64,6 @@ Page {
         id: dialog
         onAccepted: {
             field.text = date.toDateString()
-            date1 = date.toDateString()
         }
     }
 
