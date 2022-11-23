@@ -90,4 +90,16 @@ Page {
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task3.qml")))
         }
     }
+    Button {
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        text: "<"
+        onClicked: pageStack.pop()
+    }
+    Button {
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        text: ">"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task2.qml")))
+    }
 }

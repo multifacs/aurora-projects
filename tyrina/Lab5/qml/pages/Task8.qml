@@ -39,14 +39,10 @@ Page {
         }
     }
 
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    Button {
+        anchors.left: parent.left
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
+        text: "<"
+        onClicked: pageStack.pop()
     }
 }

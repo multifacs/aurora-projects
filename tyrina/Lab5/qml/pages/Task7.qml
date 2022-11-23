@@ -45,18 +45,16 @@ Page {
         }
     }
 
-    Row {
-        anchors.horizontalCenter: parent.horizontalCenter
+    Button {
+        anchors.left: parent.left
         anchors.bottom: parent.bottom
-        spacing: 20
-
-        Button {
-            text: "Назад"
-            onClicked: pageStack.pop()
-        }
-        Button {
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task8.qml")))
-        }
+        text: "<"
+        onClicked: pageStack.pop()
+    }
+    Button {
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        text: ">"
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task8.qml")))
     }
 }
