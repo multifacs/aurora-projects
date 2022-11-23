@@ -57,7 +57,7 @@ CoverBackground {
         }
         CoverAction {
             iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
+            onTriggered: counter = 0
         }
     }
 }
