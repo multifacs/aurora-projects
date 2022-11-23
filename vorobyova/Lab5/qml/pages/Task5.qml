@@ -62,7 +62,9 @@ Page {
             xhr.open('GET', 'http://www.cbr.ru/scripts/XML_daily.asp', true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
-                    xmlListModel.xml = xhr.responseText;
+                    var resp = xhr.responseText.slice(0,20) + xhr.responseText.slice(43)
+                    console.log(resp)
+                    xmlListModel.xml = resp;
                 }
             }
             xhr.send();
