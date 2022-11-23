@@ -14,6 +14,6 @@ Page {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 700
         text: "Дальше"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_3.qml")))
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml")))
     }
 }
