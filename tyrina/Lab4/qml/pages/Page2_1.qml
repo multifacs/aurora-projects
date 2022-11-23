@@ -70,7 +70,7 @@ Page {
         anchors.bottom: parent.bottom
         width: 100
         text: "<"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page1_1.qml")))
+        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page1.qml")))
     }
     Button {
         anchors.right: parent.right
