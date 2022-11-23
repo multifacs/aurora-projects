@@ -56,7 +56,7 @@ CoverBackground {
             onTriggered: counter++
         }
         CoverAction {
-            iconSource: "image://theme/icon-splus-remove"
+            iconSource: "image://theme/icon-m-clear"
             onTriggered: counter = 0
         }
     }
