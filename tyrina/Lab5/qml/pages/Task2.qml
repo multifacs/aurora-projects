@@ -59,14 +59,8 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
             onClicked: {
-                var prev = rectanglesModel.rowCount() - 3
-                prev = prev < 0 ? 0 : prev
-
-                var newName = rectanglesModel.get(prev)
-                newName = newName === undefined ? "Белый" : newName.name
-                var newColor = rectanglesModel.get(prev)
-                newColor = newColor === undefined ? "#fff" : newColor.bgcolor
-
+                var newName = "Красный"
+                var newColor = "red"
                 rectanglesModel.append({
                                            idx: rectanglesModel.rowCount() + 1,
                                            name: newName,
