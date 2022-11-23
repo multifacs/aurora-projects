@@ -86,6 +86,6 @@ Page {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         text: ">"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task2.qml")))
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task3.qml")))
     }
 }
