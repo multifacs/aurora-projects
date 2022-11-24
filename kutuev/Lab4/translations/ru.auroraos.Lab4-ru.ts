@@ -2,14 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
-    <name>DefaultCoverPage</name>
-    <message>
-        <location filename="../qml/cover/DefaultCoverPage.qml" line="69"/>
-        <source>Счётчик: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Page01_1</name>
     <message>
         <location filename="../qml/pages/Page01_1.qml" line="88"/>
@@ -18,33 +10,7 @@
     </message>
     <message>
         <location filename="../qml/pages/Page01_1.qml" line="95"/>
-        <source>Page01_%1.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Page01_2</name>
-    <message>
-        <location filename="../qml/pages/Page01_2.qml" line="87"/>
-        <source>Глубина %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Page01_2.qml" line="94"/>
-        <source>Page01_3.qml</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Page01_3</name>
-    <message>
-        <location filename="../qml/pages/Page01_3.qml" line="88"/>
-        <source>Глубина %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Page01_3.qml" line="95"/>
-        <source>Page01_2.qml</source>
+        <source>Page01_1.qml</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

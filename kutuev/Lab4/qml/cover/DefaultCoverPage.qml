@@ -42,25 +42,53 @@ import Sailfish.Silica 1.0
 CoverBackground {
     objectName: "defaultCover"
 
-    property int counter: 0
+    property int num1: 0
+    property int num2: 0
+    property double result: 0
 
     Column {
+        spacing: 10
         anchors.centerIn: parent
+        Row {
+            spacing: 10
+            Label {
+                id: num1Label
+                text: num1
+            }
+            Label {
+                id: num2Label
+                text: num2
+            }
+        }
         Label {
-            id: label
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Счётчик: %1").arg(counter)
+            id: resultLabel
+            text: result
         }
     }
 
     CoverActionList {
         CoverAction {
+            iconSource: "image://theme/icon-splus-show-password"
+            onTriggered:  {
+                num1 = Math.random() * 100
+                num2 = Math.random() * 100
+            }
+        }
+        CoverAction {
             iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+            onTriggered: result = num1 + num2
         }
         CoverAction {
             iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter--
+            onTriggered: result = num1 - num2
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-splus-clear"
+            onTriggered: result = num1 * num2
+        }
+        CoverAction {
+            iconSource: "image://theme/icon-splus-error"
+            onTriggered: result = Math.round(num1 / num2 * 100) / 100
         }
     }
 }
