@@ -44,4 +44,6 @@ ApplicationWindow {
     initialPage: Qt.resolvedUrl("pages/Page1.qml")
     cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
+
+    property string time1: ""
 }

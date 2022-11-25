@@ -38,6 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../."
 
 Page {
     objectName: "mainPage"
@@ -66,7 +67,10 @@ Page {
 
     TimePickerDialog {
         id: dialog
-        onAccepted: field.text = time.toTimeString()
+        onAccepted: {
+            field.text = time.toTimeString()
+            time1 = time.toTimeString()
+        }
     }
 
     Button {

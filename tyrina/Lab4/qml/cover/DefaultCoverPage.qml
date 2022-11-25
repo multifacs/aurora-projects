@@ -38,6 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "../."
 
 CoverBackground {
     objectName: "defaultCover"
@@ -48,6 +49,12 @@ CoverBackground {
         id: label123
         anchors.centerIn: parent
         text: counter
+    }
+
+    Label {
+        x: 50
+        y: 300
+        text: time1
     }
 
     CoverActionList {
