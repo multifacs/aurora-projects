@@ -13,7 +13,7 @@ Page {
 
     ConfigurationGroup {
         id: settings
-        path: "/apps/app_name/settings/login"
+        path: "/sailfish/login"
         property string login: ""
         property string password: ""
         property bool check: false
