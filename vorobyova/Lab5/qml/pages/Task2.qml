@@ -96,11 +96,14 @@ Page {
                 horizontalCenter: parent.horizontalCenter;
             }
             onClicked: {
+                var jsArr1 = ["Черный", "Синий", "Красный", "Зеленый", "Желтый"]
+                var jsArr2 = ["blacks", "blue", "red", "green", "yellow"]
+                var num = Math.round(Math.random() * 4)
                 rectanglesModel.append({
                                            idx: rectanglesModel.rowCount() + 1,
-                                           name: "Розовый",
-                                           bgcolor: "pink",
-                                           txtcolor: "white"
+                                           name: jsArr1[num],
+                                           bgcolor: jsArr2[num],
+                                           txtcolor: "purple"
                                        })
             }
         }
