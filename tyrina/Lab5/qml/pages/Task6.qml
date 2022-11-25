@@ -56,12 +56,33 @@ Page {
         SilicaListView {
             anchors.fill: parent
             model: container.notesModel
-            delegate: Label {
+            delegate: Item {
                 width: parent.width
                 height: 100
-                Text {
-                    text: modelData.note_text
-                    anchors.centerIn: parent
+
+                Label {
+                    width: parent.width
+                    height: 100
+                    Text {
+                        text: modelData.note_text
+                        anchors.centerIn: parent
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log(modelData.note_text)
+                        db.transaction(function(tx) {
+                            tx.executeSql("DELETE FROM notes WHERE note_text = ?;", [txtfield.text]);
+                            var rs = tx.executeSql('SELECT * FROM notes');
+                            var r = []
+                            for (var i = 0; i < rs.rows.length; i++) {
+                                r.push(rs.rows.item(i))
+                            }
+                            container.notesModel = r
+                        });
+                    }
                 }
             }
             spacing: 5
@@ -74,7 +95,7 @@ Page {
                             tx.executeSql('CREATE TABLE IF NOT EXISTS notes(note_text TEXT)');
 
                             // Add (another) greeting row
-                            tx.executeSql('INSERT INTO notes VALUES(?)', [ 'hello' ]);
+                            //tx.executeSql('INSERT INTO notes VALUES(?)', [ 'hello' ]);
 
                             // Show all added greetings
                             var rs = tx.executeSql('SELECT * FROM notes');
