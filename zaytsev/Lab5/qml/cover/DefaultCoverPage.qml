@@ -39,13 +39,16 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+CoverBackground {
+    objectName: "defaultCover"
 
-    Label {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 400
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
+    CoverPlaceholder {
+        objectName: "placeholder"
+        text: qsTr("Application Template")
+        icon {
+            source: Qt.resolvedUrl("../icons/ApplicationTemplate.svg")
+            sourceSize { width: icon.width; height: icon.height }
+        }
+        forceFit: true
     }
 }
