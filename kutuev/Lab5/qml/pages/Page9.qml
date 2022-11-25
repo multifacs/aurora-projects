@@ -3,76 +3,63 @@ import Sailfish.Silica 1.0
 import QtQuick.XmlListModel 2.0
 
 Page {
-
-    property double currVal: 0
-    property string currName: ""
-
     Column {
         spacing: 20
         anchors.centerIn: parent
         Label {
-            text: currName
-        }
-        Label {
-            text: currVal
+            text: cBox.currentItem.text
         }
 
         TextField {
+            width: 300
             id: rubles
             placeholderText: "Рубли"
         }
 
         Label {
-            text: currVal * parseInt(rubles.text)
+            text: cBox.currentItem.text.split(' ')[cBox.currentItem.text.split(' ').length - 1].replace(/,/g, '.') * (rubles.text - 0)
         }
 
         Button {
-            text: "Открыть диалог"
-            onClicked: dialog.open()
+            text: "debug"
+            onClicked: {
+                console.log(xmlListModel.get(0))
+            }
         }
     }
 
-    Dialog {
-        id: dialog
-        DialogHeader {}
+    XmlListModel {
+        id: xmlListModel
+        source: "http://www.cbr.ru/scripts/XML_daily.asp"
+        query: "//Valute"
+        XmlRole { name: "Name"; query: "Name/string()" }
+        XmlRole { name: "Value"; query: "Value/string()" }
+        onStatusChanged: {
+            var s = "import QtQuick 2.0\n"
+            s += "import Sailfish.Silica 1.0\n"
+            s += "ContextMenu {\n"
 
-        SilicaFlickable {
-            anchors.fill: parent
-
-            Item {
-                id: container
-                anchors {
-                    left: parent.left; right: parent.right;
-                    verticalCenter: parent.verticalCenter;
-                }
-                height: parent.height * 0.8
-
-                XmlListModel {
-                    id: xmlListModel
-                    source: "http://www.cbr.ru/scripts/XML_daily.asp"
-                    query: "//Valute"
-                    XmlRole { name: "Name"; query: "Name/string()" }
-                    XmlRole { name: "Value"; query: "Value/string()" }
-                }
-
-                SilicaListView {
-                    anchors.fill: parent
-                    model: xmlListModel
-                    header: PageHeader { title: "Курсы" }
-                    section {
-                        property: 'Name'
-                        delegate: SectionHeader { text: section }
-                    }
-                    delegate: ListItem {
-                        Text { text: Value; }
-                        onClicked: {
-                            currName = Name
-                            currVal = Value.replace(/,/g, '.') - 0
-                            dialog.accept()
-                        }
-                    }
-                }
+            for (var i = 0; i < xmlListModel.count; i++) {
+                s += "MenuItem { text: '"
+                s += xmlListModel.get(i).Name + ": "
+                s += xmlListModel.get(i).Value
+                s += "' }\n"
             }
+
+            //s += "MenuItem { text: 'третий' }\n"
+            s += "}\n"
+
+            const newObject = Qt.createQmlObject(s,
+                                                 xmlListModel,
+                                                 "myDynamicSnippet"
+                                                 );
+            cBox.menu = newObject
         }
+    }
+
+    ComboBox {
+        id: cBox
+        label: "Выбор валюты"
+        anchors.bottom: parent.bottom
     }
 }
