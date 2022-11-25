@@ -17,7 +17,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task1.qml" line="52"/>
+        <location filename="../qml/pages/Task1.qml" line="49"/>
         <source>Task2.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30,7 +30,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task2.qml" line="90"/>
+        <location filename="../qml/pages/Task2.qml" line="83"/>
         <source>Task3.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,7 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task3.qml" line="57"/>
+        <location filename="../qml/pages/Task3.qml" line="56"/>
         <source>Task4.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -56,7 +56,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task4.qml" line="53"/>
+        <location filename="../qml/pages/Task4.qml" line="52"/>
         <source>Task5.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="105"/>
+        <location filename="../qml/pages/Task6.qml" line="125"/>
         <source>Task7.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -110,7 +110,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="59"/>
+        <location filename="../qml/pages/Task7.qml" line="58"/>
         <source>Task8.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -135,14 +135,6 @@
     <message>
         <location filename="../qml/pages/Task8.qml" line="34"/>
         <source>Switch with text label</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Task9</name>
-    <message>
-        <location filename="../qml/pages/Task9.qml" line="11"/>
-        <source>Конвертер</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

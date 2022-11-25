@@ -92,6 +92,7 @@ Page {
             db.transaction(
                         function(tx) {
                             // Create the database if it doesn't already exist
+                            tx.executeSql('DROP TABLE IF EXISTS notes;');
                             tx.executeSql('CREATE TABLE IF NOT EXISTS notes(note_text TEXT)');
 
                             // Add (another) greeting row
