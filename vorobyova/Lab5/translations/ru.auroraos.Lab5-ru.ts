@@ -69,7 +69,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task5.qml" line="97"/>
+        <location filename="../qml/pages/Task5.qml" line="99"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="127"/>
+        <location filename="../qml/pages/Task6.qml" line="148"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -95,22 +95,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="61"/>
-        <source>12h</source>
+        <location filename="../qml/pages/Task7.qml" line="77"/>
+        <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="61"/>
-        <source>24h</source>
+        <location filename="../qml/pages/Task7.qml" line="77"/>
+        <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="62"/>
+        <location filename="../qml/pages/Task7.qml" line="78"/>
         <source>Switch with text label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task7.qml" line="73"/>
+        <location filename="../qml/pages/Task7.qml" line="90"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>

@@ -91,31 +91,53 @@ Page {
         SilicaListView {
             anchors.fill: parent
             model: container.notesModel
-            delegate: Label {
+            delegate: Item {
                 width: parent.width
                 height: 100
-                Text {
-                    text: modelData.note_text
-                    anchors.centerIn: parent
+
+                Label {
+                    width: parent.width
+                    height: 100
+                    Text {
+                        text: modelData.note_text
+                        anchors.centerIn: parent
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log(modelData.note_text)
+                        db.transaction(function(tx) {
+                            tx.executeSql("DELETE FROM notes WHERE note_text = ?;", [txtfield.text]);
+                            var rs = tx.executeSql('SELECT * FROM notes');
+                            var r = []
+                            for (var i = 0; i < rs.rows.length; i++) {
+                                r.push(rs.rows.item(i))
+                            }
+                            container.notesModel = r
+                        });
+                    }
                 }
             }
+
             spacing: 5
         }
 
         function findGreetings() {
             db.transaction(
-                function(tx) {
-                    tx.executeSql('DROP TABLE IF EXISTS notes');
-                    tx.executeSql('CREATE TABLE IF NOT EXISTS notes(note_text TEXT)');
-                    tx.executeSql('INSERT INTO notes VALUES(?)', [ 'заметка 1' ]);
-                    var rs = tx.executeSql('SELECT * FROM notes');
-                    var r = []
-                    for (var i = 0; i < rs.rows.length; i++) {
-                        r.push(rs.rows.item(i))
-                    }
-                    container.notesModel = r
-                }
-            )
+                        function(tx) {
+                            tx.executeSql('DROP TABLE IF EXISTS notes');
+                            tx.executeSql('CREATE TABLE IF NOT EXISTS notes(note_text TEXT)');
+                            //tx.executeSql('INSERT INTO notes VALUES(?)', [ 'заметка 1' ]);
+                            var rs = tx.executeSql('SELECT * FROM notes');
+                            var r = []
+                            for (var i = 0; i < rs.rows.length; i++) {
+                                r.push(rs.rows.item(i))
+                            }
+                            container.notesModel = r
+                        }
+                        )
         }
         Component.onCompleted: findGreetings()
     }
