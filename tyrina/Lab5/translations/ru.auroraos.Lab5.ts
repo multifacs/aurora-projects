@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="125"/>
+        <location filename="../qml/pages/Task6.qml" line="126"/>
         <source>Task7.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -135,6 +135,29 @@
     <message>
         <location filename="../qml/pages/Task8.qml" line="34"/>
         <source>Switch with text label</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Task9</name>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="11"/>
+        <source>Задание 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="48"/>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="48"/>
+        <source>Inactive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="49"/>
+        <source>Запомнить</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

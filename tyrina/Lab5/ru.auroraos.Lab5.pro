@@ -49,6 +49,7 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
+    qml/pages/Task9.qml \
     rpm/ru.auroraos.Lab5.spec \
     rpm/ru.auroraos.Lab5.yaml \
     AUTHORS.md \
