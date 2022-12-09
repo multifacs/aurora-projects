@@ -48,9 +48,57 @@ Page {
         title: qsTr("Задание 6")
     }
 
+    function drawNumbers(radius, num) {
+        var ang;
+        ang =  -num * Math.PI / 6 - 60.2;
+        return [radius * Math.sin(ang), radius * Math.cos(ang)]
+    }
+
+    function drawNumbersMin(radius, num) {
+        var ang;
+        ang =  -num * Math.PI / 36 - 60.2;
+        return [radius * Math.sin(ang), radius * Math.cos(ang)]
+    }
+
     Column {
         anchors.centerIn: parent
         spacing: 100
+
+        Rectangle {
+            id: clock
+            width: 300
+            height: width
+            radius: width / 2
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Repeater {
+                model: 12
+                Label {
+                    text: index + 1
+                    x: 150 - width / 2 + drawNumbers(120, index)[0]
+                    y: 150 - height / 2 + drawNumbers(120, index)[1]
+                }
+            }
+
+            Rectangle {
+                id: minuteArm
+                width: 10
+                height: 10
+                color: "green"
+                x: 150 - width / 2 + drawNumbersMin(90, parseInt(row.count / 1000 % 60) - 5)[0]
+                y: 150 - height / 2 + drawNumbersMin(90, parseInt(row.count / 1000 % 60) - 5)[1]
+            }
+
+            Rectangle {
+                id: hourArm
+                width: 5
+                height: 5
+                color: "red"
+                x: 150 - width / 2 + drawNumbers(90, parseInt(row.count / 1000 / 60) % 12 - 1)[0]
+                y: 150 - height / 2 + drawNumbers(90, parseInt(row.count / 1000 / 60) % 12 - 1)[1]
+            }
+        }
+
         Row {
             anchors.centerIn: parent.Center
             spacing: 5
