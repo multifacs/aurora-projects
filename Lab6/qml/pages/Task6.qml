@@ -74,9 +74,7 @@ Page {
             height: 100
             text: "Старт"
             onClicked: {
-                timer.running = !timer.running
-                console.log(text)
-                text = text === "Старт" ? "Пауза" : "Старт"
+                timerOn = !timerOn
             }
         }
     }
@@ -85,7 +83,7 @@ Page {
         id: timer
         interval: 1000
         repeat: true
-        running: false
+        running: timerOn
         onTriggered: {
             row.count++
         }

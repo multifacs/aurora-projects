@@ -45,6 +45,8 @@ ApplicationWindow {
     cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
 
+    property bool timerOn: false
+
     Connections {
         property int pushed: 0
         property int popped: 0
