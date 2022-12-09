@@ -30,7 +30,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task2.qml" line="113"/>
+        <location filename="../qml/pages/Task2.qml" line="116"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="148"/>
+        <location filename="../qml/pages/Task6.qml" line="149"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>

@@ -82,7 +82,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Task6.qml" line="103"/>
+        <location filename="../qml/pages/Task6.qml" line="104"/>
         <source>Pages.qml</source>
         <translation type="unfinished"></translation>
     </message>

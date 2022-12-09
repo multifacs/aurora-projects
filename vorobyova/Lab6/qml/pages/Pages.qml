@@ -3,10 +3,30 @@ import Sailfish.Silica 1.0
 
 Page {
     Grid {
-        columns: 2
+        columns: 1
         property int btnWidth: 250
         anchors.centerIn: parent
         spacing: 20
+
+        TimePicker {
+            id: timePicker1
+        }
+
+        Timer {
+            property int minutes: 0
+            id: timer2
+            interval: 10
+            repeat: true
+            running: timerRunning
+            onTriggered: {
+                minutes += 30
+                timePicker1.minute = parseInt(minutes / 1000 % 60)
+            }
+
+            Component.onCompleted: {
+                console.log(timerRunning)
+            }
+        }
 
         Button {
             text: "Задание 1"

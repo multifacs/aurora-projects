@@ -79,6 +79,7 @@ Page {
             text: "Старт"
             onClicked: {
                 timer.running = !timer.running
+                timerRunning = !timerRunning
                 console.log(text)
                 text = text === "Старт" ? "Пауза" : "Старт"
             }
@@ -91,7 +92,7 @@ Page {
         repeat: true
         running: false
         onTriggered: {
-            row.count += 18
+            row.count += 30
         }
     }
 
@@ -100,6 +101,6 @@ Page {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         text: "Задания"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Pages.qml")))
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
     }
 }
