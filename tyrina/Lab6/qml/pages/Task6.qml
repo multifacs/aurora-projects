@@ -13,34 +13,68 @@ Page {
     Column {
         anchors.centerIn: parent
 
-        Item {
-            width: 400
-            height: width
+        Row {
             anchors.horizontalCenter: parent.horizontalCenter
+            spacing: -190
 
-            Canvas {
-                id: canvas1
-                anchors.fill: parent
-                onPaint: {
-                    var ctx = getContext("2d");
-                    ctx.reset();
+            Item {
+                width: 400
+                height: width
 
-                    var centreX = width / 2;
-                    var centreY = height / 2;
+                Canvas {
+                    id: canvas1
+                    anchors.fill: parent
+                    onPaint: {
+                        var ctx = getContext("2d");
+                        ctx.reset();
 
-                    ctx.beginPath();
-                    ctx.fillStyle = "red";
-                    ctx.moveTo(centreX, centreY);
-                    ctx.arc(centreX, centreY, width / 4, Math.PI * 0, Math.PI * 2, false);
-                    ctx.lineTo(centreX, centreY);
-                    ctx.fill();
+                        var centreX = width / 2;
+                        var centreY = height / 2;
 
-                    ctx.beginPath();
-                    ctx.fillStyle = "black";
-                    ctx.moveTo(centreX, centreY);
-                    ctx.arc(centreX, centreY, width / 4, - Math.PI * 0.5, Math.PI * (1 / 60 * parseInt(row.count / 1000 % 60) - 0.5), false);
-                    ctx.lineTo(centreX, centreY);
-                    ctx.fill();
+                        ctx.beginPath();
+                        ctx.fillStyle = "yellow";
+                        ctx.moveTo(centreX, centreY);
+                        ctx.arc(centreX, centreY, width / 4, Math.PI * 0, Math.PI * 2, false);
+                        ctx.lineTo(centreX, centreY);
+                        ctx.fill();
+
+                        ctx.beginPath();
+                        ctx.fillStyle = "black";
+                        ctx.moveTo(centreX, centreY);
+                        ctx.arc(centreX, centreY, width / 4, - Math.PI * 0.5, Math.PI * (2 / 12 * parseInt(row.count / 1000 / 60 % 12) - 0.5), false);
+                        ctx.lineTo(centreX, centreY);
+                        ctx.fill();
+                    }
+                }
+            }
+            Item {
+                width: 400
+                height: width
+
+                Canvas {
+                    id: canvas2
+                    anchors.fill: parent
+                    onPaint: {
+                        var ctx = getContext("2d");
+                        ctx.reset();
+
+                        var centreX = width / 2;
+                        var centreY = height / 2;
+
+                        ctx.beginPath();
+                        ctx.fillStyle = "red";
+                        ctx.moveTo(centreX, centreY);
+                        ctx.arc(centreX, centreY, width / 4, Math.PI * 0, Math.PI * 2, false);
+                        ctx.lineTo(centreX, centreY);
+                        ctx.fill();
+
+                        ctx.beginPath();
+                        ctx.fillStyle = "black";
+                        ctx.moveTo(centreX, centreY);
+                        ctx.arc(centreX, centreY, width / 4, - Math.PI * 0.5, Math.PI * (2 / 60 * parseInt(row.count / 1000 % 60) - 0.5), false);
+                        ctx.lineTo(centreX, centreY);
+                        ctx.fill();
+                    }
                 }
             }
         }
@@ -54,11 +88,14 @@ Page {
 
             Secundomer {
                 num: parseInt(row.count / 1000 / 60)
+                onNumChanged: {
+                    canvas1.requestPaint()
+                }
             }
             Secundomer {
                 num: parseInt(row.count / 1000 % 60)
                 onNumChanged: {
-                    canvas1.requestPaint()
+                    canvas2.requestPaint()
                 }
             }
             Secundomer {
