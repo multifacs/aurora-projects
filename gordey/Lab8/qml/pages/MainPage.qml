@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.gordey
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -39,24 +38,47 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-ApplicationWindow {
-    objectName: "applicationWindow"
-    initialPage: Qt.resolvedUrl("pages/Task6.qml")
-    cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+Page {
+    objectName: "mainPage"
+    allowedOrientations: Orientation.All
 
-    property bool timerOn: false
+    Column {
+        anchors.centerIn: parent;
+        spacing: 20;
+        Button {
+            text: "Canvas"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("CanvasHouse.qml")))
+        }
 
-    Connections {
-        property int pushed: 0
-        property int popped: 0
-        property int current: 0
-        target: pageStack
-        onDepthChanged: {
-            if (current < pageStack.depth) pushed++
-            if (current > pageStack.depth) popped++
-            current = pageStack.depth;
-            console.log("depth: " + current, "pushed: " + pushed, "popped: " + popped);
+        Button {
+            text: "Sprite"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Sprite.qml")))
+        }
+
+        Button {
+            text: "Tap"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Tap.qml")))
+        }
+
+        Button {
+            text: "Fountain"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Fountain.qml")))
+        }
+
+        Button {
+            text: "Audio"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("AudioPlayer.qml")))
+        }
+
+        Button {
+            text: "Video"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("VideoPlayer.qml")))
         }
     }
 }

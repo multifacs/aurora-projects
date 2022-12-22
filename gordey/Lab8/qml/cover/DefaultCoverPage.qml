@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.gordey
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -39,24 +38,16 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-ApplicationWindow {
-    objectName: "applicationWindow"
-    initialPage: Qt.resolvedUrl("pages/Task6.qml")
-    cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+CoverBackground {
+    objectName: "defaultCover"
 
-    property bool timerOn: false
-
-    Connections {
-        property int pushed: 0
-        property int popped: 0
-        property int current: 0
-        target: pageStack
-        onDepthChanged: {
-            if (current < pageStack.depth) pushed++
-            if (current > pageStack.depth) popped++
-            current = pageStack.depth;
-            console.log("depth: " + current, "pushed: " + pushed, "popped: " + popped);
+    CoverPlaceholder {
+        objectName: "placeholder"
+        text: qsTr("Tyrina8")
+        icon {
+            source: Qt.resolvedUrl("../icons/Lab8.svg")
+            sourceSize { width: icon.width; height: icon.height }
         }
+        forceFit: true
     }
 }

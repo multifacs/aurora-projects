@@ -37,7 +37,7 @@ Page {
             text: "Старт"
             onClicked: {
                 var time = parseInt(row.count / 100 / 60) + ":" + parseInt(row.count / 100 % 60) + ":" + parseInt(row.count % 100)
-                timer.running = !timer.running
+                timerOn = !timerOn
                 console.log(text === "Старт" ? "Старт " + time : "Стоп " + time)
                 timeModel.append({ time: text === "Старт" ? "Старт " + time : "Стоп " + time })
                 text = text === "Старт" ? "Стоп" : "Старт"
@@ -66,7 +66,7 @@ Page {
         id: timer
         interval: 3
         repeat: true
-        running: false
+        running: timerOn
         onTriggered: {
             row.count++
             // console.log(row.count)

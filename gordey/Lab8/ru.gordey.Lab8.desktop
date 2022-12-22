@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.gordey.Lab8
+Exec=/usr/bin/ru.gordey.Lab8
+Name=Tyrina8
+Name[ru]=Tyrina8
+
+[X-Application]
+Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
+OrganizationName=ru.gordey
+ApplicationName=Lab8
+ExecDBus=/usr/bin/ru.gordey.Lab8
