@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
 X-Nemo-Application-Type=silica-qt5
-Icon=ru.tyrina.Lab8
-Exec=/usr/bin/ru.tyrina.Lab8
+Icon=ru.lab.Lab8
+Exec=/usr/bin/ru.lab.Lab8
 Name=Tyrina8
 Name[ru]=Tyrina8
 
 [X-Application]
 Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
-OrganizationName=ru.tyrina
+OrganizationName=ru.lab
 ApplicationName=Lab8
-ExecDBus=/usr/bin/ru.tyrina.Lab8
+ExecDBus=/usr/bin/ru.lab.Lab8

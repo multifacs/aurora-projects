@@ -11,7 +11,7 @@ that allows it to be used in third-party applications.
 The project has a common structure
 of an application based on C++ and QML for Aurora OS.
 
-* **[ru.tyrina.Lab8.pro](ru.tyrina.Lab8.pro)** file
+* **[ru.lab.Lab8.pro](ru.lab.Lab8.pro)** file
   describes the project structure for the qmake build system.
 * **[icons](icons)** directory contains application icons for different screen resolutions.
 * **[qml](qml)** directory contains the QML source code and the UI resources.
@@ -21,10 +21,10 @@ of an application based on C++ and QML for Aurora OS.
   * **[Lab8.qml](qml/Lab8.qml)** file
     provides the application window implementation.
 * **[rpm](rpm)** directory contains the rpm-package build settings.
-  **[ru.tyrina.Lab8.spec](rpm/ru.tyrina.Lab8.spec)** file is used by rpmbuild tool.
-  It is generated from **[ru.tyrina.Lab8.yaml](rpm/ru.tyrina.Lab8.yaml)** file.
+  **[ru.lab.Lab8.spec](rpm/ru.lab.Lab8.spec)** file is used by rpmbuild tool.
+  It is generated from **[ru.lab.Lab8.yaml](rpm/ru.lab.Lab8.yaml)** file.
 * **[src](src)** directory contains the C++ source code.
   * **[main.cpp](src/main.cpp)** file is the application entry point.
 * **[translations](translations)** directory contains the UI translation files.
-* **[ru.tyrina.Lab8.desktop](ru.tyrina.Lab8.desktop)** file
+* **[ru.lab.Lab8.desktop](ru.lab.Lab8.desktop)** file
   defines the display and parameters for launching the application.

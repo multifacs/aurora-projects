@@ -1,4 +1,4 @@
-Name:       ru.tyrina.Lab8
+Name:       ru.lab.Lab8
 
 Summary:    My Aurora OS Application
 Version:    0.1

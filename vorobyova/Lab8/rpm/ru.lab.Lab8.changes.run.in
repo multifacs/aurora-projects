@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Rename this file as ru.tyrina.Lab8.changes.run to let mb2 automatically
+# Rename this file as ru.lab.Lab8.changes.run to let mb2 automatically
 # generate changelog from well formatted Git commit messages and tag
 # annotations.
 

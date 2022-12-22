@@ -1,6 +1,6 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 ru.tyrina
+** Copyright (C) 2022 ru.lab
 **
 ** This file is part of the My Aurora OS Application project.
 **

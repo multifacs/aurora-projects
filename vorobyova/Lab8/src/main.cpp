@@ -1,6 +1,6 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 ru.tyrina
+** Copyright (C) 2022 ru.lab
 **
 ** This file is part of the My Aurora OS Application project.
 **
@@ -41,7 +41,7 @@
 int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
-    application->setOrganizationName(QStringLiteral("ru.tyrina"));
+    application->setOrganizationName(QStringLiteral("ru.lab"));
     application->setApplicationName(QStringLiteral("Lab8"));
 
     QScopedPointer<QQuickView> view(Aurora::Application::createView());
