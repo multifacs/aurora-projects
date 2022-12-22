@@ -16,7 +16,7 @@ Page {
                 height: 10
                 emitRate: 1000
                 maximumEmitted: 100
-                lifeSpan: 1000
+                lifeSpan: 2000
                 velocity: TargetDirection {
                     targetX: 0
                     targetY: 0
@@ -27,10 +27,10 @@ Page {
             ItemParticle {
                 system: particleSystem
                 delegate: Rectangle {
-                    property int particleSize: 7
+                    property int particleSize: 8
                     width: particleSize
                     height: particleSize
-                    color: Theme.highlightColor
+                    color: "orange"
                     radius: particleSize/2
                 }
             }

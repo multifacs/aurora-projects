@@ -46,37 +46,37 @@ Page {
         anchors.centerIn: parent;
         spacing: 20;
         Button {
-            text: "Canvas"
+            text: "Домик"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("CanvasHouse.qml")))
         }
 
         Button {
-            text: "Sprite"
+            text: "Спрайт"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Sprite.qml")))
         }
 
         Button {
-            text: "Tap"
+            text: "Круги"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Tap.qml")))
         }
 
         Button {
-            text: "Fountain"
+            text: "Фонтан"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Fountain.qml")))
         }
 
         Button {
-            text: "Audio"
+            text: "Аудиоплеер"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("AudioPlayer.qml")))
         }
 
         Button {
-            text: "Video"
+            text: "Видеоплеер"
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("VideoPlayer.qml")))
         }

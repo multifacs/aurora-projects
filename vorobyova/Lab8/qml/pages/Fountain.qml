@@ -8,8 +8,8 @@ Page {
     }
     Emitter {
         system: particleSystem
-        width: 5
-        height: 5
+        width: 10
+        height: 10
         anchors.bottom: parent.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         lifeSpan: 9000
@@ -30,10 +30,10 @@ Page {
     ItemParticle {
         system: particleSystem
         delegate: Rectangle {
-            property int particleSize: 7
+            property int particleSize: 8
             width: particleSize
             height: particleSize
-            color: Theme.highlightColor
+            color: "orange"
             radius: particleSize/2
         }
     }
