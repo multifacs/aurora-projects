@@ -33,7 +33,7 @@ Page {
                 text: "Добавить слово"
                 onClicked: {
                     stringList.add(textField.text)
-                    label.text = stringList.getAll().replace( /[^a-zA-Z]/ , "");
+                    label.text = stringList.getAll().replace( /[^a-zA-Z ]/g, "");
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -42,7 +42,7 @@ Page {
                 text: "Удалить последнее"
                 onClicked: {
                     stringList.popBack();
-                    label.text = stringList.getAll().replace( /[^a-zA-Z]/ , "");
+                    label.text = stringList.getAll().replace( /[^a-zA-Z ]/g, "");
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -50,7 +50,7 @@ Page {
                 id: label;
                 width: parent.width;
                 x: Theme.horizontalPageMargin
-                text: stringList.getAll().replace( /[^a-zA-Z]/ , "")
+                text: stringList.getAll().replace( /[^a-zA-Z ]/g, "")
                 readOnly: true;
             }
         }
