@@ -18,7 +18,7 @@
     </message>
     <message>
         <location filename="../qml/pages/Page1_1.qml" line="60"/>
-        <source>Page1_%1.qml</source>
+        <source>Page1_1.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

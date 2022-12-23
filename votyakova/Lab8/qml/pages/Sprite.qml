@@ -4,13 +4,14 @@ import Sailfish.Silica 1.0
 Page {
     AnimatedSprite {
         anchors.centerIn: parent
-        source: "fish.png"
+        source: "sun.png"
         width: 500
         height: 500
-        frameCount: 2
-        frameWidth: 256 / 1
-        frameHeight: 512 / 2
-        frameRate: 2
+        frameCount: 4
+        frameWidth: 200 / 2
+        frameHeight: 200 / 2
+        frameRate: 4
         interpolate: false
+        smooth: false
     }
 }
