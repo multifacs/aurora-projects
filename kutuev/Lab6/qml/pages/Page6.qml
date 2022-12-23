@@ -68,6 +68,45 @@ Page {
 
         Column {
             anchors.centerIn: parent
+            spacing: 50
+
+            Item {
+                width: 300
+                height: 300
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                Canvas{
+                    id: canv
+                    anchors.fill:parent
+
+                    onPaint:{
+                        var context = getContext("2d");
+                        context.reset()
+
+                        // the triangle
+                        context.beginPath();
+                        context.moveTo(150, 150);
+                        context.lineTo(0 + (150 * (row.count % 60) / 60.0), 0 + (150 * (row.count % 60) / 60.0));
+                        context.lineTo(300 - (150 * (row.count % 60) / 60.0), 0 + (150 * (row.count % 60) / 60.0));
+                        context.closePath();
+
+                        // the fill color
+                        context.fillStyle = "#FFCC00";
+                        context.fill();
+
+                        context.beginPath();
+                        context.moveTo(150, 150);
+                        context.lineTo(150 - (150 * (row.count % 60) / 60.0), 150 + (150 * (row.count % 60) / 60.0));
+                        context.lineTo(150 + (150 * (row.count % 60) / 60.0), 150 + (150 * (row.count % 60) / 60.0));
+                        context.closePath();
+
+                        // the fill color
+                        context.fillStyle = "#FFCC00";
+                        context.fill();
+                    }
+                }
+            }
+
             Row {
                 anchors.centerIn: parent.Center
                 spacing: 5
@@ -106,6 +145,8 @@ Page {
             running: false
             onTriggered: {
                 row.count++
+                canv.requestPaint()
+                console.log(0 + (150 * (row.count % 60) / 60.0))
             }
         }
     }
