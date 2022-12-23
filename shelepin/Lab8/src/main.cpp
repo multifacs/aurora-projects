@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -36,57 +35,18 @@
 **
 *******************************************************************************/
 
-import QtQuick 2.0
-import Sailfish.Silica 1.0
-import Nemo.Configuration 1.0
+#include <auroraapp.h>
+#include <QtQuick>
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+int main(int argc, char *argv[])
+{
+    QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("ru.lab"));
+    application->setApplicationName(QStringLiteral("Lab8"));
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: qsTr("Задание 7")
-    }
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/Lab8.qml")));
+    view->show();
 
-    ConfigurationValue {
-        id: setting_1
-        key: "/app_name/key1"
-        // defaultValue: false
-    }
-
-    ConfigurationValue {
-        id: setting_2
-        key: "/app_name/key2"
-        // defaultValue: false
-    }
-
-
-    Column {
-        anchors.centerIn: parent
-        TextField {
-            width: 300
-            text: "Текст"
-            onTextChanged: {
-                setting_1.value = text
-                console.log(setting_1.value)
-            }
-        }
-
-        TextSwitch {
-            text: checked ? qsTr("Active") : qsTr("Inactive")
-            description: qsTr("Switch with text label")
-            onCheckedChanged:  {
-                setting_2.value = checked
-                console.log(setting_2.value)
-            }
-        }
-    }
-
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        text: "Задания"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Pages.qml")))
-    }
+    return application->exec();
 }
