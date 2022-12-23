@@ -32,7 +32,19 @@ Page {
                 width: 500
                 text: "Добавить слово"
                 onClicked: {
-                    stringList.add(textField.text)
+                    var word = textField.text.trim()
+                    var flag = false
+                    for (var i = 0; i < word.length; i++) {
+                        if (word.charCodeAt(i) >= 1040) {
+
+                        } else {
+                            flag = true
+                        }
+                    }
+
+                    if (flag) return
+
+                    stringList.add(word)
                     label.text = stringList.getAll();
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
