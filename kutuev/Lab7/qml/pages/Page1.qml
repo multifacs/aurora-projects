@@ -24,21 +24,13 @@ Page {
                 title: qsTr("Счетчик")
             }
 
-            Label {
+            TextField {
                 id: label;
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: counter.getCount();
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge
-            }
-
-            Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Сгенирировать"
-                onClicked: {
-                    counter.inc();
-                    label.text = counter.getCount();
-                }
+                onTextChanged: counter.setCount(parseInt(text))
             }
 
             Grid {

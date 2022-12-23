@@ -25,7 +25,7 @@ public:
     Q_INVOKABLE void inc() { m_count = random(); };
     Q_INVOKABLE void reset() { m_count = 0; };
 
-    void setCount(const int temp) { m_count = temp; emit countChanged(); };
+    Q_INVOKABLE void setCount(const int temp) { m_count = temp; emit countChanged(); };
 
 signals:
     void countChanged();
