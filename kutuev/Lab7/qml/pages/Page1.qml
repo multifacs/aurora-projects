@@ -34,10 +34,46 @@ Page {
 
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Увеличить"
+                text: "Сгенирировать"
                 onClicked: {
                     counter.inc();
                     label.text = counter.getCount();
+                }
+            }
+
+            Grid {
+                spacing: 10
+                columns: 2
+
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                Button {
+                    text: "sin"
+                    onClicked: {
+                        label.text = counter.getSin();
+                    }
+                }
+
+                Button {
+
+                    text: "cos"
+                    onClicked: {
+                        label.text = counter.getCos();
+                    }
+                }
+
+                Button {
+                    text: "tan"
+                    onClicked: {
+                        label.text = counter.getTan();
+                    }
+                }
+
+                Button {
+                    text: "cot"
+                    onClicked: {
+                        label.text = counter.getCot();
+                    }
                 }
             }
 
@@ -51,11 +87,11 @@ Page {
             }
         }
 
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            y: parent.height - 200
-            text: "Вперед"
-            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page2.qml")))
+        PushUpMenu {
+            MenuItem {
+                text: "Задание 2"
+                onClicked: pageStack.replace(Qt.resolvedUrl("Page2.qml"))
+            }
         }
     }
 }
