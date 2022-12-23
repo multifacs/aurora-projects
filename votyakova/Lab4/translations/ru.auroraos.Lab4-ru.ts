@@ -95,12 +95,12 @@
 <context>
     <name>Page5</name>
     <message>
-        <location filename="../qml/pages/Page5.qml" line="77"/>
+        <location filename="../qml/pages/Page5.qml" line="93"/>
         <source>Page4.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page5.qml" line="84"/>
+        <location filename="../qml/pages/Page5.qml" line="100"/>
         <source>Page6.qml</source>
         <translation type="unfinished"></translation>
     </message>

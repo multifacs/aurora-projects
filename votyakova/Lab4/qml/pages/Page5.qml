@@ -48,6 +48,9 @@ Page {
         title: "Задание 5"
     }
 
+    property var date1: new Date();
+    property var date2: new Date();
+
     Column {
         anchors.centerIn: parent
 
@@ -62,11 +65,24 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             width: 450
         }
+        Label {
+            text: "Разница"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        TextField {
+            id: field2
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 450
+        }
     }
 
     TimePickerDialog {
         id: dialog
-        onAccepted: field.text = time.toTimeString()
+        onAccepted: {
+            field.text = time.toTimeString()
+            date2 = time
+            field2.text = date2 - date1
+        }
     }
 
     Button {

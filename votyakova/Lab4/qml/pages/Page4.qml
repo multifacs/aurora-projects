@@ -48,6 +48,9 @@ Page {
         title: "Задание 4"
     }
 
+    property var date1: new Date();
+    property var date2: new Date();
+
     Column {
         anchors.centerIn: parent
 
@@ -63,12 +66,27 @@ Page {
             width: 450
             text: ""
         }
+        Label {
+            text: "Разница"
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+        TextField {
+            id: field2
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 450
+        }
     }
 
     DatePickerDialog {
         id: dialog
         onAccepted: {
             field.text = date.toDateString()
+            date2 = date
+            var diffTime = Math.abs(date2 - date1);
+            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            console.log(diffTime + " milliseconds");
+            console.log(diffDays + " days");
+            field2.text = "days: " + diffDays
         }
     }
 
