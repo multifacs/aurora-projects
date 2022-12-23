@@ -65,15 +65,6 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             width: 450
         }
-        Label {
-            text: "Разница"
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-        TextField {
-            id: field2
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: 450
-        }
     }
 
     TimePickerDialog {
