@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -42,22 +41,13 @@ import Sailfish.Silica 1.0
 CoverBackground {
     objectName: "defaultCover"
 
-    property int counter: 0
-
-    Label {
-        id: label123
-        anchors.centerIn: parent
-        text: counter
-    }
-
-    CoverActionList {
-        CoverAction {
-            iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+    CoverPlaceholder {
+        objectName: "placeholder"
+        text: qsTr("Tyrina8")
+        icon {
+            source: Qt.resolvedUrl("../icons/Lab8.svg")
+            sourceSize { width: icon.width; height: icon.height }
         }
-        CoverAction {
-            iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter = 0
-        }
+        forceFit: true
     }
 }

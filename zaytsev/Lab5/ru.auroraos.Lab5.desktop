@@ -3,8 +3,8 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=ru.auroraos.Lab5
 Exec=/usr/bin/ru.auroraos.Lab5
-Name=Grisch5
-Name[ru]=Grisch5
+Name=Zaytsev5
+Name[ru]=Zaytsev5
 
 [X-Sailjail]
 Permissions=

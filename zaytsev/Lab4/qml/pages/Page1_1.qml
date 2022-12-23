@@ -53,7 +53,7 @@ Page {
         anchors.horizontalCenter: parent.horizontalCenter
         y: 500
         text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_%1.qml").arg((pageStack.depth + 1) % 4)))
+        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml")))
     }
 
     Button {

@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -39,25 +38,47 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-CoverBackground {
-    objectName: "defaultCover"
+Page {
+    objectName: "mainPage"
+    allowedOrientations: Orientation.All
 
-    property int counter: 0
-
-    Label {
-        id: label123
-        anchors.centerIn: parent
-        text: counter
-    }
-
-    CoverActionList {
-        CoverAction {
-            iconSource: "image://theme/icon-splus-add"
-            onTriggered: counter++
+    Column {
+        anchors.centerIn: parent;
+        spacing: 20;
+        Button {
+            text: "1. Дом"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("CanvasHouse.qml")))
         }
-        CoverAction {
-            iconSource: "image://theme/icon-splus-remove"
-            onTriggered: counter = 0
+
+        Button {
+            text: "2. Анимация"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Sprite.qml")))
+        }
+
+        Button {
+            text: "3. Нажатия"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Tap.qml")))
+        }
+
+        Button {
+            text: "4. Фонтан"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Fountain.qml")))
+        }
+
+        Button {
+            text: "5. Аудио"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("AudioPlayer.qml")))
+        }
+
+        Button {
+            text: "6. Видео"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("VideoPlayer.qml")))
         }
     }
 }

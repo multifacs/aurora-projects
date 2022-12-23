@@ -1,0 +1,5 @@
+Requires
+
+- qt5-qtdeclarative-import-multimedia
+- qt5-qtmultimedia
+- qt5-qtmultimedia-plugin-mediaservice-gstmediaplayer

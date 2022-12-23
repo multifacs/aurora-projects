@@ -98,22 +98,4 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
-<context>
-    <name>Task9</name>
-    <message>
-        <location filename="../qml/pages/Task9.qml" line="40"/>
-        <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task9.qml" line="40"/>
-        <source>Inactive</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/Task9.qml" line="41"/>
-        <source>Запомнить</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
 </TS>
