@@ -108,12 +108,12 @@
 <context>
     <name>Page6</name>
     <message>
-        <location filename="../qml/pages/Page6.qml" line="41"/>
+        <location filename="../qml/pages/Page6.qml" line="42"/>
         <source>Page5.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page6.qml" line="48"/>
+        <location filename="../qml/pages/Page6.qml" line="49"/>
         <source>Page7.qml</source>
         <translation type="unfinished"></translation>
     </message>
@@ -134,12 +134,12 @@
 <context>
     <name>Page8</name>
     <message>
-        <location filename="../qml/pages/Page8.qml" line="54"/>
+        <location filename="../qml/pages/Page8.qml" line="55"/>
         <source>Page7.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Page8.qml" line="61"/>
+        <location filename="../qml/pages/Page8.qml" line="62"/>
         <source>Page9.qml</source>
         <translation type="unfinished"></translation>
     </message>

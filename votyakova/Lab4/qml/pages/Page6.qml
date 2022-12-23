@@ -18,8 +18,8 @@ Page {
             anchors.fill: parent
             model: ListModel {
                 ListElement { desc: "Элемент 1"; date: "7.12.22"; }
-                ListElement { desc: "Элемент 2"; date: "11.12.22"; }
-                ListElement { desc: "Элемент 3"; date: "15.12.22"; }
+                ListElement { desc: "Элемент 2"; date: "16.12.22"; }
+                ListElement { desc: "Элемент 3"; date: "16.12.22"; }
                 ListElement { desc: "Элемент 4"; date: "16.12.22"; }
                 ListElement { desc: "Элемент 5"; date: "17.12.22"; }
             }

@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -36,35 +35,18 @@
 **
 *******************************************************************************/
 
-import QtQuick 2.0
-import Sailfish.Silica 1.0
+#include <auroraapp.h>
+#include <QtQuick>
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+int main(int argc, char *argv[])
+{
+    QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("ru.lab"));
+    application->setApplicationName(QStringLiteral("Lab8"));
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Задание 1"
-    }
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/Lab8.qml")));
+    view->show();
 
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
-    }
-
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
-
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
-    }
+    return application->exec();
 }

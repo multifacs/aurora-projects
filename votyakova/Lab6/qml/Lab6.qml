@@ -39,32 +39,22 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+ApplicationWindow {
+    objectName: "applicationWindow"
+    initialPage: Qt.resolvedUrl("pages/Task1.qml")
+    cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
+    allowedOrientations: defaultAllowedOrientations
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Задание 1"
-    }
-
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
-    }
-
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
-
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
+    Connections {
+        property int pushed: 0
+        property int popped: 0
+        property int current: 0
+        target: pageStack
+        onDepthChanged: {
+            if (current < pageStack.depth) pushed++
+            if (current > pageStack.depth) popped++
+            current = pageStack.depth;
+            console.log("depth: " + current, "pushed: " + pushed, "popped: " + popped);
+        }
     }
 }

@@ -45,26 +45,61 @@ Page {
 
     PageHeader {
         objectName: "pageHeader"
-        title: "Задание 1"
+        title: qsTr("Задание 6")
     }
 
-    Label {
+    Column {
         anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
+        Row {
+            anchors.centerIn: parent.Center
+            spacing: 5
+
+            id: row
+            property int count: 0
+
+            MyCounter {
+                num: parseInt(row.count / 60 / 60)
+            }
+            MyCounter {
+                num: parseInt(row.count / 60)
+            }
+            MyCounter {
+                num: row.count % 60
+            }
+        }
+
+        Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 200
+            height: 100
+            text: "Старт"
+            onClicked: {
+                timer.running = !timer.running
+                console.log(text)
+                text = text === "Старт" ? "Пауза" : "Старт"
+            }
+        }
     }
 
-    Button {
+    Timer {
+        id: timer
+        interval: 1000
+        repeat: true
+        running: false
+        onTriggered: {
+            row.count++
+        }
+    }
+
+
+    Row {
         anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
+        anchors.bottom: parent.bottom
+        spacing: 20
 
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
+        Button {
+            text: "Назад"
+            onClicked: pageStack.pop()
+        }
     }
 }

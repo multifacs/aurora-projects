@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -43,28 +42,43 @@ Page {
     objectName: "mainPage"
     allowedOrientations: Orientation.All
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Задание 1"
-    }
+    Column {
+        anchors.centerIn: parent;
+        spacing: 20;
+        Button {
+            text: "1. Дом"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("CanvasHouse.qml")))
+        }
 
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
-    }
+        Button {
+            text: "2. Анимация"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Sprite.qml")))
+        }
 
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
+        Button {
+            text: "3. Нажатия"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Tap.qml")))
+        }
 
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
+        Button {
+            text: "4. Фонтан"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Fountain.qml")))
+        }
+
+        Button {
+            text: "5. Аудио"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("AudioPlayer.qml")))
+        }
+
+        Button {
+            text: "6. Видео"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("VideoPlayer.qml")))
+        }
     }
 }

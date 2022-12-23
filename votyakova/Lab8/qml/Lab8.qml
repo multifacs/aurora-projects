@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.lab
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -39,32 +38,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
-
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Задание 1"
-    }
-
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
-    }
-
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
-
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
-    }
+ApplicationWindow {
+    objectName: "applicationWindow"
+    initialPage: Qt.resolvedUrl("pages/MainPage.qml")
 }

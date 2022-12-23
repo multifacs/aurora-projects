@@ -36,35 +36,26 @@
 **
 *******************************************************************************/
 
-import QtQuick 2.0
-import Sailfish.Silica 1.0
+#include <QScopedPointer>
+#include <QGuiApplication>
+#include <QQuickView>
+#include "Counter.h"
+#include "StringList.h"
 
-Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+#include <sailfishapp.h>
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Задание 1"
-    }
+int main(int argc, char *argv[])
+{
+    QScopedPointer<QGuiApplication> application(SailfishApp::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("ru.auroraos"));
+    application->setApplicationName(QStringLiteral("Lab7"));
 
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
-    }
+    qmlRegisterType<Counter>("com.counter", 1, 0, "Counter");
+    qmlRegisterType<StringList>("com.stringlist", 1, 0, "StringList");
 
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->setSource(SailfishApp::pathTo(QStringLiteral("qml/Lab7.qml")));
+    view->show();
 
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
-    }
+    return application->exec();
 }

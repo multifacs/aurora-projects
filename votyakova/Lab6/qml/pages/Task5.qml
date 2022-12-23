@@ -45,26 +45,37 @@ Page {
 
     PageHeader {
         objectName: "pageHeader"
-        title: "Задание 1"
+        title: qsTr("Задание 5")
     }
 
-    Label {
+    Column {
         anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
+
+        MyButton {
+            id: myButton;
+            anchors.centerIn: parent.Center
+            Label {
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Тексты совпадают"
+            }
+            setColor: "red"
+        }
+
     }
 
-    Button {
+    Row {
         anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
+        anchors.bottom: parent.bottom
+        spacing: 20
 
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
+        Button {
+            text: "Назад"
+            onClicked: pageStack.pop()
+        }
+        Button {
+            text: "Вперед"
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task6.qml")))
+        }
     }
 }

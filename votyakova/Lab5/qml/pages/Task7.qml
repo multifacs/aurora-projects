@@ -38,6 +38,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.Configuration 1.0
 
 Page {
     objectName: "mainPage"
@@ -45,26 +46,55 @@ Page {
 
     PageHeader {
         objectName: "pageHeader"
-        title: "Задание 1"
+        title: qsTr("Задание 7")
     }
 
-    Label {
-        anchors.centerIn: parent
-        text: qsTr("Глубина стека %1").arg(pageStack.depth)
+    ConfigurationValue {
+        id: setting_1
+        key: "/apps/app_name/setting_1"
+        defaultValue: "Menu Default"
     }
 
-    Button {
+    ConfigurationValue {
+        id: setting_2
+        key: "/apps/app_name/setting_2"
+        defaultValue: false
+    }
+
+
+    Column {
+        y: 200
+        TextField {
+            width: 300
+            text: "Text"
+            onTextChanged: {
+                setting_1.value = text
+                console.log(setting_1.value)
+            }
+        }
+
+        TextSwitch {
+            text: checked ? qsTr("Active") : qsTr("Inactive")
+            description: qsTr("Switch with text label")
+            onCheckedChanged:  {
+                setting_2.value = checked
+                console.log(setting_2.value)
+            }
+        }
+    }
+
+    Row {
         anchors.horizontalCenter: parent.horizontalCenter
-        y: 700
-        text: "+"
-        onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Page1_1.qml").arg((pageStack.depth + 1) % 4)))
-    }
+        anchors.bottom: parent.bottom
+        spacing: 20
 
-    Button {
-        anchors.right: parent.right
-        y: 1000
-        width: 160
-        text: "Вперед"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page2_1.qml")))
+        Button {
+            text: "Назад"
+            onClicked: pageStack.pop()
+        }
+        Button {
+            text: "Вперед"
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Task8.qml")))
+        }
     }
 }
