@@ -16,41 +16,45 @@ Page {
         id: inputColumn
 
         Label {
-            text: "Введите размеры кроссворда"
+            text: "Название, ширина и высота"
             horizontalAlignment: Text.AlignHCenter
         }
 
-        TextField {
-            id: nameField
-            text: name
-            width: 300
-            horizontalAlignment: Text.AlignHCenter
-            onTextChanged: name = text
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Row {
-            spacing: 20
+        Column {
             anchors.horizontalCenter: parent.horizontalCenter
 
             TextField {
-                id: xField
-                text: "5"
-                width: 150
+                id: nameField
+                text: name
+                width: 300
                 horizontalAlignment: Text.AlignHCenter
-                onTextChanged: sizeX = parseInt(text)
-                validator: IntValidator {}
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                onTextChanged: name = text
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            TextField {
-                id: yField
-                text: "5"
-                width: 150
-                horizontalAlignment: Text.AlignHCenter
-                onTextChanged: sizeY = parseInt(text)
-                validator: IntValidator {}
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
+            Row {
+                spacing: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                TextField {
+                    id: yField
+                    text: "5"
+                    width: 150
+                    horizontalAlignment: Text.AlignHCenter
+                    onTextChanged: sizeY = parseInt(text)
+                    validator: IntValidator {}
+                    inputMethodHints: Qt.ImhFormattedNumbersOnly
+                }
+
+                TextField {
+                    id: xField
+                    text: "5"
+                    width: 150
+                    horizontalAlignment: Text.AlignHCenter
+                    onTextChanged: sizeX = parseInt(text)
+                    validator: IntValidator {}
+                    inputMethodHints: Qt.ImhFormattedNumbersOnly
+                }
             }
         }
 
