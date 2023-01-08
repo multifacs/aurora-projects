@@ -5,6 +5,7 @@ Page {
     objectName: "aboutPage"
     allowedOrientations: Orientation.All
 
+    property string name: ""
     property int sizeX: 5
     property int sizeY: 5
     property int currentIndex: 0
@@ -17,6 +18,15 @@ Page {
         Label {
             text: "Введите размеры кроссворда"
             horizontalAlignment: Text.AlignHCenter
+        }
+
+        TextField {
+            id: nameField
+            text: name
+            width: 300
+            horizontalAlignment: Text.AlignHCenter
+            onTextChanged: name = text
+            anchors.horizontalCenter: parent.horizontalCenter
         }
 
         Row {
@@ -48,7 +58,9 @@ Page {
             text: "Подтвердить"
             onClicked: {
                 if (parseInt(xField.text) > 0 && parseInt(yField.text) > 0) {
-                    createGrid()
+                    if (name.length != "") {
+                        createGrid()
+                    }
                 }
             }
 
@@ -78,6 +90,7 @@ Page {
 
     function createGrid() {
         storage.push({
+                         name: name,
                          sizeX: sizeX,
                          sizeY: sizeY,
                          array: []
@@ -112,10 +125,11 @@ Page {
         }
         inputColumn.visible = false
         gridColumn.visible = true
+
     }
 
     function createCrossword() {
-        console.log(storage)
+        console.log(storage[currentIndex].array)
         pageStack.pop()
     }
 }

@@ -28,8 +28,8 @@ Page {
                 height: 300
                 model: storage
                 delegate: Button {
-                    width: 150
-                    text: model.index + 1
+                    width: 300
+                    text: modelData.name
                     onClicked: {
                         console.log(modelData.sizeX)
                         answer = modelData.array
@@ -65,8 +65,8 @@ Page {
 
         Label {
             id: checkLabel
+            text: " "
             anchors.horizontalCenter: parent.horizontalCenter
-            opacity: 0
         }
     }
 
@@ -86,10 +86,10 @@ Page {
             xArrays.push([])
             var count = 0;
             for (var j = 0; j < modelData.sizeY; j++) {
-                if (modelData.array[i * modelData.sizeX + j] == 1) {
+                if (modelData.array[i * modelData.sizeY + j] == 1) {
                     count++
                 }
-                if ((modelData.array[i * modelData.sizeX + j] == 0 || j == modelData.sizeY - 1) && count != 0) {
+                if ((modelData.array[i * modelData.sizeY + j] == 0 || j == modelData.sizeY - 1) && count != 0) {
                     xArrays[i].push(count)
                     count = 0
                 }
@@ -100,10 +100,10 @@ Page {
             yArrays.push([])
             count = 0;
             for (i = 0; i < modelData.sizeX; i++) {
-                if (modelData.array[i * modelData.sizeX + j] == 1) {
+                if (modelData.array[i * modelData.sizeY + j] == 1) {
                     count++
                 }
-                if ((modelData.array[i * modelData.sizeX + j] == 0 || i == modelData.sizeX - 1) && count != 0) {
+                if ((modelData.array[i * modelData.sizeY + j] == 0 || i == modelData.sizeX - 1) && count != 0) {
                     yArrays[j].push(count)
                     count = 0
                 }
@@ -147,10 +147,10 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     if (parent.color == "#ffffff") {
-                                                        currentArray[' + ((i - maxY) * modelData.sizeX + j - maxX) + '] = 1
+                                                        currentArray[' + ((i - maxY) * modelData.sizeY + j - maxX) + '] = 1
                                                         parent.color = "black"
                                                     } else {
-                                                        currentArray[' + ((i - maxY) * modelData.sizeX + j - maxX) + '] = 0
+                                                        currentArray[' + ((i - maxY) * modelData.sizeY + j - maxX) + '] = 0
                                                         parent.color = "white"
                                                     }
                                                     console.log(currentArray)
@@ -200,7 +200,6 @@ Page {
     function check() {
         console.log(JSON.stringify(answer) === JSON.stringify(currentArray))
 
-        checkLabel.opacity = 1
         if (JSON.stringify(answer) === JSON.stringify(currentArray)) {
             checkLabel.text = "Правильно"
         } else {
