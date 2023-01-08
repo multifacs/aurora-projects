@@ -109,18 +109,18 @@ Page {
                     height: 50
                     color: "white"
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    if (parent.color == "#ffffff") {
-                        storage[' + currentIndex + '].array[' + i +'] = 1
-                        parent.color = "black"
-                    } else {
-                        storage[' + currentIndex + '].array[' + i +'] = 0
-                        parent.color = "white"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            if (parent.color == "#ffffff") {
+                                storage[' + currentIndex + '].array[' + i +'] = 1
+                                parent.color = "black"
+                            } else {
+                                storage[' + currentIndex + '].array[' + i +'] = 0
+                                parent.color = "white"
+                            }
+                        }
                     }
-                }
-            }
                 }
                 ',
                                                  grid
