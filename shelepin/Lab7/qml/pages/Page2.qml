@@ -20,19 +20,38 @@ Page {
             placeholderText: "Введите слово"
         }
 
-        TextField {
-            id: label;
-            width: parent.width;
-            x: Theme.horizontalPageMargin
-            text: stringList.getAll()
-            readOnly: true;
+        SilicaListView {
+            id: view
+            width: 300
+            height: 300
+            model: list
+            delegate: Label {
+                text: txt
+                Component.onCompleted: {
+                    var rus = 0;
+                    var eng = 0;
+                    for (var i = 0; i < text.length; i++) {
+                        if (text.charCodeAt(i) >= 65 && text.charCodeAt(i) <= 122) eng++
+                        if (text.charCodeAt(i) >= 1040 && text.charCodeAt(i) <= 1100) rus++
+                        console.log(text.charCodeAt(i))
+                    }
+                    if (rus > 0 && eng === 0) color = "red"
+                    if (rus === 0 && eng > 0) color = "green"
+                    if (rus > 0 && eng > 0) color = "yellow"
+                    console.log(rus, eng)
+                }
+            }
+        }
+
+        ListModel {
+            id: list
         }
 
         Button {
             text: "Добавить"
             onClicked: {
                 stringList.add(textField.text)
-                label.text = stringList.getAll();
+                column.load()
             }
             anchors.horizontalCenter: parent.horizontalCenter
         }
@@ -40,17 +59,20 @@ Page {
             text: "Стереть"
             onClicked: {
                 stringList.popBack();
-                label.text = stringList.getAll();
+                column.load()
             }
             anchors.horizontalCenter: parent.horizontalCenter
         }
 
-    }
+        function load() {
+            var l = stringList.getAll().split(", ")
+            list.clear()
+            for (var i = 0; i < l.length; i++) {
+                console.log(l[i])
+                list.append({ txt: l[i] })
+            }
+            console.log(list.rowCount())
+        }
 
-    Button {
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: parent.height - 400
-        text: "Счетчик"
-        onClicked: pageStack.replace(Qt.resolvedUrl(qsTr("Page1.qml")))
     }
 }

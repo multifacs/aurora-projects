@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.auroraos
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the My Aurora OS Application project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -36,14 +35,18 @@
 **
 *******************************************************************************/
 
-import QtQuick 2.0
-import Sailfish.Silica 1.0
-import com.counter 1.0
-import com.stringlist 1.0
+#include <auroraapp.h>
+#include <QtQuick>
 
-ApplicationWindow {
-    objectName: "applicationWindow"
-    initialPage: Qt.resolvedUrl("pages/Page2.qml")
-    cover: Qt.resolvedUrl("cover/DefaultCoverPage.qml")
-    allowedOrientations: defaultAllowedOrientations
+int main(int argc, char *argv[])
+{
+    QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
+    application->setOrganizationName(QStringLiteral("ru.auroraos"));
+    application->setApplicationName(QStringLiteral("CookieClicker"));
+
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/CookieClicker.qml")));
+    view->show();
+
+    return application->exec();
 }
