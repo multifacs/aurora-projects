@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.auroraos.Pudovkin
+Exec=/usr/bin/ru.auroraos.Pudovkin
+Name=Grisch1
+Name[ru]=Grisch1
+
+[X-Sailjail]
+Permissions=Audio;Camera;Documents;Downloads;Internet;Microphone;Music;Pictures;Videos
+OrganizationName=ru.auroraos
+ApplicationName=Pudovkin
+ExecDBus=/usr/bin/ru.auroraos.Pudovkin
