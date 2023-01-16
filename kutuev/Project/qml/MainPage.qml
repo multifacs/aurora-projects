@@ -6,6 +6,7 @@ ApplicationWindow {
     initialPage: mainPage
 
     property int count: 5
+    property int randomAmount: 0
 
     Page {
         id: mainPage
@@ -116,22 +117,21 @@ ApplicationWindow {
 
         Timer {
             id: timer
-        }
-
-        function delay(delayTime, cb) {
-            timer.interval = delayTime;
-            timer.repeat = false;
-            timer.triggered.connect(cb);
-            timer.start();
+            onTriggered: gamePage.take(randomAmount, false)
+            interval: 1000
         }
 
         function take(taken, isPlayer) {
+            console.log(taken)
+            var temp = taken
+            for (var i = 0; temp > lastPos; i++) temp--
+            if (temp === 0) temp++
 
             if (lastPos > 0) {
-                for (var i = lastPos - 1; i > lastPos - taken - 1; i--) {
+                for (i = lastPos - 1; i > lastPos - temp - 1; i--) {
                     grid.children[i].visible = false
                 }
-                lastPos = lastPos - taken
+                lastPos = lastPos - temp
             }
 
             if (isPlayer) {
@@ -142,13 +142,9 @@ ApplicationWindow {
                     return
                 }
                 annLabel.text = "Ходит компьютер"
-                var randomAmount = parseInt(Math.random() * 3)
-                for (i = 0; randomAmount > lastPos; i++) randomAmount--
-                if (randomAmount === 0) randomAmount++
-
-                delay(1000, function() {
-                    take(randomAmount, false)
-                })
+                randomAmount = parseInt(Math.random() * 5)
+                console.log(randomAmount)
+                timer.start()
             }
 
             if (!isPlayer) {
