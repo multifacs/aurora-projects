@@ -10,8 +10,6 @@ Page {
     property int progress3: 0
     property var prog3: progressArc.createObject(progressRow)
 
-    property bool gameStart: false
-
     property int userClick: 0
     property int lastId: 0
 
@@ -19,6 +17,8 @@ Page {
     property var currDate: new Date()
 
     onUserScoreChanged: {
+        scoreLabel.text = userScore
+        console.log(userScore)
         if (userScore >= 1000) {
             audio.stop()
             prog1.timerRunning = false
@@ -32,6 +32,20 @@ Page {
     Rectangle {
         anchors.fill: parent
         color: "orange"
+    }
+
+    function checkClick() {
+        if (userScore < 1000) {
+            if (lastId === prog1.numId) {
+                prog1.timerRunning = true
+            }
+            if (lastId === prog2.numId) {
+                prog2.timerRunning = true
+            }
+            if (lastId === prog3.numId) {
+                prog3.timerRunning = true
+            }
+        }
     }
 
     Column {
@@ -62,15 +76,7 @@ Page {
                         if (userClick === 1) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -88,15 +94,7 @@ Page {
                         if (userClick === 2) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -114,15 +112,7 @@ Page {
                         if (userClick === 3) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -140,15 +130,7 @@ Page {
                         if (userClick === 4) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -166,15 +148,7 @@ Page {
                         if (userClick === 5) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -192,15 +166,7 @@ Page {
                         if (userClick === 6) {
                             userScore += 100
 
-                            if (lastId === prog1.numId) {
-                                prog1.timerRunning = true
-                            }
-                            if (lastId === prog2.numId) {
-                                prog2.timerRunning = true
-                            }
-                            if (lastId === prog3.numId) {
-                                prog3.timerRunning = true
-                            }
+                            checkClick()
                         }
                     }
                 }
@@ -215,12 +181,17 @@ Page {
         }
 
         Button {
-            text: "play"
+            text: "Играть"
             anchors.horizontalCenter: parent.horizontalCenter
             onClicked: {
 
                 if (audio.status != 6) {
                     currDate = new Date()
+                    userScore = 0
+                    scoreLabel.text = userScore
+                    prog1.progress = 0
+                    prog2.progress = 0
+                    prog3.progress = 0
                     audio.play()
                     prog1.timerRunning = true
                     prog2.timerRunning = true
@@ -231,8 +202,6 @@ Page {
                     prog2.timerRunning = false
                     prog3.timerRunning = false
                 }
-
-                gameStart = !gameStart
             }
         }
     }
@@ -240,7 +209,7 @@ Page {
     Audio {
         id: audio
         source: "../sound/pizzatheme.mp3"
-        volume: 0.3
+        volume: 0.5
     }
 
     Component.onCompleted: {
@@ -249,19 +218,14 @@ Page {
         prog3.numId = 3
     }
 
-    onProgress1Changed: {
-        prog1.progress = progress1
-        prog1.requestPaint()
-    }
-
     Component {
         id: progressArc
         Canvas {
             property int numId: 0
             property int progress: 0
-            property int someTime: parseInt(Math.random() * 100 + 50)
-            property int someImage: parseInt(Math.random() * 10)
-            property int someDestination: parseInt(Math.random() * 6)
+            property int someTime: parseInt(Math.random() * 50 + 25)
+            property int someImage: parseInt(Math.random() * 10 + 1)
+            property int someDestination: parseInt(Math.random() * 6 + 1)
             property bool timerRunning: false
 
             id: canvas
@@ -293,10 +257,11 @@ Page {
                 if (progress === 100) {
 
                     var randPizza = parseInt(Math.random() * 10)
-                    someTime = parseInt(Math.random() * 100 + 50)
+                    someTime = parseInt(Math.random() * 50 + 25)
                     progress = 0
                     timerRunning = false
-                    someImage = parseInt(Math.random() * 10)
+                    someImage = parseInt(Math.random() * 10 + 1)
+                    someDestination = parseInt(Math.random() * 6 + 1)
                     img.visible = true
                 } else {
                     img.visible = false
@@ -329,7 +294,6 @@ Page {
                 interval: someTime
                 onTriggered: {
                     progress++
-                    console.log(progress)
                     canvas.requestPaint()
                 }
             }
