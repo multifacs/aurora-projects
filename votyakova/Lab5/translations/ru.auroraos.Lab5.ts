@@ -138,4 +138,27 @@
         <translation type="unfinished"></translation>
     </message>
 </context>
+<context>
+    <name>Task9</name>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="11"/>
+        <source>Задание 8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="48"/>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="48"/>
+        <source>Inactive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Task9.qml" line="51"/>
+        <source>Запомнить</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>
