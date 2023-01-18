@@ -5,6 +5,9 @@ import com.stringlist 1.0
 Page {
     id: page
     allowedOrientations: Orientation.All
+
+    property var words: []
+
     SilicaFlickable {
         anchors.fill: parent
 
@@ -34,6 +37,8 @@ Page {
                 onClicked: {
                     stringList.add(textField.text)
                     label.text = stringList.getAll();
+                    words = stringList.getAll().split(", ")
+                    console.log(words)
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -43,15 +48,32 @@ Page {
                 onClicked: {
                     stringList.popBack();
                     label.text = stringList.getAll();
+                    words = stringList.getAll().split(", ")
+                    console.log(words)
                 }
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             TextArea {
+                visible: false
                 id: label;
                 width: parent.width;
                 x: Theme.horizontalPageMargin
                 text: stringList.getAll()
                 readOnly: true;
+            }
+
+            SilicaListView {
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: 10
+                model: words
+                width: 400
+                height: 300
+                delegate: ListItem {
+                    Label {
+                        text: modelData
+                    }
+                    onClicked: console.log(modelData.length)
+                }
             }
         }
 
