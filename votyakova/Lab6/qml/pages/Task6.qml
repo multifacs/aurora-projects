@@ -76,9 +76,9 @@ Page {
                     context.fill();
 
                     context.beginPath();
-                    context.moveTo(150, 150);
-                    context.lineTo(150 - (150 * (row.count % 60) / 60.0), 150 + (150 * (row.count % 60) / 60.0));
-                    context.lineTo(150 + (150 * (row.count % 60) / 60.0), 150 + (150 * (row.count % 60) / 60.0));
+                    context.moveTo(150, 300 - (150 * (row.count % 60) / 60.0));
+                    context.lineTo(150 - (150 * (row.count % 60) / 60.0), 300);
+                    context.lineTo(150 + (150 * (row.count % 60) / 60.0), 300);
                     context.closePath();
 
                     // the fill color
