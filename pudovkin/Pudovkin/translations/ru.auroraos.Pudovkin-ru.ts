@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>DefaultCoverPage</name>
+    <message>
+        <location filename="../qml/cover/DefaultCoverPage.qml" line="50"/>
+        <source>Счётчик: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainPage</name>
     <message>
         <location filename="../qml/pages/lab9/MainPage.qml" line="67"/>
