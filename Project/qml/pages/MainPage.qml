@@ -13,11 +13,12 @@ Page {
         opacity: 0.2
         anchors.fill: parent
         Column {
-            spacing: 50
-            anchors.centerIn: parent
+            spacing: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+
             Label {
                 id: announcementLabel
-                text: ""
+                text: "Вводите слова длиной 5"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -96,6 +97,7 @@ Page {
                 id: answerField
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: 500
+                horizontalAlignment: Text.AlignHCenter
             }
 
             Button {
