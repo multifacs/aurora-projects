@@ -111,6 +111,11 @@ Page {
     }
 
     function resetGame() {
+        announcementLabel.text = "Вводите слова длиной 5"
+        for (var i = 0; i < 25; i++) {
+            repeater.itemAt(i).letter = ''
+        }
+        currItem = 0
         resetBtn.visible = false
         answerField.visible = true
         checkBtn.visible = true
