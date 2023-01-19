@@ -84,7 +84,7 @@ Page {
                         }
 
                         if (currItem === 25 && word != answer) {
-                            announcementLabel.text = "Не получилось"
+                            announcementLabel.text = "Не получилось, ответ: " + answer
                             answerField.visible = false
                             visible = false
                             resetBtn.visible = true
