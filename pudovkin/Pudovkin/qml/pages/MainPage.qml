@@ -38,12 +38,12 @@ Page {
                     desc: "Контейнеры и позиционирование"
                 }
                 ListElement {
-                    link: "lab4/Page1.qml"
+                    link: "lab4/Page10.qml"
                     name: "Лабораторная работа №4"
                     desc: "Базовые элементы GUI"
                 }
                 ListElement {
-                    link: "lab5/Page01_1.qml"
+                    link: "lab5/Page11.qml"
                     name: "Лабораторная работа №5"
                     desc: "Работа со страницами и экраном"
                 }
@@ -53,7 +53,7 @@ Page {
                     desc: "JavaScript use"
                 }
                 ListElement {
-                    link: "lab7/Page1.qml"
+                    link: "lab7/Page6.qml"
                     name: "Лабораторная работа №7"
                     desc: "Собственные компоненты"
                 }

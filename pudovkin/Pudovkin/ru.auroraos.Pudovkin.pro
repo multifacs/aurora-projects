@@ -53,6 +53,8 @@ HEADERS += \
     src/StringList.h
 
 DISTFILES += \
+    qml/pages/lab4/Page10.qml \
+    qml/pages/lab5/Page11.qml \
     qml/pages/project/GamePage.qml \
     rpm/ru.auroraos.Pudovkin.spec \
     rpm/ru.auroraos.Pudovkin.yaml \

@@ -5,7 +5,7 @@ Page {
 
     PageHeader {
         objectName: "pageHeader"
-        title: "Slider"
+        title: "Switch"
         extraContent.children: [
             IconButton {
                 objectName: "aboutButton"
