@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.auroraos
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the Моё приложение для ОС Аврора project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -44,9 +43,9 @@ CoverBackground {
 
     CoverPlaceholder {
         objectName: "placeholder"
-        text: qsTr("Application Template")
+        text: qsTr("Template")
         icon {
-            source: Qt.resolvedUrl("../icons/ApplicationTemplate.svg")
+            source: Qt.resolvedUrl("../icons/Project.svg")
             sourceSize { width: icon.width; height: icon.height }
         }
         forceFit: true

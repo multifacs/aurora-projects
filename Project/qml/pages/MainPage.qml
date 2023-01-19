@@ -1,126 +1,149 @@
-/*******************************************************************************
-**
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
-**
-** This file is part of the Aurora OS Application Template project.
-**
-** Redistribution and use in source and binary forms,
-** with or without modification, are permitted provided
-** that the following conditions are met:
-**
-** * Redistributions of source code must retain the above copyright notice,
-**   this list of conditions and the following disclaimer.
-** * Redistributions in binary form must reproduce the above copyright notice,
-**   this list of conditions and the following disclaimer
-**   in the documentation and/or other materials provided with the distribution.
-** * Neither the name of the copyright holder nor the names of its contributors
-**   may be used to endorse or promote products derived from this software
-**   without specific prior written permission.
-**
-** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-** THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-** FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-** FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
-** OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-** PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-** LOSS OF USE, DATA, OR PROFITS;
-** OR BUSINESS INTERRUPTION)
-** HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-** (INCLUDING NEGLIGENCE OR OTHERWISE)
-** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-** EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-**
-*******************************************************************************/
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "."
 
 Page {
-    objectName: "mainPage"
-    allowedOrientations: Orientation.All
+    property var possiblewords
+    property var answers
 
-    Item {
-        width: parent.width
-        anchors.centerIn: parent
-        height: parent.height * 0.7
+    property string answer
+    property int currItem: 0
 
-        ComboBox {
-            id: comboBox
+    SilicaFlickable {
+        id: container
+        opacity: 0.2
+        anchors.fill: parent
+        Column {
+            spacing: 50
             anchors.centerIn: parent
-            label: "Выберите месяц"
-            description: "Описание выпадающего списка"
-            menu: ContextMenu {
-                MenuItem { text: "Январь"; }
-                MenuItem { text: "Февраль"; }
-                MenuItem { text: "Март"; }
-                MenuItem { text: "Апрель"; }
-                MenuItem { text: "Май"; }
-                MenuItem { text: "Июнь"; }
-                MenuItem { text: "Июль"; }
-                MenuItem { text: "Август"; }
-                MenuItem { text: "Сентябрь"; }
-                MenuItem { text: "Октябрь"; }
-                MenuItem { text: "Ноябрь"; }
-                MenuItem { text: "Декабрь"; }
+            Label {
+                id: announcementLabel
+                text: ""
+                anchors.horizontalCenter: parent.horizontalCenter
             }
-            currentIndex: 9
-            onCurrentIndexChanged: {
-                console.log(value, currentIndex)
-                Store.date.setMonth(currentIndex)
+
+            Grid {
+                anchors.horizontalCenter: parent.horizontalCenter
+                columns: 5
+                spacing: 5
+
+                Repeater {
+                    id: repeater
+                    model: 25
+                    delegate: Rectangle {
+                        property string letter: ''
+                        width: 100
+                        height: 100
+                        color: {
+                            var colorString = "grey"
+                            if (letter !== '') {
+                                if (answer.indexOf(letter) !== -1) colorString = "gold"
+                                if (answer.indexOf(letter) == index % 5) colorString = "lime"
+                            }
+
+                            return colorString
+                        }
+
+                        Label {
+                            text: letter
+                            font.capitalization: Font.AllUppercase
+                            anchors.centerIn: parent
+                            font.pixelSize: 40
+                            color: "black"
+                        }
+                    }
+                }
+            }
+
+            Button {
+                id: checkBtn
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "Проверить"
+
+                onClicked: {
+                    var word = answerField.text.toLowerCase()
+                    console.log(word.length, word)
+                    if (word.length === 5) {
+                        if (word == answer) {
+                            answerField.visible = false
+                            visible = false
+                            resetBtn.visible = true
+                        }
+
+                        if (possiblewords.indexOf(word) !== -1) {
+                            console.log(word)
+                            answerField.text = ""
+
+                            for (var i = 0; i < 5; i++) {
+                                repeater.itemAt(i + currItem).letter = word[i]
+                            }
+                            currItem += 5
+
+                        } else {
+                            announcementLabel.text = "Нет такого слова"
+                        }
+
+                        if (currItem === 25 && word != answer) {
+                            announcementLabel.text = "Не получилось"
+                            answerField.visible = false
+                            visible = false
+                            resetBtn.visible = true
+                        }
+                    }
+                }
+            }
+
+            TextField {
+                id: answerField
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: 500
+            }
+
+            Button {
+                text: "Заново"
+                anchors.horizontalCenter: parent.horizontalCenter
+                id: resetBtn
+                visible: false
+                onClicked: resetGame()
             }
         }
     }
 
-    Button {
-        text: "Перейти"
-        onClicked: pageStack.replace(Qt.resolvedUrl("MonthPage.qml"))
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+    function resetGame() {
+        resetBtn.visible = false
+        answerField.visible = true
+        checkBtn.visible = true
+
+        var xhrAnswers = new XMLHttpRequest();
+        xhrAnswers.open('GET', 'https://gist.githubusercontent.com/cfreshman/a7b776506c73284511034e63af1017ee/raw/a9e1bb729eb54af16f8989f08f82eaab12a601ad/wordle-nyt-answers-alphabetical.txt');
+
+        var xhrPossibleWords = new XMLHttpRequest();
+        xhrPossibleWords.open('GET', 'https://raw.githubusercontent.com/tabatkins/wordle-list/main/words')
+
+        xhrAnswers.send();
+
+        xhrPossibleWords.onreadystatechange = function() {
+            if (xhrPossibleWords.readyState === XMLHttpRequest.DONE) {
+                possiblewords = xhrPossibleWords.responseText.split("\n")
+                console.log(possiblewords.length)
+                container.opacity = 1
+            }
+        }
+
+        xhrAnswers.onreadystatechange = function() {
+            if (xhrAnswers.readyState === XMLHttpRequest.DONE) {
+                answers = xhrAnswers.responseText.split("\n")
+                //console.log(answers)
+                var idx = parseInt(Math.random() * answers.length + 1)
+                console.log(idx)
+                answer = answers[idx]
+                // announcementLabel.text = answer
+
+                xhrPossibleWords.send()
+            }
+        }
     }
 
     Component.onCompleted: {
-        Store.date.setTime(0)
-        Store.date.setFullYear(new Date().getFullYear())
-        Store.date.setMonth(new Date().getMonth())
-        Store.date.setDate(new Date().getDate())
-
-        comboBox.currentIndex = Store.date.getMonth()
-
-        Store.db.transaction(
-            function(tx) {
-                // Create the database if it doesn't already exist
-                tx.executeSql('DROP TABLE IF EXISTS moods');
-                tx.executeSql('CREATE TABLE IF NOT EXISTS moods(date TEXT, mood TEXT)');
-
-                var someDate = new Date()
-                someDate.setTime(0)
-                someDate.setFullYear(Store.date.getFullYear())
-                someDate.setMonth(Store.date.getMonth())
-                someDate.setDate(Store.date.getDate())
-                someDate = someDate.getTime().toString()
-
-                // Add (another) greeting row
-                tx.executeSql('INSERT INTO moods VALUES(?, ?)', [ someDate, "good" ]);
-
-                // Show all added greetings
-                var rs = tx.executeSql('SELECT * FROM moods');
-
-                var r = []
-                for (var i = 0; i < rs.rows.length; i++) {
-                    r.push(rs.rows.item(i))
-                }
-                console.log(JSON.stringify(r))
-                console.log(r[0].date)
-                someDate = new Date()
-                console.log(someDate)
-                someDate.setTime(r[0].date)
-                console.log(someDate)
-            }
-        )
+        resetGame()
     }
 }

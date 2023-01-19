@@ -1,9 +1,8 @@
 ################################################################################
 ##
-## Copyright (C) 2022 Open Mobile Platform LLC.
-## Contact: https://community.omprussia.ru/open-source
-##
-## This file is part of the Aurora OS Application Template project.
+## Copyright (C) 2022 ru.auroraos
+## 
+## This file is part of the Моё приложение для ОС Аврора project.
 ##
 ## Redistribution and use in source and binary forms,
 ## with or without modification, are permitted provided
@@ -39,7 +38,7 @@
 TARGET = ru.auroraos.Project
 
 CONFIG += \
-    sailfishapp
+    auroraapp
 
 PKGCONFIG += \
 
@@ -49,21 +48,16 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
-    qml/pages/MonthPage.qml \
-    qml/pages/MoodPage.qml \
-    qml/pages/Store.qml \
-    qml/pages/qmldir \
     rpm/ru.auroraos.Project.spec \
-    rpm/ru.auroraos.Project.yaml \
     AUTHORS.md \
     CODE_OF_CONDUCT.md \
     CONTRIBUTING.md \
     LICENSE.BSD-3-CLAUSE.md \
     README.md \
 
-SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
+AURORAAPP_ICONS = 86x86 108x108 128x128 172x172
 
-CONFIG += sailfishapp_i18n
+CONFIG += auroraapp_i18n
 
 TRANSLATIONS += \
     translations/ru.auroraos.Project.ts \

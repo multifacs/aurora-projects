@@ -1,9 +1,8 @@
 /*******************************************************************************
 **
-** Copyright (C) 2022 Open Mobile Platform LLC.
-** Contact: https://community.omprussia.ru/open-source
+** Copyright (C) 2022 ru.auroraos
 **
-** This file is part of the Aurora OS Application Template project.
+** This file is part of the Моё приложение для ОС Аврора project.
 **
 ** Redistribution and use in source and binary forms,
 ** with or without modification, are permitted provided
@@ -36,20 +35,17 @@
 **
 *******************************************************************************/
 
-#include <QScopedPointer>
-#include <QGuiApplication>
-#include <QQuickView>
-
-#include <sailfishapp.h>
+#include <auroraapp.h>
+#include <QtQuick>
 
 int main(int argc, char *argv[])
 {
-    QScopedPointer<QGuiApplication> application(SailfishApp::application(argc, argv));
+    QScopedPointer<QGuiApplication> application(Aurora::Application::application(argc, argv));
     application->setOrganizationName(QStringLiteral("ru.auroraos"));
     application->setApplicationName(QStringLiteral("Project"));
 
-    QScopedPointer<QQuickView> view(SailfishApp::createView());
-    view->setSource(SailfishApp::pathTo(QStringLiteral("qml/Project.qml")));
+    QScopedPointer<QQuickView> view(Aurora::Application::createView());
+    view->setSource(Aurora::Application::pathTo(QStringLiteral("qml/Project.qml")));
     view->show();
 
     return application->exec();
