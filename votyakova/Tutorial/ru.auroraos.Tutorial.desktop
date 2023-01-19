@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=ru.auroraos.Tutorial
+Exec=/usr/bin/ru.auroraos.Tutorial
+Name=Template
+Name[ru]=Шаблон
+
+[X-Application]
+Permissions=Camera
+OrganizationName=ru.auroraos
+ApplicationName=Tutorial
+ExecDBus=/usr/bin/ru.auroraos.Tutorial
