@@ -11,25 +11,27 @@ Page {
     property string pickedUrl
     property var currentComponent
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: "Switch"
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-capslock"
-                anchors.verticalCenter: parent.verticalCenter
 
-                onClicked: {
-                    pageStack.clear()
-                    pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
-                }
-            }
-        ]
-    }
 
     SilicaFlickable {
         anchors.fill: parent
+
+        PageHeader {
+            objectName: "pageHeader"
+            title: "Switch"
+            extraContent.children: [
+                IconButton {
+                    objectName: "aboutButton"
+                    icon.source: "image://theme/icon-m-capslock"
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    onClicked: {
+                        pageStack.clear()
+                        pageStack.replace(Qt.resolvedUrl("../MainPage.qml"))
+                    }
+                }
+            ]
+        }
 
         SilicaListView {
             model: urls

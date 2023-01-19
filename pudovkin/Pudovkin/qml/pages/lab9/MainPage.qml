@@ -96,5 +96,11 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter;
             onClicked: pageStack.push(Qt.resolvedUrl(qsTr("VideoPlayer.qml")))
         }
+
+        Button {
+            text: "7. Загрузка"
+            anchors.horizontalCenter: parent.horizontalCenter;
+            onClicked: pageStack.push(Qt.resolvedUrl(qsTr("Load.qml")))
+        }
     }
 }

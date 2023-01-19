@@ -41,6 +41,11 @@
         <source>VideoPlayer.qml</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../qml/pages/lab9/MainPage.qml" line="103"/>
+        <source>Load.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Page01_1</name>
@@ -95,7 +100,7 @@
 <context>
     <name>Page2</name>
     <message>
-        <location filename="../qml/pages/lab8/Page2.qml" line="34"/>
+        <location filename="../qml/pages/lab8/Page2.qml" line="38"/>
         <source>Список</source>
         <translation type="unfinished"></translation>
     </message>
